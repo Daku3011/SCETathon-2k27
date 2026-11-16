@@ -19,7 +19,7 @@ export default function AboutPage() {
             ABOUT SCET <span className="text-lime">&amp;</span> THE SPRINT.
           </>
         }
-        subtitle="Where computer systems and chemical process engineering meet. Hosted at Sarvajanik College of Engineering & Technology, Surat."
+        // subtitle="Hosted at Sarvajanik College of Engineering & Technology, Surat."
       />
       <About />
     </div>

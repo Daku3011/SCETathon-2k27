@@ -346,40 +346,122 @@ function Pending({ text }: { text: string }) {
 export function About() {
   return (
     <div className="space-y-16">
+      {/* College & Department Interdisciplinary Context */}
       <div className="max-w-3xl space-y-6">
         <p className="text-lg sm:text-xl text-[#C6C8BE] leading-relaxed">
           Sarvajanik College of Engineering &amp; Technology (SCET), Surat is a constituent college of Sarvajanik University. Established in 1995, SCET stands at the heart of Gujarat's vibrant industrial and technological corridor.
         </p>
-        <p className="text-base sm:text-lg text-[#C6C8BE] leading-relaxed">
-          {event.interdisciplinaryHighlight}
-        </p>
+        <div className="p-5 sm:p-6 bg-[#191A18] border-l-2 border-lime border-y border-r border-white/10">
+          <span className="font-mono text-[10px] text-lime font-bold uppercase tracking-wider block mb-2">
+            INTERDISCIPLINARY CO-HOST INITIATIVE
+          </span>
+          <p className="text-base sm:text-lg text-paper leading-relaxed">
+            {event.interdisciplinaryHighlight}
+          </p>
+        </div>
       </div>
 
-      {/* Organizing Team Grid */}
-      <div>
-        <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-lime mb-6">
-          <span className="w-2 h-2 bg-current rotate-45 inline-block" aria-hidden="true" />
-          <span>Core Organizing Leads</span>
+      {/* Faculty Coordinators Box */}
+      <div className="space-y-6">
+        <div className="flex items-center justify-between pb-3 border-b border-white/10">
+          <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-lime">
+            <span className="w-2.5 h-2.5 bg-current rotate-45 inline-block" aria-hidden="true" />
+            <span>Faculty Coordinators</span>
+          </div>
+          <span className="font-mono text-[10px] text-[#93958E] uppercase tracking-wider">
+            Academic Mentorship &amp; Governance
+          </span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {event.crew.map(([role, responsibility]) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {event.facultyCoordinators.map((faculty, idx) => (
             <article
-              key={role}
-              className="p-6 bg-[#191A18] border border-white/[0.19] flex flex-col justify-between"
+              key={faculty.name}
+              className="p-6 bg-[#191A18] border border-white/[0.19] hover:border-lime/60 transition-colors flex flex-col justify-between group"
             >
               <div>
-                <small className="font-mono text-[10px] uppercase text-lime font-bold block mb-1">
-                  ROLE
-                </small>
-                <h3 className="font-display text-base text-paper uppercase tracking-tight mb-2">
-                  {role}
+                <div className="flex items-center justify-between font-mono text-[10px] text-lime uppercase tracking-widest mb-3">
+                  <span>COORD // 0{idx + 1}</span>
+                  <span className="border border-lime/40 px-2 py-0.5 text-lime">FACULTY</span>
+                </div>
+                <h3 className="font-display text-lg sm:text-xl text-paper uppercase tracking-tight group-hover:text-lime transition-colors">
+                  {faculty.name}
                 </h3>
+                <p className="font-mono text-xs text-[#C6C8BE] mt-2 font-medium">
+                  {faculty.role}
+                </p>
               </div>
-              <p className="text-xs text-[#93958E] leading-relaxed mt-4 pt-3 border-t border-white/10">
-                {responsibility}
-              </p>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#93958E]">
+                <span>{faculty.dept || "SCET Surat"}</span>
+                <span className="font-mono text-[11px] text-lime">SCET</span>
+              </div>
             </article>
           ))}
+        </div>
+      </div>
+
+      {/* Student Organizing Committee Box */}
+      <div className="space-y-6">
+        <div className="flex items-center justify-between pb-3 border-b border-white/10">
+          <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-coral">
+            <span className="w-2.5 h-2.5 bg-current rotate-45 inline-block" aria-hidden="true" />
+            <span>Student Organizing Committee</span>
+          </div>
+          <span className="font-mono text-[10px] text-[#93958E] uppercase tracking-wider">
+            Core Committee Heads &amp; Operations
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {event.studentTeam.map((lead, idx) => (
+            <article
+              key={lead.name}
+              className="p-6 bg-[#191A18] border border-white/[0.19] hover:border-coral/60 transition-colors flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between font-mono text-[10px] text-coral uppercase tracking-widest mb-3">
+                  <span>HEAD // 0{idx + 1}</span>
+                  <span className="text-[#93958E] font-mono">[{lead.committee || "COMMITTEE"}]</span>
+                </div>
+                <h3 className="font-display text-lg sm:text-xl text-paper uppercase tracking-tight group-hover:text-coral transition-colors">
+                  {lead.name}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#C6C8BE] mt-2 leading-relaxed">
+                  {lead.role}
+                </p>
+              </div>
+              <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-[#93958E] uppercase">
+                <span>SCETATHON 2.0 SPRINT</span>
+                <span className="text-coral">2027</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* Institutional Patronage & Infrastructure */}
+      <div className="p-6 sm:p-8 bg-black/40 border border-white/[0.12] grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <small className="font-mono text-[10px] uppercase text-lilac font-bold tracking-wider block mb-1">
+            PATRONAGE &amp; INSTITUTIONAL LEADERSHIP
+          </small>
+          <h4 className="font-display text-base text-paper uppercase tracking-tight mb-2">
+            Sarvajanik University &amp; SCET Administration
+          </h4>
+          <p className="text-xs text-[#93958E] leading-relaxed">
+            Institutional guidance, venue facilities, and state-of-the-art campus computing and laboratory infrastructure provided by Sarvajanik University and Sarvajanik College of Engineering &amp; Technology.
+          </p>
+        </div>
+        <div>
+          <small className="font-mono text-[10px] uppercase text-lilac font-bold tracking-wider block mb-1">
+            CAMPUS INFRASTRUCTURE &amp; LABS
+          </small>
+          <h4 className="font-display text-base text-paper uppercase tracking-tight mb-2">
+            High-Performance Labs &amp; Network
+          </h4>
+          <p className="text-xs text-[#93958E] leading-relaxed">
+            Equipped with uninterrupted Gigabit campus WiFi, high-power compute environments, hardware testing benches, and 24-hour campus security for all participant squads.
+          </p>
         </div>
       </div>
 

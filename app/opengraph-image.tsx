@@ -142,7 +142,7 @@ export default function Image() {
           }}
         >
           <div style={{ display: "flex", fontSize: 16, color: "#93958E", fontWeight: 600 }}>
-            Sarvajanik College of Engineering &amp; Technology · Computer Eng × Chemical Eng
+            Sarvajanik College of Engineering &amp; Technology · 28–29 January 2027
           </div>
 
           <div

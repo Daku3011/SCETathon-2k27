@@ -22,7 +22,13 @@ export const event = {
   team: [3, 5],
   hours: 24,
   rounds: 2,
-  problemCount: 8,
+  problemCount: 9,
+  themeCount: 3,
+  themesList: [
+    "SMART & SUSTAINABLE CAMPUS AND CITIES",
+    "AI FOR HUMANITY: HEALTH, SAFETY & ACCESSIBILITY",
+    "INDUSTRY 5.0: INTELLIGENT MANUFACTURING & RESOURCE INNOVATION",
+  ],
   showResults: false,
   showWinners: false,
   resultsOpen: false,
@@ -45,10 +51,10 @@ export const event = {
   // ],
   interdisciplinaryHighlight:
     "Spearheaded jointly by the Departments of Computer Engineering & Chemical Engineering at SCET, bridging computational intelligence with real-world material and process engineering.",
-  hero: "A 24-hour national student hackathon at SCET, Surat, bridging computer engineering and chemical process innovations into functional prototypes.",
+  hero: "A 24-hour national student hackathon at SCET, Surat, bridging computer engineering and chemical process innovations into functional prototypes across 3 impact tracks.",
   intro:
     "SCETATHON 2.0 brings student squads from across the country to Sarvajanik College of Engineering & Technology, Surat. Spearheaded jointly by the Departments of Computer Engineering and Chemical Engineering, teams collaborate across code and physical systems to turn pressing campus, climate, and industrial challenges into working hardware and software solutions over 24 continuous hours.",
-  factsLine: "24 hours · teams of 3–5 · eight problem statements",
+  factsLine: "24 hours · teams of 3–5 · 3 core themes · 9 challenge statements",
   prizesNotice: "Awards and category bounties will be announced upon jury confirmation.",
   sponsorsNotice: "Official community and industry partners for the 2027 edition will be published here upon confirmation.",
   colophon: {
@@ -160,10 +166,54 @@ export const event = {
   ],
   crew: [
     ["Patron & Leadership", "Sarvajanik University & SCET Administration"],
-    ["Faculty Coordinators", "Departments of Computer Engineering & IT"],
+    ["Faculty Coordinators", "Departments of Computer Engineering & Chemical Engineering"],
     ["Student Executive Leads", "Overall Schedule, Technical Ops, and Participant Experience"],
     ["Infrastructure & Network", "Campus WiFi, High-Power Labs, and Venue Logistics"],
   ],
+  facultyCoordinators: [
+    {
+      name: "Prof. (Dr.) Nehal Shah",
+      role: "Faculty Coordinator",
+      dept: "Computer Engineering",
+    },
+    {
+      name: "Prof. Jaydeep Gheewala",
+      role: "Faculty Coordinator",
+      dept: "Chemical Engineering",
+    },
+    {
+      name: "Prof. Anand Upadhyay",
+      role: "Faculty Coordinator",
+      dept: "Computer Engineering",
+    },
+  ] as { name: string; role: string; dept?: string }[],
+  studentTeam: [
+    {
+      name: "Jaimin Kalathiya",
+      role: "Sponsorship, Finance & Industry Relations Committee Head",
+      committee: "Sponsorship & Finance",
+    },
+    {
+      name: "Dharm Kasodariya",
+      role: "Technical Committee Head",
+      committee: "Technical Operations",
+    },
+    {
+      name: "Siya Bhalala",
+      role: "Registration & Outreach Committee Head",
+      committee: "Registration & Outreach",
+    },
+    {
+      name: "Dwarkesh Ramani",
+      role: "Publicity & Media Committee Head",
+      committee: "Publicity & Media",
+    },
+    {
+      name: "Representative (Chemical Engg.)",
+      role: "Logistics & Hospitality Committee Head",
+      committee: "Logistics & Hospitality",
+    },
+  ] as { name: string; role: string; committee?: string }[],
   teams: [] as { name: string; track: string }[],
   winners: [] as { name: string; project: string; photo: string }[],
   archive: [

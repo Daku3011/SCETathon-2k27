@@ -19,8 +19,6 @@ export const metadata: Metadata = {
     "student hackathon 2027",
     "Gujarat engineering hackathon",
     "SCET",
-    "Computer Engineering",
-    "Chemical Engineering",
   ],
   authors: [{ name: event.college, url: "https://scet.ac.in" }],
   openGraph: {
