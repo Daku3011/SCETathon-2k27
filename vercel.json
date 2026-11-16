@@ -1,12 +1,11 @@
 {
-  "framework": "vite",
-  "installCommand": "npm ci",
+  "framework": "nextjs",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+  "installCommand": "npm ci",
+  "outputDirectory": ".next",
+  "redirects": [
+    { "source": "/challenges", "destination": "/problems", "permanent": false },
+    { "source": "/showcase", "destination": "/gallery", "permanent": false },
+    { "source": "/auth", "destination": "/", "permanent": false }
   ]
 }

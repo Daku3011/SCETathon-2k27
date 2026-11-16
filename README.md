@@ -1,43 +1,31 @@
-# SCETATHON — React platform starter
+# SCETATHON 2027
 
-Minimal, responsive hackathon website and working Supabase-backed participant/admin flows. Inspired by the published previous-edition SCETATHON website (https://www.scetathon.com/). This is an **independent starter project**, not an official event deployment.
-
-## What works
-- Public home, challenges, about and showcase pages
-- Email/password signup, login and sign out with Supabase Auth
-- One team per participant; leader creates a team and adds registered teammates by email (max 5)
-- Leader submits/updates a project (title, description, optional GitHub and demo URLs)
-- Organizer dashboard: team count/list, submission review, challenge drafts/publishing, showcase publishing
-- Row-level security on all tables; admins are granted only by trusted SQL changes
-- Mobile responsive interface, empty states and setup messaging
+A public, frontend-only hackathon site for SCET, Surat. The 2027 schedule, rules, sponsor identities, judging weights and problem statements are editorial previews. The gallery credits the previous edition at https://www.scetathon.com/winners and https://www.scetathon.com/. No registration details are stored by this project.
 
 ## Setup
-1. Install Node.js 20+.
-2. `npm install`
-3. Create a Supabase project at https://supabase.com.
-4. In Supabase **SQL Editor**, run `supabase/schema.sql` once against a fresh project.
-5. Copy `.env.example` to `.env`, then set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` from Supabase Project Settings > API. **Do not use the service-role key.**
-6. In Supabase Authentication > Providers, enable Email. Set Site URL and redirect URLs to your localhost/deployed domains. Confirm email verification settings as appropriate.
-7. `npm run dev` and open the shown localhost URL.
-8. Sign up an organizer, then use the SQL Editor to grant the role: `update public.profiles set role='admin' where email='your-organizer-email@example.com';` Sign out and sign in again to refresh permissions.
-9. `npm run build` for production; deploy `dist/` to Vercel and set the two environment variables there. Configure Vercel SPA fallback rewrite to `index.html` (provided in `vercel.json`).
 
-## Important operational notes
-- Event dates, prizes, problem statements, and new-edition registration status are **not confirmed**; editable placeholders are in `src/lib.ts` and organizer-created challenges are stored in Supabase.
-- The previous site lists Sarvajanik College of Engineering & Technology (constituent college of Sarvajanik University), Surat, two rounds, a 24-hour finale, 8 problems, and 3–5 members per team. These are shown as historical facts, not guaranteed future-edition rules.
-- Public project cards only show organizer-approved (`published`) submissions. Admin-only controls are enforced by database policies, not just hidden UI.
-- This starter uses project URLs rather than binary uploads; adding PDF/image uploads requires a dedicated Supabase Storage bucket, upload validation and storage policies.
-- Before accepting actual event registrations, implement confirmed registration windows, eligibility and 3-person minimum enforcement, participant consent/privacy policy, email verification and rate limits, and a freeze/deadline mechanism for submissions. Consider audit logs, backups, accessibility testing and moderation.
-- The team invite flow currently adds an already-registered account directly; for a production event, add an invitation/acceptance workflow.
-- The initial SQL is designed for a fresh Supabase project. Review migration conflicts before applying to an existing database.
+Use Node 24 and npm. Run `npm ci`, then `npm run dev`. Open http://localhost:3000. For production run `npm run build` followed by `npm start`. Fonts ship locally via next/font.
 
-## Project layout
-- `src/main.tsx` — React pages and functionality
-- `src/style.css` — minimal responsive design system
-- `src/lib.ts` — Supabase setup and event content
-- `supabase/schema.sql` — tables, functions, RLS
-- `.env.example` — required environment variables
+## Editing
 
-## Temporary public Vercel demo
+- data/event.ts contains event details, contacts, schedule, prizes, sponsor placeholders, FAQ, judging weights, teams, archive captions and publication flags.
+- data/problems.ts contains the eight editable challenge briefs.
+- Use ISO 8601 timestamps including the timezone offset (+05:30). Provide round1, start and end together. Blank values display a pending schedule.
+- Set form to an approved HTTPS registration URL to enable external registration. An empty value shows the closed-registration dialog.
+- Set numeric rupee amounts for animated prize totals. Replace illustrative sponsor names and vector marks when partner assets are approved.
+- Publish populated teams and winners lists with resultsOpen and winnersOpen. Winner photos should use local public paths. Gallery images live under public/archive.
+- The About form opens the visitor’s mail client with a draft. It does not send or retain messages.
 
-Vercel uses the Vite preset, `npm ci`, `npm run build`, and `dist`. SPA rewrites are configured in vercel.json. `.env.production` explicitly enables demo mode, disabling the Supabase client and hiding account forms. To enable real accounts later, configure and secure Supabase using the instructions above, then explicitly set `VITE_DEMO_MODE=false` in the Vercel environment and rebuild. Never put a service-role key in Vite variables.
+## Vercel deployment
+
+Import the project directory using the Next.js preset and Node 24. Install with npm ci and build with npm run build. The deployment uses Next.js image optimization and routing. Existing Vite projects must switch their framework preset to Next.js and remove the dist output override. Set event.site to the public origin for sitemap and social cards.
+
+## Launch checklist
+
+- Approve the schedule, agenda, problem briefs, eligibility, judging weights and prizes.
+- Confirm organizer names, partner branding, venue, contact details and form ownership.
+- Check the approved external form on mobile before setting form.
+- Check the registration dialog, phone menu, problem filters, FAQ search, keyboard focus and reduced motion.
+- Verify sitemap.xml, robots.txt, opengraph-image and Event structured data after dates are published.
+- Audit the final production deployment with mobile Lighthouse; targets are performance 90+, accessibility 95+ and SEO 100.
+- Publish results and winners only after organizer approval.
