@@ -1,19 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 const scheduleItems = [
   {
-    num: "01 ↗",
+    id: "01",
     title: "Arrive & begin",
     meta: ["28 January 2027", "11:00 AM IST / SCET"],
   },
   {
-    num: "02 ↗",
+    id: "02",
     title: "The 24h build",
     meta: ["28–29 January", "Create / test / iterate"],
   },
   {
-    num: "03 ↗",
+    id: "03",
     title: "Present what you made",
     meta: ["29 January", "Detailed programme TBA"],
   },
@@ -42,9 +43,10 @@ export function BuildTimeline() {
             </p>
             <Link
               href="/timeline"
-              className="inline-flex items-center gap-2 mt-4 font-mono text-[11px] font-bold uppercase tracking-wider text-ink underline underline-offset-4 hover:opacity-75 transition-opacity"
+              className="inline-flex items-center gap-1.5 mt-4 font-mono text-[11px] font-bold uppercase tracking-wider text-ink underline underline-offset-4 hover:opacity-75 transition-opacity"
             >
-              Full 24-Hour Run-Sheet ↗
+              <span>Full 24-Hour Run-Sheet</span>
+              <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
             </Link>
           </div>
         </div>
@@ -53,11 +55,12 @@ export function BuildTimeline() {
         <div className="border-t-2 border-ink">
           {scheduleItems.map((item) => (
             <div
-              key={item.num}
+              key={item.id}
               className="grid grid-cols-[75px_1fr] md:grid-cols-[200px_1fr_250px] gap-4 md:gap-7 items-center py-6 md:py-7 border-b border-ink/30"
             >
-              <div className="font-display text-2xl md:text-[40px] tracking-[-0.08em]">
-                {item.num}
+              <div className="font-display text-2xl md:text-[40px] tracking-[-0.08em] flex items-center gap-1">
+                <span>{item.id}</span>
+                <ArrowUpRight className="w-5 h-5 md:w-8 md:h-8 opacity-60 shrink-0" strokeWidth={2.4} />
               </div>
               <div className="font-display text-2xl md:text-[clamp(24px,3.1vw,49px)] leading-tight tracking-[-0.07em] uppercase">
                 {item.title}
@@ -69,12 +72,6 @@ export function BuildTimeline() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Note */}
-        <div className="flex items-center gap-3 mt-8 font-mono text-[11px] font-bold uppercase tracking-wider">
-          <span className="text-2xl text-ink" aria-hidden="true">✳</span>
-          <span>Detailed judging and activity timings are subject to the official programme.</span>
         </div>
       </div>
     </section>

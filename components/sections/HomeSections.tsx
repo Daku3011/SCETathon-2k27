@@ -8,6 +8,7 @@ import Problems from "./Problems";
 import { TbaReveal } from "../ui/TbaReveal";
 import { Register } from "../ui/Register";
 import { MandanaDiamond, MandanaBackgroundWatermark } from "../ui/SVGs";
+import { ArrowUpRight, ArrowRight } from "../ui/Icons";
 
 export function Timeline() {
   const shouldReduceMotion = useReducedMotion();
@@ -147,7 +148,8 @@ export function Sponsors() {
           href={`mailto:${event.email}`}
           className="inline-flex items-center gap-1.5 font-bold text-sm text-[#172C67] underline underline-offset-4 hover:text-[#963E29] transition-colors focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
         >
-          Contact organizers about sponsorship opportunities ↗
+          <span>Contact organizers about sponsorship opportunities</span>
+          <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
         </a>
       </div>
     </div>
@@ -295,7 +297,7 @@ function ArchiveGallery() {
                 type="button"
                 onClick={() => scrollStrip(-1)}
                 aria-label="Show previous archive image"
-                className="min-h-[44px] min-w-[44px] px-3.5 py-1.5 text-sm font-bold border border-[#182239] rounded-[2px] bg-[#ECE5D6] text-[#182239] active:bg-[#182239]/10"
+                className="min-h-[44px] min-w-[44px] px-3.5 py-1.5 text-sm font-bold border border-[#182239] rounded-[2px] bg-[#ECE5D6] text-[#182239] active:bg-[#182239]/10 inline-flex items-center justify-center"
               >
                 ←
               </button>
@@ -303,9 +305,9 @@ function ArchiveGallery() {
                 type="button"
                 onClick={() => scrollStrip(1)}
                 aria-label="Show next archive image"
-                className="min-h-[44px] min-w-[44px] px-3.5 py-1.5 text-sm font-bold border border-[#182239] rounded-[2px] bg-[#ECE5D6] text-[#182239] active:bg-[#182239]/10"
+                className="min-h-[44px] min-w-[44px] px-3.5 py-1.5 text-sm font-bold border border-[#182239] rounded-[2px] bg-[#ECE5D6] text-[#182239] active:bg-[#182239]/10 inline-flex items-center justify-center"
               >
-                →
+                <ArrowRight className="w-4 h-4" strokeWidth={2.4} />
               </button>
             </div>
           </div>

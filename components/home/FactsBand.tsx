@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 export function FactsBand() {
   return (
@@ -36,9 +37,9 @@ export function FactsBand() {
 
         {/* Fact 4: SURAT */}
         <div className="py-6 px-4 md:py-6 md:pl-7 flex flex-col justify-between">
-          <div className="font-display text-[clamp(32px,3.5vw,52px)] leading-[0.9] tracking-[-0.075em] flex items-baseline">
+          <div className="font-display text-[clamp(32px,3.5vw,52px)] leading-[0.9] tracking-[-0.075em] flex items-center">
             <span>SURAT</span>
-            <span className="text-[#65683F] ml-1.5 font-sans font-light">↗</span>
+            <ArrowUpRight className="w-5 h-5 md:w-8 md:h-8 ml-2 text-ink/75 shrink-0" strokeWidth={2.5} />
           </div>
           <div className="font-mono text-[10px] uppercase font-bold tracking-[0.12em] mt-3">
             SCET campus, Gujarat

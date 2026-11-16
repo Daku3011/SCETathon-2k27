@@ -109,7 +109,7 @@ export default function Hero() {
                 href="#problems"
                 className="text-base sm:text-lg font-semibold text-[#182239] underline underline-offset-8 decoration-[#963E29] hover:text-[#963E29] transition-colors focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
               >
-                Explore problem statements →
+                Explore problem statements
               </Link>
             </div>
           </motion.div>

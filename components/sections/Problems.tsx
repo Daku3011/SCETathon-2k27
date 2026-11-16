@@ -3,6 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { problems, themes } from "@/data/problems";
 import { RegistrationStatus } from "@/components/registration/RegistrationStatus";
+import {
+  ArrowRight,
+  SmartCampusIcon,
+  HumanityIcon,
+  IndustryIcon,
+} from "@/components/ui/Icons";
 
 type Problem = (typeof problems)[number];
 type SavedFilters = { query: string; domain: string; selected: string };
@@ -112,7 +118,15 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
               <div>
                 <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-wider mb-2">
                   <span className={`font-bold ${tagColor}`}>TRACK // {t.id}</span>
-                  <span className="text-xl">{t.icon}</span>
+                  <div className={tagColor} aria-hidden="true">
+                    {t.id === "01" ? (
+                      <SmartCampusIcon className="w-5 h-5" />
+                    ) : t.id === "02" ? (
+                      <HumanityIcon className="w-5 h-5" />
+                    ) : (
+                      <IndustryIcon className="w-5 h-5" />
+                    )}
+                  </div>
                 </div>
                 <h4 className="font-display text-sm sm:text-base text-paper uppercase tracking-tight leading-snug mb-1">
                   {t.name}
@@ -255,8 +269,8 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
                       >
                         {trackTag}
                       </span>
-                      <span className="font-mono text-xs" aria-hidden="true">
-                        {isCurrent ? "●" : "→"}
+                      <span className="font-mono text-xs flex items-center" aria-hidden="true">
+                        {isCurrent ? "●" : <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.4} />}
                       </span>
                     </div>
                   </button>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { event, copy } from "@/data/event";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 const slugify = (s: string) =>
   s
@@ -91,7 +92,14 @@ export function Guidelines() {
                   }
                 }}
               >
-                {copied === title ? "✓ Link copied to clipboard" : "Copy section link ↗"}
+                {copied === title ? (
+                  "✓ Link copied to clipboard"
+                ) : (
+                  <span className="inline-flex items-center gap-1.5">
+                    <span>Copy section link</span>
+                    <ArrowUpRight className="w-3 h-3" strokeWidth={2.4} />
+                  </span>
+                )}
               </button>
             </section>
           ))}
@@ -420,7 +428,7 @@ export function About() {
             >
               <div>
                 <div className="flex items-center justify-between font-mono text-[10px] text-coral uppercase tracking-widest mb-3">
-                  <span>HEAD // 0{idx + 1}</span>
+                  <span>HEAD // SCET</span>
                   <span className="text-[#93958E] font-mono">[{lead.committee || "COMMITTEE"}]</span>
                 </div>
                 <h3 className="font-display text-lg sm:text-xl text-paper uppercase tracking-tight group-hover:text-coral transition-colors">
@@ -432,7 +440,6 @@ export function About() {
               </div>
               <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-[#93958E] uppercase">
                 <span>SCETATHON 2.0 SPRINT</span>
-                <span className="text-coral">2027</span>
               </div>
             </article>
           ))}
@@ -522,9 +529,10 @@ export function About() {
             </div>
             <button
               type="submit"
-              className="min-h-[44px] px-6 py-2.5 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider hover:bg-[#f0ffad] transition-colors cursor-pointer"
+              className="min-h-[44px] px-6 py-2.5 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider hover:bg-[#f0ffad] transition-colors cursor-pointer inline-flex items-center gap-1.5"
             >
-              Open Email Draft ↗
+              <span>Open Email Draft</span>
+              <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
             </button>
           </form>
         </div>
@@ -550,9 +558,10 @@ export function About() {
               href={event.map}
               target="_blank"
               rel="noreferrer"
-              className="inline-block mt-3 font-mono text-xs text-lime underline underline-offset-4 font-bold uppercase"
+              className="inline-flex items-center gap-1.5 mt-3 font-mono text-xs text-lime underline underline-offset-4 font-bold uppercase"
             >
-              Open campus location in Google Maps ↗
+              <span>Open campus location in Google Maps</span>
+              <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
             </a>
           </div>
         </div>

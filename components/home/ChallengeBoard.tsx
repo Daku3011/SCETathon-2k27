@@ -1,6 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { themes, problems } from "@/data/problems";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  SmartCampusIcon,
+  HumanityIcon,
+  IndustryIcon,
+} from "@/components/ui/Icons";
 
 export function ChallengeBoard() {
   return (
@@ -33,7 +40,8 @@ export function ChallengeBoard() {
                 href="/problems"
                 className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-lime text-ink hover:bg-[#f0ffad] transition-colors"
               >
-                Open Challenge Terminal ↗
+                <span>Open Challenge Terminal</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
               </Link>
             </div>
           </div>
@@ -44,12 +52,6 @@ export function ChallengeBoard() {
           {themes.map((track) => {
             const isLime = track.color === "lime";
             const isCoral = track.color === "coral";
-            const accentClass = isLime
-              ? "text-lime border-lime/40 group-hover:border-lime"
-              : isCoral
-              ? "text-coral border-coral/40 group-hover:border-coral"
-              : "text-lilac border-lilac/40 group-hover:border-lilac";
-
             const tagColor = isLime ? "text-lime" : isCoral ? "text-coral" : "text-lilac";
 
             return (
@@ -63,9 +65,15 @@ export function ChallengeBoard() {
                     <span className={`font-mono text-[11px] font-bold uppercase tracking-widest ${tagColor}`}>
                       TRACK // {track.id}
                     </span>
-                    <span className="text-2xl" role="img" aria-label={track.short}>
-                      {track.icon}
-                    </span>
+                    <div className={tagColor} aria-hidden="true">
+                      {track.id === "01" ? (
+                        <SmartCampusIcon className="w-6 h-6" />
+                      ) : track.id === "02" ? (
+                        <HumanityIcon className="w-6 h-6" />
+                      ) : (
+                        <IndustryIcon className="w-6 h-6" />
+                      )}
+                    </div>
                   </div>
 
                   {/* Track Title */}
@@ -93,10 +101,10 @@ export function ChallengeBoard() {
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                   <Link
                     href={`/problems?domain=${encodeURIComponent(track.name)}`}
-                    className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider ${tagColor} hover:underline underline-offset-4`}
+                    className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider ${tagColor} hover:underline underline-offset-4 group/tracklink`}
                   >
                     <span>View Track Problems</span>
-                    <span aria-hidden="true">→</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/tracklink:translate-x-1" strokeWidth={2.4} />
                   </Link>
                   <span className="font-mono text-[10px] text-[#93958E]">
                     3 STATEMENTS
@@ -114,9 +122,10 @@ export function ChallengeBoard() {
           </span>
           <Link
             href="/problems"
-            className="font-mono text-xs text-lime uppercase font-bold hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-lime uppercase font-bold hover:underline"
           >
-            Launch Terminal ↗
+            <span>Launch Terminal</span>
+            <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.2} />
           </Link>
         </div>
 
@@ -165,8 +174,9 @@ export function ChallengeBoard() {
                   <span className="text-[#93958E] uppercase">
                     Level: {problem.difficulty}
                   </span>
-                  <span className="text-lime group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">
-                    Inspect ↗
+                  <span className="text-lime inline-flex items-center gap-1 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">
+                    <span>Inspect</span>
+                    <ArrowUpRight className="w-3 h-3" strokeWidth={2.4} />
                   </span>
                 </div>
               </Link>

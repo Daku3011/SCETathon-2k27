@@ -1,25 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { event } from "@/data/event";
 import { isSupabaseConfigured } from "@/lib/supabase";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 interface RegistrationStatusProps {
   label?: string;
-  variant?: "primary" | "nav" | "link";
+  variant?: "primary" | "nav" | "text";
   className?: string;
 }
 
 export function RegistrationStatus({
-  label = "REGISTRATION UPDATES",
+  label = "Register",
   variant = "primary",
   className = "",
 }: RegistrationStatusProps) {
   const [open, setOpen] = useState(false);
-  const isActuallyLive = Boolean(event.form && event.registrationOpen && isSupabaseConfigured);
 
-  if (isActuallyLive && event.form) {
+  // If Supabase is configured AND registration is open, direct to form
+  const isDirect = isSupabaseConfigured && event.registrationOpen && Boolean(event.form);
+
+  if (isDirect) {
     return (
       <a
         href={event.form}
@@ -34,7 +37,7 @@ export function RegistrationStatus({
         }
       >
         <span>{label}</span>
-        <span aria-hidden="true" className="text-sm">↗</span>
+        <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
       </a>
     );
   }
@@ -49,27 +52,27 @@ export function RegistrationStatus({
           >
             <span>{label}</span>
             <span
-              className="inline-flex items-center justify-center w-7 h-7 border border-current rounded-full text-[15px] transition-transform hover:translate-x-0.5 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center w-7 h-7 border border-current rounded-full transition-transform hover:translate-x-0.5 hover:-translate-y-0.5"
               aria-hidden="true"
             >
-              ↗
+              <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
             </span>
           </button>
         ) : variant === "nav" ? (
           <button
             type="button"
-            className={`inline-flex items-center justify-between gap-3 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 hover:bg-[#f0ffad] transition-all focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral cursor-pointer ${className}`}
+            className={`inline-flex items-center justify-between gap-2.5 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 hover:bg-[#f0ffad] transition-all focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral cursor-pointer ${className}`}
           >
             <span>{label}</span>
-            <span aria-hidden="true" className="text-xs">↗</span>
+            <ArrowUpRight className="w-3 h-3" strokeWidth={2.4} />
           </button>
         ) : (
           <button
             type="button"
-            className={`font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors cursor-pointer ${className}`}
+            className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors cursor-pointer ${className}`}
           >
             <span>{label}</span>
-            <span aria-hidden="true" className="ml-1 text-xs">↗</span>
+            <ArrowUpRight className="w-3 h-3" strokeWidth={2.4} />
           </button>
         )}
       </Dialog.Trigger>
@@ -115,7 +118,7 @@ export function RegistrationStatus({
                 className="w-full bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider py-3.5 px-5 flex items-center justify-between hover:bg-[#f0ffad] transition-all cursor-pointer focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral"
               >
                 <span>GOT IT</span>
-                <span aria-hidden="true">↗</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
               </button>
             </Dialog.Close>
           </div>

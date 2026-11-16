@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { event } from "@/data/event";
+import { ArrowUpRight, ArrowUp } from "@/components/ui/Icons";
 
 export function SiteFooter() {
   return (
@@ -26,23 +27,29 @@ export function SiteFooter() {
               Platform Directory
             </span>
             <div className="grid grid-cols-2 gap-y-1.5 font-mono text-[10px] uppercase text-[#C6C8BE]">
-              <Link href="/about" className="hover:text-lime transition-colors">
-                The Event ↗
+              <Link href="/about" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+                <span>The Event</span>
+                <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/guidelines" className="hover:text-lime transition-colors">
-                Guidelines ↗
+              <Link href="/guidelines" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+                <span>Guidelines</span>
+                <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/problems" className="hover:text-lime transition-colors">
-                Challenges ↗
+              <Link href="/problems" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+                <span>Challenges</span>
+                <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/evaluation" className="hover:text-lime transition-colors">
-                Evaluation ↗
+              <Link href="/evaluation" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+                <span>Evaluation</span>
+                <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/timeline" className="hover:text-lime transition-colors">
-                Schedule ↗
+              <Link href="/timeline" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+                <span>Schedule</span>
+                <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/gallery" className="hover:text-lime transition-colors">
-                Archive ↗
+              <Link href="/gallery" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+                <span>Archive</span>
+                <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
             </div>
           </div>
@@ -77,8 +84,9 @@ export function SiteFooter() {
             <Link href="/terms" className="underline underline-offset-4 hover:text-paper">
               Terms &amp; Conduct
             </Link>
-            <a href="#top" className="underline underline-offset-4 text-lime hover:text-white">
-              Back to Top ↑
+            <a href="#top" className="inline-flex items-center gap-1 underline underline-offset-4 text-lime hover:text-white">
+              <span>Back to Top</span>
+              <ArrowUp className="w-3 h-3" strokeWidth={2.4} />
             </a>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { SignalWheel } from "@/components/identity/SignalWheel";
 import { RegistrationStatus } from "@/components/registration/RegistrationStatus";
+import { ArrowDown } from "@/components/ui/Icons";
 
 const typewriterPhrases = [
   "WHERE CODE MEETS REAL-WORLD ATOMS",
@@ -152,9 +153,10 @@ export function Hero() {
             <RegistrationStatus label="REGISTRATION UPDATES" variant="primary" />
             <a
               href="#about"
-              className="font-mono text-[11px] font-bold uppercase tracking-wider underline underline-offset-4 hover:text-lime transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider underline underline-offset-4 hover:text-lime transition-colors group/herolink"
             >
-              DISCOVER THE EVENT <span aria-hidden="true">↓</span>
+              <span>DISCOVER THE EVENT</span>
+              <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover/herolink:translate-y-0.5" strokeWidth={2.4} />
             </a>
           </div>
         </div>

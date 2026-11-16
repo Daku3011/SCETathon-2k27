@@ -34,14 +34,12 @@ export function Manifesto() {
         </div>
 
         {/* Right: Editorial Narrative Aside */}
-        <div className="border-t-2 border-ink pt-6 max-w-[420px] lg:mb-3">
+        <div className="border-t-2 border-ink pt-6 max-w-[620px] lg:mb-5">
           <p className="text-lg md:text-xl leading-relaxed text-ink/90 font-normal mb-8">
             Forget the ordinary. This is 24 hours of sketching, breaking, fixing, prototyping, and discovering what happens when different minds build together.
           </p>
 
           <div className="font-mono text-[11px] leading-relaxed uppercase tracking-[0.12em] font-bold text-ink/75">
-            Computer Engineering × Chemical Engineering
-            <br />
             Sarvajanik College of Engineering &amp; Technology
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 export function Venue() {
   return (
@@ -27,12 +28,13 @@ export function Venue() {
 
           <div>
             <a
-              className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors"
               href="https://maps.google.com/?q=Sarvajanik+College+of+Engineering+and+Technology+Surat"
               target="_blank"
               rel="noopener noreferrer"
             >
-              FIND THE CAMPUS ↗
+              <span>FIND THE CAMPUS</span>
+              <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
             </a>
           </div>
         </div>

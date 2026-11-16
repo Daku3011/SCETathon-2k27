@@ -174,17 +174,17 @@ export const event = {
     {
       name: "Prof. (Dr.) Nehal Shah",
       role: "Faculty Coordinator",
-      dept: "Computer Engineering",
+      dept: "Electronics & Communication Engineering",
     },
     {
       name: "Prof. Jaydeep Gheewala",
       role: "Faculty Coordinator",
-      dept: "Chemical Engineering",
+      dept: "Computer Engineering",
     },
     {
       name: "Prof. Anand Upadhyay",
       role: "Faculty Coordinator",
-      dept: "Computer Engineering",
+      dept: "Chemical Engineering",
     },
   ] as { name: string; role: string; dept?: string }[],
   studentTeam: [
@@ -271,7 +271,7 @@ export const copy = {
   textSkipToContent: "Skip to content",
   textMenu: "Menu",
   textClose: "Close",
-  textBackToTop: "Back to top ↑",
+  textBackToTop: "Back to top",
   textExploreProblems: "Explore problems",
   textRegister: "Register",
   textRegistrationPreview: "Registration preview",
@@ -306,7 +306,7 @@ export const copy = {
   textYourName: "Your Name",
   textEmail: "Email",
   textMessage: "Message",
-  textOpenEmailDraft: "Send Message ↗",
+  textOpenEmailDraft: "Send Message",
   textScetCampusMap: "SCET Campus Map",
   textIllustrativeChallengesForThe2027EditionFinal:
     "Explore challenge statements across smart campus operations, climate resilience, and student community tooling.",

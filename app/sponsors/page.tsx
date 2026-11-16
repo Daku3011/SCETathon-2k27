@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { event } from "@/data/event";
 import { PageHeader } from "@/components/shell/PageHeader";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
   title: "Sponsors & Industry Partners",
@@ -73,10 +74,10 @@ export default function SponsorsPage() {
         </div>
         <a
           href={`mailto:${event.email}?subject=${encodeURIComponent("SCETATHON 2.0 Sponsorship Inquiry")}`}
-          className="inline-flex items-center gap-3 px-6 py-4 bg-ink text-paper font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#2E3029] transition-colors"
+          className="inline-flex items-center gap-2.5 px-6 py-4 bg-ink text-paper font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#2E3029] transition-colors"
         >
           <span>Request Partner Deck</span>
-          <span aria-hidden="true">↗</span>
+          <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
         </a>
       </div>
     </div>

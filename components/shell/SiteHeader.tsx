@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Wordmark } from "@/components/identity/Wordmark";
 import { RegistrationStatus } from "@/components/registration/RegistrationStatus";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 const navItems = [
   { label: "The idea", hash: "#about", fallbackHref: "/about" },
@@ -118,9 +119,10 @@ export function SiteHeader() {
                     key={item.label}
                     href={item.href}
                     onClick={closeMenu}
-                    className="font-mono text-[11px] text-[#C6C8BE] hover:text-lime py-1 uppercase"
+                    className="inline-flex items-center gap-1 font-mono text-[11px] text-[#C6C8BE] hover:text-lime py-1 uppercase"
                   >
-                    {item.label} ↗
+                    <span>{item.label}</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
                   </Link>
                 ))}
               </div>
@@ -128,7 +130,7 @@ export function SiteHeader() {
 
             <div className="pt-2">
               <RegistrationStatus
-                label="Registration status ↗"
+                label="Registration status"
                 variant="primary"
                 className="w-full justify-center"
               />
