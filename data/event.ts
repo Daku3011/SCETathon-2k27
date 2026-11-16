@@ -28,9 +28,26 @@ export const event = {
   resultsOpen: false,
   winnersOpen: false,
   registrationOpen: false,
-  hero: "A 24-hour student hackathon at SCET, Surat.",
+  nationalBadge: "24-HOUR NATIONAL-LEVEL HACKATHON",
+  // departments: [
+  //   {
+  //     name: "Computer Engineering",
+  //     short: "COMP // ENG",
+  //     focus: "Intelligent Systems, AI/ML, Cloud & Embedded Systems",
+  //     icon: "💻",
+  //   },
+  //   {
+  //     name: "Chemical Engineering",
+  //     short: "CHEM // ENG",
+  //     focus: "Sustainable Processes, Green Chemistry, Clean Energy & Sensors",
+  //     icon: "🧪",
+  //   },
+  // ],
+  interdisciplinaryHighlight:
+    "Spearheaded jointly by the Departments of Computer Engineering & Chemical Engineering at SCET, bridging computational intelligence with real-world material and process engineering.",
+  hero: "A 24-hour national student hackathon at SCET, Surat, bridging computer engineering and chemical process innovations into functional prototypes.",
   intro:
-    "SCETATHON 2.0 brings student innovators and engineers together for a focused 24-hour sprint at Sarvajanik College of Engineering & Technology. Squads turn urgent regional, industrial, and social challenges into verified working software and hardware prototypes.",
+    "SCETATHON 2.0 brings student squads from across the country to Sarvajanik College of Engineering & Technology, Surat. Spearheaded jointly by the Departments of Computer Engineering and Chemical Engineering, teams collaborate across code and physical systems to turn pressing campus, climate, and industrial challenges into working hardware and software solutions over 24 continuous hours.",
   factsLine: "24 hours · teams of 3–5 · eight problem statements",
   prizesNotice: "Awards and category bounties will be announced upon jury confirmation.",
   sponsorsNotice: "Official community and industry partners for the 2027 edition will be published here upon confirmation.",

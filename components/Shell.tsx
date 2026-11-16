@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
 import { event, isPublishedRoute } from "@/data/event";
 import { Register } from "./ui/Register";
-import { MandanaBorderTile } from "./ui/SVGs";
+import { MandanaBorderTile, MandanaDiamond } from "./ui/SVGs";
 
 const desktopNavigation = [
   ["Programme", "#programme"],
@@ -47,47 +47,61 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         Skip to content
       </a>
 
-      {/* 1. Masthead and Navigation */}
-      <header className="sticky top-0 z-40 w-full bg-[#F5EFE2]/95 backdrop-blur-md border-b border-[#182239]/15 select-none" id="top">
+      {/* 1. Creative Masthead and Navigation Bar */}
+      <header className="sticky top-0 z-40 w-full bg-[#F5EFE2]/95 backdrop-blur-md border-b border-[#182239]/20 select-none shadow-[0_2px_12px_rgba(24,34,57,0.04)]" id="top">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Brand: SCET Crest + College Name */}
+          {/* Brand: Crest in framed badge + SCETATHON mark + College */}
           <Link
-            className="flex items-center gap-3.5 focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
+            className="flex items-center gap-3 focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px] group"
             href="/"
             aria-label="SCETATHON 2.0 home"
           >
-            <div className="w-10 h-10 shrink-0 relative">
+            <div className="w-11 h-11 shrink-0 p-1 bg-[#ECE5D6] border border-[#182239]/25 rounded-[2px] relative flex items-center justify-center group-hover:border-[#963E29] transition-colors">
               <Image
                 src="/archive/scet.png"
                 alt="Sarvajanik College of Engineering & Technology crest"
-                width={40}
-                height={40}
+                width={38}
+                height={38}
                 className="w-full h-full object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-base font-bold tracking-tight text-[#182239] leading-tight">
-                Sarvajanik College
-              </span>
-              <span className="text-xs text-[#182239]/70 leading-tight">
-                of Engineering &amp; Technology · Surat
+              <div className="flex items-center gap-1.5">
+                <span className="font-display text-lg font-black tracking-tight text-[#182239] leading-tight">
+                  SCETATHON
+                </span>
+                <span className="font-mono text-xs font-bold text-[#963E29] bg-[#ECE5D6] px-1.5 py-0.2 rounded-[2px] border border-[#182239]/15">
+                  2.0
+                </span>
+              </div>
+              <span className="text-[11px] font-mono text-[#182239]/70 leading-tight">
+                SCET SURAT · 24H NATIONAL HACKATHON
               </span>
             </div>
           </Link>
 
+          {/* Creative Telemetry Ribbon (Visible on medium/large screens) */}
+          <div className="hidden xl:flex items-center gap-2.5 px-3.5 py-1.5 bg-[#ECE5D6] border border-[#182239]/20 rounded-[2px]">
+            <span className="w-2 h-2 rounded-full bg-[#963E29] animate-pulse" aria-hidden="true" />
+            <span className="font-mono text-xs text-[#182239] font-semibold tracking-wider">
+              28–29 JAN 2027 · SCET SURAT · 24H LIVE BUILD
+            </span>
+          </div>
+
           {/* Desktop Navigation: Programme, Problems, Gallery, and Register */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Desktop primary navigation">
+          <nav className="hidden md:flex items-center gap-7" aria-label="Desktop primary navigation">
             {desktopNavigation.map(([label, href]) => (
               <Link
                 key={href}
                 href={toDestination(href)}
-                className="text-base font-medium text-[#182239] hover:text-[#963E29] transition-colors focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
+                className="relative text-base font-semibold text-[#182239] hover:text-[#963E29] transition-colors py-1 focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px] group"
               >
-                {label}
+                <span>{label}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#963E29] group-hover:w-full transition-all duration-200" />
               </Link>
             ))}
-            <Register text="Register" />
+            <Register text="Register Now" />
           </nav>
 
           {/* Mobile Navigation Trigger */}
@@ -98,15 +112,15 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                   ref={menuTriggerRef}
                   type="button"
                   aria-label="Menu"
-                  className="min-h-[44px] min-w-[44px] px-3.5 py-2 flex items-center gap-2 border border-[#182239] text-[#182239] font-semibold text-sm bg-[#F5EFE2] rounded-[2px] focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px]"
+                  className="min-h-[44px] min-w-[44px] px-3.5 py-2 flex items-center gap-2 border border-[#182239] text-[#182239] font-bold text-sm bg-[#ECE5D6] rounded-[2px] focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px]"
                 >
-                  <span className="w-2 h-2 rounded-full bg-[#172C67]" aria-hidden="true" />
+                  <span className="w-2 h-2 rounded-full bg-[#963E29] animate-pulse" aria-hidden="true" />
                   Menu
                 </button>
               </Dialog.Trigger>
 
               <Dialog.Portal>
-                <Dialog.Overlay className="fixed inset-0 z-50 bg-[#182239]/50 backdrop-blur-sm menu-drawer-overlay" />
+                <Dialog.Overlay className="fixed inset-0 z-50 bg-[#182239]/60 backdrop-blur-sm menu-drawer-overlay" />
                 <Dialog.Content
                   className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-[#F5EFE2] text-[#182239] p-6 flex flex-col justify-between shadow-2xl border-l border-[#182239]/20 focus:outline-none menu-drawer-content"
                   aria-describedby={undefined}
@@ -114,18 +128,23 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                 >
                   <div>
                     {/* Drawer Header */}
-                    <div className="flex items-center justify-between pb-4 border-b border-[#182239]/15">
+                    <div className="flex items-center justify-between pb-4 border-b border-[#182239]/20">
                       <div className="flex items-center gap-2.5">
                         <Image
                           src="/archive/scet.png"
                           alt="SCET Crest"
-                          width={28}
-                          height={28}
+                          width={32}
+                          height={32}
                           className="object-contain"
                         />
-                        <Dialog.Title className="font-display text-lg font-bold text-[#182239]">
-                          Navigation
-                        </Dialog.Title>
+                        <div>
+                          <Dialog.Title className="font-display text-lg font-bold text-[#182239]">
+                            SCETATHON 2.0
+                          </Dialog.Title>
+                          <span className="font-mono text-[10px] text-[#182239]/70">
+                            SCET SURAT · 28–29 JAN 2027
+                          </span>
+                        </div>
                       </div>
                       <Dialog.Close asChild>
                         <button
@@ -138,43 +157,53 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                       </Dialog.Close>
                     </div>
 
-                    {/* Primary Destinations */}
-                    <div className="py-6 border-b border-[#182239]/15">
-                      <span className="block font-mono text-xs uppercase tracking-wider text-[#182239]/60 mb-3">
-                        Event Programme
+                    {/* Department Highlights in Drawer */}
+                    <div className="py-3 px-3.5 my-4 bg-[#ECE5D6] border border-[#182239]/15 rounded-[2px] text-xs">
+                      <span className="font-mono text-[10px] uppercase text-[#963E29] font-bold block mb-1">
+                        ORGANIZED BY DEPARTMENTS OF
                       </span>
-                      <nav className="flex flex-col gap-3" aria-label="Mobile primary destinations">
+                      <p className="font-semibold text-[#182239]">
+                        💻 Computer Eng. &amp; 🧪 Chemical Eng.
+                      </p>
+                    </div>
+
+                    {/* Primary Destinations */}
+                    <div className="py-4 border-b border-[#182239]/15">
+                      <span className="block font-mono text-xs uppercase tracking-wider text-[#963E29] font-bold mb-3">
+                        Programme Navigation
+                      </span>
+                      <nav className="flex flex-col gap-2.5" aria-label="Mobile primary destinations">
                         {drawerPrimaryNavigation.map(([label, href], idx) => (
                           <Link
                             key={href}
                             href={toDestination(href)}
                             onClick={() => setMenuOpen(false)}
-                            className="flex items-center justify-between py-2 text-xl font-display font-semibold text-[#182239] hover:text-[#963E29] focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
+                            className="flex items-center justify-between py-2 text-xl font-display font-bold text-[#182239] hover:text-[#963E29] focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
                           >
                             <span>{label}</span>
-                            <span className="font-mono text-xs text-[#182239]/40">
+                            <span className="font-mono text-xs text-[#963E29]">
                               0{idx + 1}
                             </span>
                           </Link>
                         ))}
                       </nav>
                       <div className="mt-4 pt-2">
-                        <Register text="Register" className="w-full" />
+                        <Register text="Register Now" className="w-full" />
                       </div>
                     </div>
 
                     {/* Secondary Destinations */}
-                    <div className="py-6">
-                      <span className="block font-mono text-xs uppercase tracking-wider text-[#182239]/60 mb-3">
-                        Reference & Details
+                    <div className="py-4">
+                      <span className="block font-mono text-xs uppercase tracking-wider text-[#182239]/60 font-semibold mb-2.5">
+                        Rules &amp; Evaluation
                       </span>
-                      <nav className="flex flex-col gap-2.5" aria-label="Mobile secondary destinations">
+                      <nav className="flex flex-col gap-2" aria-label="Mobile secondary destinations">
                         {drawerSecondaryNavigation.map(([label, href]) => (
                           <Link
                             key={href}
                             href={toDestination(href)}
                             onClick={() => setMenuOpen(false)}
-                            className="py-1.5 text-base font-medium text-[#182239]/80 hover:text-[#182239] focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
+                            className="py-1 text-sm font-semibold text-[#182239]/80 hover:text-[#182239] focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
                           >
                             {label}
                           </Link>
@@ -183,7 +212,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                           <Link
                             href="/results"
                             onClick={() => setMenuOpen(false)}
-                            className="py-1.5 text-base font-medium text-[#182239]/80 hover:text-[#182239]"
+                            className="py-1 text-sm font-semibold text-[#182239]/80 hover:text-[#182239]"
                           >
                             Results
                           </Link>
@@ -192,7 +221,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                           <Link
                             href="/winners"
                             onClick={() => setMenuOpen(false)}
-                            className="py-1.5 text-base font-medium text-[#182239]/80 hover:text-[#182239]"
+                            className="py-1 text-sm font-semibold text-[#182239]/80 hover:text-[#182239]"
                           >
                             Winners
                           </Link>
@@ -235,12 +264,15 @@ export default function Shell({ children }: { children: React.ReactNode }) {
               <p className="font-display text-xl sm:text-2xl text-[#F5EFE2] font-semibold">
                 28–29 January 2027
               </p>
-              <p className="text-sm sm:text-base text-[#F5EFE2]/80 max-w-md">
+              <p className="text-sm sm:text-base text-[#F5EFE2]/85 max-w-md">
                 Organised at Sarvajanik College of Engineering &amp; Technology, Surat, Gujarat.
+              </p>
+              <p className="text-xs font-mono text-[#F5EFE2]/70">
+                Spearheaded jointly by the Departments of Computer Engineering &amp; Chemical Engineering.
               </p>
               <div className="pt-2">
                 <Register
-                  text="Register"
+                  text="Register for Event"
                   className="!bg-[#F5EFE2] !text-[#172C67] hover:!bg-[#F5EFE2]/90 focus:!outline-[#F5EFE2]"
                 />
               </div>
@@ -249,7 +281,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
             {/* Quick Links & Verified Contact */}
             <div className="md:col-span-3 space-y-3 font-medium">
               <span className="block font-mono text-xs uppercase tracking-wider text-[#F5EFE2]/50 mb-2">
-                Navigation & Maps
+                Navigation &amp; Maps
               </span>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -300,7 +332,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
             {/* Colophon & Artistic Influences */}
             <div className="md:col-span-3 space-y-3 text-xs text-[#F5EFE2]/70 leading-relaxed">
               <span className="block font-mono text-xs uppercase tracking-wider text-[#F5EFE2]/50 mb-2">
-                Colophon & Art Direction
+                Colophon &amp; Art Direction
               </span>
               <p>
                 Art directed as a campus poster unfolding into an event programme.
@@ -309,7 +341,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                 Linework draws inspiration from the Mandana tradition of geometric floor and wall art (doubled contours, comb strokes and chalk diamonds on earth ground).
               </p>
               <p className="font-mono text-[11px] text-[#F5EFE2]/50">
-                SCET is the Surat host. Original breadboard technical drawing and linework hand-authored for SCETATHON 2.0.
+                SCET is the Surat host. Original breadboard and chemical process technical drawing hand-authored for SCETATHON 2.0.
               </p>
             </div>
           </div>
