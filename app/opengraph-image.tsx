@@ -13,13 +13,13 @@ export default function Image() {
         padding: 72,
         width: "100%",
         height: "100%",
-        background: "#783e29",
-        color: "#efebe1",
+        background: "#101719",
+        color: "#dbed9e",
       }}
     >
       <div style={{ fontSize: 28 }}>{copy.textScetSURAT}</div>
       <div style={{ fontSize: 100 }}>{event.name}</div>
-      <div style={{ fontSize: 46, color: "#efebe1" }}>{event.displayDate}</div>
+      <div style={{ fontSize: 46, color: "#dbed9e" }}>{event.displayDate}</div>
     </div>,
     size,
   );
