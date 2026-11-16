@@ -94,7 +94,6 @@ export const event = {
       "Team Novex",
       "2026 · Computer Engineering winner · Swach App",
     ],
-    ["scet_bg.jpg", "The SCET campus", "Surat · Venue of the 2026 finale"],
   ],
   map: "https://maps.google.com/maps?q=Sarvajanik+College+of+Engineering+and+Technology+Surat",
 };

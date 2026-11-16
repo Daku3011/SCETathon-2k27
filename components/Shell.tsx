@@ -1,50 +1,115 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import * as D from "@radix-ui/react-dialog";
 import Link from "next/link";
 import Image from "next/image";
-import * as D from "@radix-ui/react-dialog";
 import { event, navigation } from "@/data/event";
+const groups = [
+  {
+    name: "Explore",
+    items: [
+      ...navigation.slice(0, 2),
+      ["Programme", "/timeline"],
+      navigation[5],
+      navigation[6],
+    ],
+  },
+  {
+    name: "Participate",
+    items: [navigation[2], navigation[3], navigation[7], navigation[8]],
+  },
+  {
+    name: "Archive & information",
+    items: [navigation[4], ...navigation.slice(9)],
+  },
+];
+function Brand() {
+  return (
+    <Image
+      className="brand-logo"
+      src="/brand/scetathon.webp"
+      alt="SCETATHON 2.0 home"
+      width={1496}
+      height={332}
+    />
+  );
+}
 export default function Shell({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+  const [open, set] = useState(false),
+    path = usePathname();
+  useEffect(() => {
+    if (
+      !window.IntersectionObserver ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    const observer = new IntersectionObserver((entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.animate(
+            [
+              { opacity: 0.55, transform: "translateY(16px)" },
+              { opacity: 1, transform: "translateY(0)" },
+            ],
+            { duration: 450, easing: "ease-out" },
+          );
+          observer.unobserve(e.target);
+        }
+      }),
+    );
+    document
+      .querySelectorAll(".spread,.page .card,.theme-strip,.footer")
+      .forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [path]);
+  const links = (close: boolean) =>
+    groups.map((g) => (
+      <section key={g.name}>
+        <h3>{g.name}</h3>
+        {g.items.map(([n, u]) => (
+          <Link
+            key={u}
+            href={u}
+            aria-current={path === u ? "page" : undefined}
+            onClick={() => {
+              if (close) set(false);
+            }}
+          >
+            {n}
+          </Link>
+        ))}
+      </section>
+    ));
   return (
     <>
-      <a href="#main" className="skip">
+      <a className="skip" href="#main">
         Skip to content
       </a>
       <header className="top">
         <nav className="wrap nav">
-          <Link className="brand" href="/">
-            <Image
-              src="/archive/scet.png"
-              alt="SCET crest"
-              width={40}
-              height={40}
-            />
-            SCET · Surat
+          <Link href="/">
+            <Brand />
           </Link>
           <div className="navlinks">
-            {navigation.slice(1, 5).map(([n, u]) => (
-              <Link key={u} href={u}>
-                {n}
-              </Link>
-            ))}
+            <Link href="/timeline">Programme</Link>
+            <Link href="/problems">Problems</Link>
+            <Link href="/gallery">Gallery</Link>
           </div>
-          <D.Root open={open} onOpenChange={setOpen}>
-            <D.Trigger className="menu-btn">Menu</D.Trigger>
+          <D.Root open={open} onOpenChange={set}>
+            <D.Trigger className="menu-btn">
+              <i aria-hidden="true" />
+              Menu
+            </D.Trigger>
             <D.Portal>
               <D.Overlay className="overlay" />
-              <D.Content className="sheet" aria-describedby={undefined}>
-                <D.Title asChild>
-                  <h2>Contents</h2>
-                </D.Title>
-                <nav className="contents">
-                  {navigation.map(([n, u]) => (
-                    <Link key={u} href={u} onClick={() => setOpen(false)}>
-                      {n}
-                    </Link>
-                  ))}
-                </nav>
-                <D.Close className="btn">Close</D.Close>
+              <D.Content className="drawer" aria-describedby={undefined}>
+                <div className="drawer-head">
+                  <D.Title>Explore SCETATHON</D.Title>
+                  <D.Close aria-label="Close menu">×</D.Close>
+                </div>
+                <nav className="linkgroups">{links(true)}</nav>
+                <p>{event.displayDate} · Surat</p>
               </D.Content>
             </D.Portal>
           </D.Root>
@@ -52,23 +117,22 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       </header>
       <main id="main">{children}</main>
       <footer className="footer">
-        <div className="wrap split">
-          <div>
-            <strong>{event.name}</strong>
+        <div className="wrap">
+          <div className="footer-brand">
+            <Link href="/">
+              <Brand />
+            </Link>
             <p>
-              {event.college}
+              {event.displayDate}
               <br />
-              {event.venue}
+              {event.college}
             </p>
-            <a href={"mailto:" + event.email}>{event.email}</a>
           </div>
-          <nav className="contents">
-            {navigation.slice(1).map(([n, u]) => (
-              <Link key={u} href={u}>
-                {n}
-              </Link>
-            ))}
-          </nav>
+          <nav className="linkgroups">{links(false)}</nav>
+          <div className="footer-base">
+            <a href={"mailto:" + event.email}>{event.email}</a>
+            <a href={event.map}>Find SCET in Surat</a>
+          </div>
         </div>
       </footer>
     </>

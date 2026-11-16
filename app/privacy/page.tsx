@@ -6,7 +6,7 @@ export default function Privacy() {
       <h1>Privacy notice</h1>
       <p>
         You can browse this demo without an account. Search terms and sample
-        reservations stay in the page while you use it. The contact form opens
+        reservations stay in the page while you use it. The countdown preview stores its end time in this browser tab. The contact form opens
         an email draft in your mail app. You decide whether to send it.
       </p>
       <h2>Hosting and maps</h2>

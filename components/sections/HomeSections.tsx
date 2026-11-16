@@ -1,4 +1,5 @@
 "use client";
+import { Announcement } from "../ui/Announcement";
 import { useState } from "react";
 import * as A from "@radix-ui/react-accordion";
 import Link from "next/link";
@@ -15,7 +16,13 @@ export function Timeline() {
       ].map(([label, value]) => (
         <div key={label}>
           <dt>{label}</dt>
-          <dd>{value}</dd>
+          <dd>
+            {value === "To be announced" ? (
+              <Announcement label={label} />
+            ) : (
+              value
+            )}
+          </dd>
         </div>
       ))}
     </dl>
@@ -29,7 +36,13 @@ export function Sponsors() {
         {event.sponsors.map(([tier, name]) => (
           <div key={tier}>
             <dt>{tier} partner</dt>
-            <dd>{name}</dd>
+            <dd>
+              {name === "To be announced" ? (
+                <Announcement label={tier + " partner"} />
+              ) : (
+                name
+              )}
+            </dd>
           </div>
         ))}
       </dl>
@@ -60,7 +73,11 @@ function Faq() {
               </A.Trigger>
             </A.Header>
             <A.Content>
-              <p>{d}</p>
+              {d === "To be announced." ? (
+                <Announcement label="Rounds" />
+              ) : (
+                <p>{d}</p>
+              )}
             </A.Content>
           </A.Item>
         ))}

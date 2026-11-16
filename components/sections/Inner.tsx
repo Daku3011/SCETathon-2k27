@@ -1,4 +1,5 @@
 "use client";
+import { Announcement } from "../ui/Announcement";
 import { copy } from "@/data/event";
 
 import { useEffect, useState } from "react";
@@ -42,7 +43,11 @@ export function Guidelines() {
           {event.rules.map(([n, d]) => (
             <section className="card rule" key={n} id={id(n)}>
               <h3>{n}</h3>
-              <p>{d}</p>
+              {d === "To be announced." ? (
+                <Announcement label="Rounds" />
+              ) : (
+                <p>{d}</p>
+              )}
               <button
                 className="btn"
                 onClick={async () => {
@@ -92,7 +97,11 @@ export function Evaluation() {
               {copy.textStep0}
               {i + 1}
             </small>
-            <h3>{s}</h3>
+            {s.includes("to be announced") ? (
+              <Announcement label="Rounds" />
+            ) : (
+              <h3>{s}</h3>
+            )}
           </li>
         ))}
       </ol>
@@ -115,7 +124,11 @@ export function Gallery() {
           </a>
           <figcaption>
             <h3>{n}</h3>
-            <p>{d}</p>
+            {d === "To be announced." ? (
+              <Announcement label="Rounds" />
+            ) : (
+              <p>{d}</p>
+            )}
           </figcaption>
         </figure>
       ))}
@@ -179,8 +192,7 @@ function Pending({ text }: { text: string }) {
   return (
     <div className="card">
       <small>{copy.textComingSOON}</small>
-      <h3>{copy.textAwaitingAnnouncement}</h3>
-      <p>{text}</p>
+      <Announcement label="publication" detail={text} />
     </div>
   );
 }
@@ -252,7 +264,11 @@ export function About() {
           <article className="card crew" key={n}>
             <small>{copy.textOrganizingROLE}</small>
             <h3>{n}</h3>
-            <p>{d}</p>
+            {d === "To be announced." ? (
+              <Announcement label="Rounds" />
+            ) : (
+              <p>{d}</p>
+            )}
           </article>
         ))}
       </div>
