@@ -9,6 +9,11 @@ const mono = localFont({
   variable: "--mono",
   weight: "100 800",
 });
+const display = localFont({
+  src: "../node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2",
+  variable: "--display",
+  weight: "300 700",
+});
 export const metadata: Metadata = {
   metadataBase: new URL(event.site),
   title: { default: event.name, template: "%s | " + event.name },
@@ -21,9 +26,14 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
+export const viewport = {
+  themeColor: "#f5efe2",
+  width: "device-width",
+  initialScale: 1,
+};
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={mono.variable}>
+    <html lang="en" className={`${mono.variable} ${display.variable}`}>
       <body>
         <Shell>{children}</Shell>
       </body>

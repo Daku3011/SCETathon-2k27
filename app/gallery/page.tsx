@@ -1,6 +1,6 @@
 import { copy } from "@/data/event";
 import { Gallery } from "@/components/sections/Inner";
-export const metadata = { title: "2026 gallery" };
+export const metadata = { title: "SCET campus archive" };
 export default function Page() {
   return (
     <div className="page wrap">

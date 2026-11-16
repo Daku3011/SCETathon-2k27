@@ -5,9 +5,7 @@ export default function Terms() {
     <article className="wrap page policy">
       <h1>Terms of use</h1>
       <p>
-        This public demo provides event information. Exploring a challenge or
-        reserving a sample lab slot does not enroll a team. Organizers will
-        publish participation rules before registration opens.
+        This site provides information about SCETATHON 2.0. Browsing this site does not register you for the event. Organizers will publish participation rules before registration opens.
       </p>
       <h2>Archive materials</h2>
       <p>

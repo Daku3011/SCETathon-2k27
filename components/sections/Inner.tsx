@@ -72,40 +72,10 @@ export function Guidelines() {
 }
 export function Evaluation() {
   return (
-    <div className="split">
-      <div className="card">
-        <small>{copy.textProposedWEIGHTS}</small>
-        {event.criteria.map(([n, v]) => (
-          <div key={n}>
-            <h3>
-              {n} · {v}%
-            </h3>
-            <div className="meter">
-              <motion.i
-                style={{ width: v + "%" }}
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-      <ol>
-        {event.judging.map((s, i) => (
-          <li className="step mb-4" key={s}>
-            <small>
-              {copy.textStep0}
-              {i + 1}
-            </small>
-            {s.includes("to be announced") ? (
-              <Announcement label="Rounds" />
-            ) : (
-              <h3>{s}</h3>
-            )}
-          </li>
-        ))}
-      </ol>
+    <div className="publication-note">
+      <small>{copy.textProposedWEIGHTS}</small>
+      <h2>Evaluation details are being prepared.</h2>
+      <p>Judging criteria and any scoring weights will be published after organizer approval.</p>
     </div>
   );
 }
@@ -252,11 +222,7 @@ export function Winners() {
 export function About() {
   return (
     <>
-      <p className="lead">
-        {event.college}
-        {copy.textIsAConstituentCollegeOfSarvajanikUniversity}
-        {event.intro}
-      </p>
+      <p className="lead">{event.intro}</p>
       <h2>{copy.textOrganizingTeam}</h2>
       <div className="grid">
         {event.crew.map(([n, d]) => (

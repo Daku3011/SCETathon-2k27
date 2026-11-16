@@ -1,156 +1,47 @@
-"use client";
-import { matchesSearch } from "@/lib/search";
-import { Announcement } from "../ui/Announcement";
-import { useState } from "react";
-import * as A from "@radix-ui/react-accordion";
 import Link from "next/link";
-import { event, copy } from "@/data/event";
+import * as A from "@radix-ui/react-accordion";
+import { event } from "@/data/event";
+import { Announcement } from "../ui/Announcement";
 
-export function Timeline() {
-  return (
-    <dl className="ledger">
-      {[
-        ["Hackathon", event.displayDate],
-        ["Venue", event.venue],
-        ["Rounds", event.rounds],
-        ["Registration", "To be announced"],
-      ].map(([label, value]) => (
-        <div key={label}>
-          <dt>{label}</dt>
-          <dd>
-            {value === "To be announced" ? (
-              <Announcement label={label} />
-            ) : (
-              value
-            )}
-          </dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
 export function Sponsors() {
   return (
-    <>
-      <p>Partner announcements for the January edition will appear here.</p>
-      <dl className="ledger">
-        {event.sponsors.map(([tier, name]) => (
-          <div key={tier}>
-            <dt>{tier} partner</dt>
-            <dd>
-              {name === "To be announced" ? (
-                <Announcement label={tier + " partner"} />
-              ) : (
-                name
-              )}
-            </dd>
-          </div>
-        ))}
-      </dl>
-      <a href={"mailto:" + event.email}>
-        Contact the organizers about sponsorship
-      </a>
-    </>
+    <div className="publication-note">
+      <small>{event.sponsorsPublished ? "PARTNERS" : "PARTNERSHIPS"}</small>
+      <h2>{event.sponsorsPublished ? "Our event partners" : "Partner announcements are coming later."}</h2>
+      <p>Confirmed sponsor names and marks will be shared here by the organizers.</p>
+      <a className="text-link" href={`mailto:${event.email}?subject=SCETATHON%202.0%20partnership`}>Contact the organizers <span aria-hidden="true">↗</span></a>
+    </div>
   );
 }
+
+export function Timeline() {
+  const rows = [
+    ["Event dates", event.displayDate],
+    ["Venue", event.venue],
+    ["Daily schedule", "To be announced"],
+    ["Registration", "To be announced"],
+  ];
+  return <dl className="ledger">{rows.map(([label, value], index) => <div key={label}><dt><span className="index">0{index + 1}</span>{label}</dt><dd>{value === "To be announced" ? <Announcement label={label} /> : value}</dd></div>)}</dl>;
+}
+
 function Faq() {
-  const [q, set] = useState("");
-  const matches = event.faq.filter((items) =>
-    matchesSearch(items.join(" "), q),
-  );
-  return (
-    <>
-      <label>
-        {copy.textSearchQuestions}
-        <input type="search" value={q} onChange={(e) => set(e.target.value)} />
-      </label>
-      <A.Root type="single" collapsible>
-        {matches.map(([n, d]) => (
-          <A.Item className="faq" value={n} key={n}>
-            <A.Header>
-              <A.Trigger>
-                {n}
-                <span aria-hidden>＋</span>
-              </A.Trigger>
-            </A.Header>
-            <A.Content>
-              {d === "To be announced." ? (
-                <Announcement label="Rounds" />
-              ) : (
-                <p>{d}</p>
-              )}
-            </A.Content>
-          </A.Item>
-        ))}
-      </A.Root>
-      {!matches.length && <p>{copy.textNoMatchingQuestions}</p>}
-    </>
-  );
+  return <A.Root type="single" collapsible className="faq-list">{event.faq.map(([question, answer]) => <A.Item className="faq" value={question} key={question}><A.Header><A.Trigger>{question}<span aria-hidden="true">+</span></A.Trigger></A.Header><A.Content><p>{answer}</p></A.Content></A.Item>)}</A.Root>;
 }
 
 export default function HomeSections() {
-  const [reserved, setReserved] = useState(false);
-  return (
-    <div className="wrap">
-      <section className="spread">
-        <h2>Event programme</h2>
-        <Timeline />
-      </section>
-      <section className="spread">
-        <div>
-          <p className="kicker">From the problem briefs</p>
-          <h2>Lab Ledger</h2>
-          <p>
-            How do two teams avoid booking the same instrument? Try this local
-            prototype of the equipment reservation brief.
-          </p>
-          <Link href="/problems">Read all eight sample briefs</Link>
-        </div>
-        <div className="bench" data-reserved={reserved}>
-          <small>Interactive sample · no real reservation</small>
-          <h3>Digital oscilloscope</h3>
-          <p>Electronics lab · Bench 04</p>
-          <dl className="ledger">
-            <div>
-              <dt>Sample slot</dt>
-              <dd>14:00–15:00</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd className="slot-state" role="status">
-                {reserved ? "Reserved by your team" : "Available"}
-              </dd>
-            </div>
-          </dl>
-          <button className="btn" onClick={() => setReserved(!reserved)}>
-            {reserved ? "Release sample slot" : "Reserve sample slot"}
-          </button>
-        </div>
-      </section>
-      <section className="spread">
-        <h2>2026 archive</h2>
-        <div>
-          <h3>Team Novex · Swach App</h3>
-          <p>First place in Computer Engineering at the previous edition.</p>
-          <Link href="/gallery">View the team photograph</Link>
-        </div>
-      </section>
-      <section className="spread">
-        <h2>Prizes & partners</h2>
-        <div>
-          <p>
-            Prize amounts and sponsor names for 2027 will be announced by the
-            organizers.
-          </p>
-          <Link href="/sponsors">Sponsorship enquiries</Link>
-        </div>
-      </section>
-      <section className="spread">
-        <h2>Participant questions</h2>
-        <div>
-          <Faq />
-        </div>
-      </section>
-    </div>
-  );
+  return <div className="wrap home-content">
+    <section className="spread intro-spread" id="about">
+      <div><p className="eyebrow">01 / THE GATHERING</p><h2>Ideas need<br /><em>makers.</em></h2></div>
+      <div className="intro-copy"><p className="lead">SCETATHON is a student hackathon hosted by Sarvajanik College of Engineering &amp; Technology in Surat.</p><p>Across two days, students will come together to explore challenges and make prototypes. Challenge briefs, eligibility and the complete programme will be published once approved.</p><Link className="text-link" href="/about">More about the event <span aria-hidden="true">↗</span></Link></div>
+    </section>
+    <section className="spread challenge-callout" id="challenges">
+      <div><p className="eyebrow">02 / OPEN BRIEFS</p><h2>Start with<br />a good question.</h2></div>
+      <div><p className="lead">The 2027 challenge statements are being prepared.</p><p>We&apos;ll publish the official briefs here when they&apos;re ready. No sample or previous-edition problems are presented as current.</p><Link className="text-link" href="/problems">Challenge updates <span aria-hidden="true">↗</span></Link></div>
+    </section>
+    <section className="spread" id="programme"><div><p className="eyebrow">03 / THE PLAN</p><h2>Good things<br />take shape.</h2></div><div><Timeline /><Link className="text-link" href="/timeline">Full programme <span aria-hidden="true">↗</span></Link></div></section>
+    <section className="spread participation"><div><p className="eyebrow">04 / TAKE PART</p><h2>Bring your<br /><em>curiosity.</em></h2></div><div className="participation-copy"><p className="lead">A shared space to make, test, and learn.</p>{event.features.map(([title, body], index) => <div className="feature-row" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></div>)}<Link className="text-link" href="/guidelines">Participation updates <span aria-hidden="true">↗</span></Link></div></section>
+    <section className="spread" id="archive"><div><p className="eyebrow">05 / THE PLACE</p><h2>Made in<br />Surat.</h2></div><div className="archive-note"><p className="lead">Sarvajanik College of Engineering &amp; Technology</p><p>SCET is the host institution for SCETATHON 2.0. Find the campus in Surat, Gujarat.</p><a className="text-link" href={event.map} target="_blank" rel="noreferrer">Campus map <span aria-hidden="true">↗</span></a></div></section>
+    <section className="spread faq-spread" id="faq"><div><p className="eyebrow">06 / QUICK ANSWERS</p><h2>Good to<br />know.</h2></div><div><Faq /></div></section>
+    <section className="closing-band"><p className="eyebrow">28—29 JANUARY 2027 · SCET, SURAT</p><h2>See you at<br /><em>SCETATHON.</em></h2><Link className="button-link" href="/about">Get event updates <span aria-hidden="true">↗</span></Link></section>
+  </div>;
 }

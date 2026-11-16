@@ -1,6 +1,6 @@
 "use client";
 import { matchesSearch } from "@/lib/search";
-import { copy } from "@/data/event";
+import { copy, event } from "@/data/event";
 
 import { useState, useRef } from "react";
 import * as D from "@radix-ui/react-dialog";
@@ -23,6 +23,15 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
         q,
       ),
   );
+  if (!event.challengesPublished) {
+    return (
+      <div className="publication-note">
+        <small>CHALLENGE STATEMENTS</small>
+        <h2>Official briefs are in preparation.</h2>
+        <p>Approved 2027 problem statements will be published here by the organizers.</p>
+      </div>
+    );
+  }
   return (
     <MotionConfig
       reducedMotion="user"

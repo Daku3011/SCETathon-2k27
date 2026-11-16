@@ -5,9 +5,7 @@ export default function Privacy() {
     <article className="wrap page policy">
       <h1>Privacy notice</h1>
       <p>
-        You can browse this demo without an account. Search terms and sample
-        reservations stay in the page while you use it. The countdown preview stores its end time in this browser tab. The contact form opens
-        an email draft in your mail app. You decide whether to send it.
+        This site does not provide accounts or collect registration submissions. The contact form prepares an email draft in your mail application; it is only sent if you choose to send it. Registration details will be added here if the event begins collecting participant information.
       </p>
       <h2>Hosting and maps</h2>
       <p>

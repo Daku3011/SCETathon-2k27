@@ -1,89 +1,13 @@
-export const problems = [
-  [
-    "Campus Pulse",
-    "Operations",
-    "Intermediate",
-    "Help facilities staff triage campus maintenance reports.",
-    "A map of open issues with ownership and resolution updates.",
-    "MapLibre, React",
-    "Hide identifying details in public reports.",
-  ],
-  [
-    "Water Watch",
-    "Climate",
-    "Intermediate",
-    "Locate unusual water use across campus buildings.",
-    "A dashboard flagging leaks using simulated meter readings.",
-    "Python, time series",
-    "Work with irregular samples.",
-  ],
-  [
-    "Access Atlas",
-    "Community",
-    "Advanced",
-    "Help visitors find accessible routes between buildings.",
-    "Route suggestions with step-free alternatives.",
-    "OpenStreetMap, graph search",
-    "Document accessibility assumptions.",
-  ],
-  [
-    "Lab Ledger",
-    "Operations",
-    "Starter",
-    "Make shared lab equipment easier to locate and reserve.",
-    "A searchable inventory and booking workflow.",
-    "SQLite, TypeScript",
-    "Prevent overlapping bookings.",
-  ],
-  [
-    "Waste Signal",
-    "Climate",
-    "Intermediate",
-    "Help campus teams plan waste collection.",
-    "A collection schedule based on fill-level reports.",
-    "IoT simulator, Python",
-    "Support manual input.",
-  ],
-  [
-    "Peer Circuit",
-    "Community",
-    "Starter",
-    "Match students seeking help with available peer mentors.",
-    "A skill directory and consent-based matching flow.",
-    "React, SQL",
-    "Keep contact details private.",
-  ],
-  [
-    "Energy Lens",
-    "Climate",
-    "Advanced",
-    "Explore electricity demand across departments.",
-    "A forecast and comparison of conservation measures.",
-    "Pandas, visualization",
-    "Explain uncertainty in forecasts.",
-  ],
-  [
-    "Queue Shift",
-    "Operations",
-    "Intermediate",
-    "Reduce waiting time at shared service counters.",
-    "A virtual queue with estimated service times.",
-    "WebSockets, Node.js",
-    "Provide a low-bandwidth view.",
-  ],
-].map(
-  (
-    [title, category, difficulty, description, outcome, tech, constraint],
-    i,
-  ) => ({
-    title,
-    category,
-    difficulty,
-    description,
-    outcome,
-    tech,
-    constraint,
-    id: String(i + 1).padStart(2, "0"),
-    slug: title.toLowerCase().replaceAll(" ", "-"),
-  }),
-);
+export type Problem = {
+  title: string;
+  category: string;
+  difficulty: string;
+  description: string;
+  outcome: string;
+  tech: string;
+  constraint: string;
+  id: string;
+  slug: string;
+};
+
+export const problems: Problem[] = [];
