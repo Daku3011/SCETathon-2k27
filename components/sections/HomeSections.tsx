@@ -1,317 +1,201 @@
 "use client";
-import { copy } from "@/data/event";
 
-import { useEffect, useRef, useState } from "react";
-import * as A from "@radix-ui/react-accordion";
+import Image from "next/image";
+import { useMemo, useRef, useState } from "react";
 import { event } from "@/data/event";
-import { Count, Reveal } from "../motion/Effects";
 import Problems from "./Problems";
+import { TbaReveal } from "../ui/TbaReveal";
 import { Register } from "../ui/Register";
-const date = (s: string) =>
-  s
-    ? new Date(s).toLocaleString("en-IN", {
-        timeZone: "Asia/Kolkata",
-        dateStyle: "medium",
-        timeStyle: "short",
-      })
-    : "Date pending";
-export function Section({
-  title,
-  tag,
-  children,
-}: {
-  title: string;
-  tag: string;
-  children: React.ReactNode;
-}) {
+
+export function Timeline() {
   return (
-    <section className="section wrap">
-      <Reveal>
-        <small>
-          // {tag}
-          {copy.textInit}
-        </small>
-        <h2>{title}</h2>
-        {children}
-      </Reveal>
+    <div className="programme-card">
+      <div className="programme-rule" aria-hidden="true">
+        <span className="programme-node"><Image src="/ornaments/terminal-diamond.svg" alt="" width={42} height={42} /></span>
+        <span className="programme-line" />
+        <span className="programme-node"><Image src="/ornaments/terminal-diamond.svg" alt="" width={42} height={42} /></span>
+      </div>
+      <div className="programme-content">
+        <div className="programme-date-wrap">
+          <span className="programme-echo" aria-hidden="true">28–29 January 2027</span>
+          <p className="programme-date">28–29 January 2027</p>
+          <p className="programme-note">Confirmed event dates</p>
+        </div>
+        <TbaReveal />
+      </div>
+    </div>
+  );
+}
+
+export function Sponsors() {
+  return (
+    <div className="announcements-section">
+      <div className="partner-row">
+        <p className="section-label">Partners</p>
+        <p>Confirmed sponsor marks and actual tiers will appear here after publication.</p>
+        <a href={`mailto:${event.email}`} className="text-sm underline">
+          Contact organizers about sponsorship ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function EventIntroduction() {
+  return (
+    <section className="intro-section site-shell" id="about" aria-labelledby="intro-title">
+      <p className="section-label">01 · Event introduction</p>
+      <div className="intro-grid">
+        <h2 id="intro-title">A campus programme for ideas that need a first working form.</h2>
+        <div>
+          <p>
+            SCETATHON brings student teams to SCET, Surat for one concentrated build: choose a brief, make a prototype and share what it can do.
+          </p>
+          <p className="facts-line"><span>24 hours</span><span>Teams of 3–5</span><span>Eight problem statements</span></p>
+        </div>
+      </div>
     </section>
   );
 }
-export function Timeline() {
-  const rail = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    let disposed = false;
-    let clean = () => {};
-    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
-      ([{ gsap }, { ScrollTrigger }]) => {
-        if (disposed || !rail.current) return;
-        gsap.registerPlugin(ScrollTrigger);
-        const ctx = gsap.context(() => {
-          if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
-            gsap.fromTo(
-              ".rail-line",
-              { scaleY: 0 },
-              {
-                scaleY: 1,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: rail.current,
-                  start: "top 80%",
-                  end: "bottom 60%",
-                  scrub: true,
-                },
-              },
-            );
-          rail
-            .current!.querySelectorAll("article")
-            .forEach((el) =>
-              ScrollTrigger.create({
-                trigger: el,
-                start: "top 80%",
-                onEnter: () => el.classList.add("lit"),
-              }),
-            );
-        }, rail);
-        clean = () => ctx.revert();
-      },
-    );
-    return () => {
-      disposed = true;
-      clean();
-    };
-  }, []);
+
+function ArchiveGallery() {
+  const strip = useRef<HTMLDivElement>(null);
+  const scrollStrip = (direction: number) => {
+    strip.current?.scrollBy({ left: direction * Math.max(strip.current.clientWidth * 0.82, 260), behavior: "smooth" });
+  };
+
   return (
-    <div className="split">
-      <div ref={rail} className="rail mobile-rail">
-        <i className="rail-line" />
-        {event.milestones.map(([n, d], i) => (
-          <article key={n}>
-            <small>{date(["", event.round1, "", event.start][i])}</small>
-            <h3>{n}</h3>
-            <p>{d}</p>
-          </article>
-        ))}
+    <section className="gallery-section site-shell" id="gallery" aria-labelledby="gallery-title">
+      <div className="section-heading">
+        <p className="section-label">04 · Past editions</p>
+        <h2 id="gallery-title">The room, in progress.</h2>
+        <p>Moments from the previous edition’s archive.</p>
       </div>
-      <aside className="card agenda">
-        <small>{copy.textRound02PROPOSEDRUNOFSHOW}</small>
-        <h3>{copy.text24HoursAtSCET}</h3>
-        <p>
-          {event.start ? date(event.start) : "Start date pending · 11 am IST"} →{" "}
-          {event.end ? date(event.end) : "Next day · 11 am IST"}
-        </p>
-        <ol>
-          {event.agenda.map(([t, n]) => (
-            <li key={t + n}>
-              <time>{t}</time>
-              {n}
-            </li>
-          ))}
-        </ol>
-      </aside>
-    </div>
+      <div className="archive-gallery">
+        <figure className="archive-lead">
+          <Image
+            src="/archive/novex.jpeg"
+            alt="Participants presenting at a previous SCETATHON edition"
+            width={675}
+            height={900}
+            sizes="(max-width: 767px) 100vw, 58vw"
+            priority={false}
+          />
+          <figcaption>SCETATHON 1.0 · participant presentation</figcaption>
+        </figure>
+        <div className="archive-strip-wrap">
+          <div className="archive-strip" ref={strip}>
+            <figure className="archive-detail archive-detail-one">
+              <Image
+                src="/archive/novex.jpeg"
+                alt="Documentary crop of SCETATHON participants at a presentation"
+                width={675}
+                height={900}
+                sizes="(max-width: 767px) 80vw, 22vw"
+                loading="lazy"
+              />
+              <figcaption>SCETATHON 1.0 · documentary detail</figcaption>
+            </figure>
+            <figure className="archive-detail archive-detail-two">
+              <Image
+                src="/archive/novex.jpeg"
+                alt="Documentary crop of a previous SCETATHON presentation"
+                width={675}
+                height={900}
+                sizes="(max-width: 767px) 80vw, 22vw"
+                loading="lazy"
+              />
+              <figcaption>SCETATHON 1.0 · presentation detail</figcaption>
+            </figure>
+          </div>
+          <div className="strip-controls">
+            <button type="button" onClick={() => scrollStrip(-1)} aria-label="Show previous archive image">← Previous</button>
+            <button type="button" onClick={() => scrollStrip(1)} aria-label="Show next archive image">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
-export function Sponsors() {
-  return (
-    <>
-      <p>
-        {copy.textIllustrativeSponsorIdentitiesPartnershipsAwaitConfirmation}
-      </p>
-      <div className="grid">
-        {event.sponsors.map(([tier, name], i) => (
-          <article className="card sponsor" key={tier}>
-            <small>
-              {tier.toUpperCase()}
-              {copy.textPartner}
-            </small>
-            <svg viewBox="0 0 48 48" aria-hidden>
-              <g
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                transform={"rotate(" + i * 25 + " 24 24)"}
-              >
-                <ellipse cx="24" cy="24" rx="20" ry="9" />
-                <ellipse cx="24" cy="24" rx="9" ry="20" />
-              </g>
-            </svg>
-            <h3>{name}</h3>
-          </article>
-        ))}
-      </div>
-      <a
-        className="btn mt-4"
-        href={
-          "mailto:" + event.email + "?subject=SCETATHON%202027%20sponsorship"
-        }
-      >
-        {copy.textBecomeASponsor}
-      </a>
-    </>
-  );
-}
-function About() {
-  const code = JSON.stringify(
-      {
-        edition: event.name,
-        venue: event.venue,
-        team: event.team,
-        rounds: event.rounds,
-        buildHours: event.hours,
-      },
-      null,
-      2,
-    ),
-    [typed, set] = useState(code);
-  const ref = useRef<HTMLPreElement>(null);
-  useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let t: ReturnType<typeof setInterval>;
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      io.disconnect();
-      let i = 0;
-      t = setInterval(() => {
-        i += 6;
-        set(code.slice(0, i));
-        if (i >= code.length) clearInterval(t);
-      }, 20);
-    });
-    if (ref.current) io.observe(ref.current);
-    return () => {
-      io.disconnect();
-      clearInterval(t);
-    };
-  }, [code]);
-  return (
-    <div className="split">
-      <p className="lead">{event.intro}</p>
-      <div className="card">
-        <small>{copy.textHackathonConfigTs}</small>
-        <pre ref={ref} className="code" aria-label={code}>
-          {typed}
-        </pre>
-      </div>
-    </div>
-  );
-}
+
 function Faq() {
-  const [q, set] = useState("");
-  const matches = event.faq.filter((items) =>
-    items.join(" ").toLowerCase().includes(q.toLowerCase()),
-  );
+  const [query, setQuery] = useState("");
+  const answers = [
+    ["Who can join?", "Registration eligibility will be published with the official registration details."],
+    ["How large can a team be?", "Teams of 3–5 are planned for SCETATHON 2.0."],
+    ["When are round details released?", "The organizers will publish round dates and submission deadlines here."],
+    ["How do I register?", "Open the registration preview for the current announcement status. No information is collected before the real flow is enabled."],
+  ];
+  const matches = useMemo(() => {
+    const value = query.trim().toLowerCase();
+    return value ? answers.filter(([question, answer]) => `${question} ${answer}`.toLowerCase().includes(value)) : answers;
+  }, [query]);
+
   return (
-    <>
-      <label>
-        {copy.textSearchQuestions}
-        <input type="search" value={q} onChange={(e) => set(e.target.value)} />
+    <section className="faq-section site-shell" id="faq" aria-labelledby="faq-title">
+      <div className="section-heading">
+        <p className="section-label">06 · FAQ</p>
+        <h2 id="faq-title">Questions, plainly answered.</h2>
+      </div>
+      <label className="faq-search">
+        <span>Search FAQ</span>
+        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search questions" />
       </label>
-      <A.Root type="single" collapsible>
-        {matches.map(([n, d]) => (
-          <A.Item className="faq" value={n} key={n}>
-            <A.Header>
-              <A.Trigger>
-                {n}
-                <span aria-hidden>＋</span>
-              </A.Trigger>
-            </A.Header>
-            <A.Content>
-              <p>{d}</p>
-            </A.Content>
-          </A.Item>
+      <div className="faq-list">
+        {matches.map(([question, answer]) => (
+          <details key={question}>
+            <summary>{question}</summary>
+            <p>{answer}</p>
+          </details>
         ))}
-      </A.Root>
-      {!matches.length && <p>{copy.textNoMatchingQuestions}</p>}
-    </>
+        {!matches.length && <p className="faq-empty" role="status">No matching questions. Try another search.</p>}
+      </div>
+    </section>
   );
 }
+
 export default function HomeSections() {
-  const ticker =
-    "BUILD • BREAK • SHIP • REPEAT   /   TOP THREE PRIZES · AMOUNTS TBA";
   return (
     <>
-      <div aria-label={ticker} className="ticker">
-        <div aria-hidden className="track">
-          {Array.from({ length: 8 }, (_, i) => (
-            <span key={i}>{ticker}</span>
-          ))}
+      <EventIntroduction />
+
+      <section className="programme-section" id="programme" aria-labelledby="programme-title">
+        <div className="site-shell">
+          <div className="section-heading section-heading-on-indigo">
+            <p className="section-label">02 · Programme</p>
+            <h2 id="programme-title">The confirmed dates, and room for what follows.</h2>
+          </div>
+          <Timeline />
         </div>
-      </div>
-      <Section title={copy.textFromIdeaToPrototype} tag={copy.textAbout}>
-        <About />
-      </Section>
-      <Section title={copy.textWhyJoin} tag={copy.textExperience}>
-        <div className="grid">
-          {event.features.map(([n, d], i) => (
-            <article
-              key={n}
-              className="card spot"
-              onPointerMove={(e) => {
-                if (
-                  e.pointerType !== "mouse" ||
-                  matchMedia("(prefers-reduced-motion: reduce)").matches
-                )
-                  return;
-                const r = e.currentTarget.getBoundingClientRect(),
-                  x = (e.clientX - r.left) / r.width,
-                  y = (e.clientY - r.top) / r.height;
-                e.currentTarget.style.setProperty("--x", x * 100 + "%");
-                e.currentTarget.style.setProperty("--y", y * 100 + "%");
-                e.currentTarget.style.transform =
-                  "perspective(700px) rotateY(" +
-                  (x - 0.5) * 6 +
-                  "deg) rotateX(" +
-                  (0.5 - y) * 6 +
-                  "deg)";
-              }}
-              onPointerLeave={(e) => (e.currentTarget.style.transform = "")}
-            >
-              <small>{["✳", "⌘", "✦", "◇"][i]}</small>
-              <h3>{n}</h3>
-              <p>{d}</p>
-            </article>
-          ))}
+      </section>
+
+      <section className="problems-section site-shell" id="problems" aria-labelledby="problems-title">
+        <div className="section-heading">
+          <p className="section-label">03 · Problems</p>
+          <h2 id="problems-title">Pick a challenge.</h2>
+          <p>Browse the index by domain or search by title. Open a row to read its outcome, constraints and suggested technology.</p>
         </div>
-      </Section>
-      <Section title={copy.textTheBuildSchedule} tag={copy.textTimeline}>
-        <Timeline />
-      </Section>
-      <Section title={copy.textPickYourProblem} tag={copy.textChallenges}>
-        <Problems preview />
-      </Section>
-      <Section title={copy.textOnThePodium} tag={copy.textPrizes}>
-        <div className="podium">
-          {event.prizes.map((p) => (
-            <article className="card" key={p.place}>
-              <small>{copy.textPrize}</small>
-              <h2>{p.place}</h2>
-              {p.amount !== null ? (
-                <strong>
-                  ₹<Count value={p.amount} />
-                </strong>
-              ) : (
-                <p>{copy.textAmountToBeAnnounced}</p>
-              )}
-            </article>
-          ))}
+        <Problems />
+      </section>
+
+      <ArchiveGallery />
+
+      <section className="announcements-section site-shell" aria-label="Awards and partners">
+        <div className="announcement-row">
+          <div>
+            <p className="section-label">05 · Awards</p>
+            <h2>Awards announcement</h2>
+          </div>
+          <p>Rank and amount will be announced once published.</p>
         </div>
-      </Section>
-      <Section title={copy.textEventPartnersAlt} tag={copy.textSponsors}>
-        <Sponsors />
-      </Section>
-      <Section title={copy.textQuestionsFromBuilders} tag={copy.textFaq}>
-        <Faq />
-      </Section>
-      <div className="wrap cta">
-        <small>{copy.textRound01ONLINE}</small>
-        <h2>{copy.textBringYourTeam}</h2>
-        <p>
-          {event.round1
-            ? "Register before " + date(event.round1)
-            : "Registration deadline to be announced."}
-        </p>
-        <Register />
-      </div>
+        <div className="partner-row">
+          <p className="section-label">Partners</p>
+          <p>Confirmed sponsor marks and actual tiers will appear here after publication.</p>
+          <Register text="Register" />
+        </div>
+      </section>
+
+      <Faq />
     </>
   );
 }
