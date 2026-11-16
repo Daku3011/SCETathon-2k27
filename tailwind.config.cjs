@@ -1,4 +1,36 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
-  theme: { extend: { colors: { accent: "var(--lime)" } } },
+  theme: {
+    extend: {
+      colors: {
+        accent: "var(--accent)",
+        "primary-container": "var(--blue-500)",
+        "on-primary-container": "#FFFFFF",
+        primary: "var(--accent)",
+        secondary: "var(--text)",
+        "secondary-container": "var(--accent)",
+        "on-secondary": "var(--bg)",
+        "surface-container-lowest": "var(--surface-solid)",
+        "surface-container-low": "var(--surface-glass)",
+        "surface-container": "var(--surface)",
+        "surface-container-high": "var(--surface-solid)",
+        "surface-container-highest": "var(--surface-solid)",
+        surface: "var(--bg)",
+        "on-surface": "var(--text)",
+        "on-surface-variant": "var(--text-muted)",
+        "tertiary-fixed": "var(--accent)",
+        "tertiary-fixed-dim": "var(--accent)",
+        tertiary: "var(--accent)",
+        "void-black": "#04060C",
+        "terminal-emerald": "#10B981",
+        ivory: "#F6F1E7",
+        "navy-950": "#0A1230",
+        "navy-800": "#14224F",
+        "blue-500": "#2F5BFF",
+        "blue-300": "#7FA0FF",
+      },
+    },
+  },
 };

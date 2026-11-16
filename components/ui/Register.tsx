@@ -1,63 +1,82 @@
 "use client";
-import { useState, useEffect } from "react";
-import * as D from "@radix-ui/react-dialog";
-import { event, copy } from "@/data/event";
-export function Register({
-  text = "Registration",
-}: {
+
+import * as Dialog from "@radix-ui/react-dialog";
+import { useEffect, useState } from "react";
+import { event } from "@/data/event";
+import { isSupabaseConfigured } from "@/lib/supabase";
+
+type RegisterProps = {
   text?: string;
-  pill?: boolean;
-}) {
-  const [open, setOpen] = useState(false),
-    [seconds, setSeconds] = useState(24 * 3600);
+  className?: string;
+};
+
+export function Register({ text = "Register", className = "" }: RegisterProps) {
+  const [open, setOpen] = useState(false);
+  const [seconds, setSeconds] = useState(5);
+  const [completionMessage, setCompletionMessage] = useState("");
+  const canRegister = Boolean(event.form && event.registrationOpen && isSupabaseConfigured);
+
   useEffect(() => {
     if (!open) return;
-    const key = "scet-registration-preview";
-    let until = Number(sessionStorage.getItem(key));
-    if (!until) {
-      until = Date.now() + 86400000;
-      sessionStorage.setItem(key, String(until));
-    }
-    const tick = () =>
-      setSeconds(Math.max(0, Math.ceil((until - Date.now()) / 1000)));
-    tick();
-    const timer = setInterval(tick, 1000);
-    return () => clearInterval(timer);
+
+    setSeconds(5);
+    setCompletionMessage("");
+    const timeout = window.setInterval(() => {
+      setSeconds((current) => {
+        if (current <= 1) {
+          window.clearInterval(timeout);
+          setCompletionMessage("Registration preview complete.");
+          return 0;
+        }
+        return current - 1;
+      });
+    }, 1000);
+
+    return () => window.clearInterval(timeout);
   }, [open]);
-  if (event.form)
+
+  if (canRegister) {
     return (
-      <a className="btn" href={event.form}>
+      <a className={`register-button ${className}`} href={event.form} target="_blank" rel="noreferrer">
         {text}
       </a>
     );
+  }
+
   return (
-    <D.Root open={open} onOpenChange={setOpen}>
-      <D.Trigger className="btn">{text}</D.Trigger>
-      <D.Portal>
-        <D.Overlay className="overlay" />
-        <D.Content className="sheet">
-          <D.Title asChild>
-            <h2>Registration opens soon</h2>
-          </D.Title>
-          <D.Description>
-            {copy.textTheOfficialFormAndDeadlineWillAppear}
-          </D.Description>
-          <div className="preview-clock">
-            <small>Demo countdown · illustrative only</small>
-            <strong role="timer">
-              {[
-                Math.floor(seconds / 3600),
-                Math.floor(seconds / 60) % 60,
-                seconds % 60,
-              ]
-                .map((n) => String(n).padStart(2, "0"))
-                .join(" : ")}
-            </strong>
-            <p>Registration opens only after an organizer announcement.</p>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger asChild>
+        <button type="button" className={`register-button ${className}`}>
+          {text}
+        </button>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className="dialog-overlay" />
+        <Dialog.Content className="registration-dialog" aria-describedby="registration-description">
+          <div className="dialog-topline">
+            <span>SCETATHON 2.0</span>
+            <Dialog.Close className="dialog-close" aria-label="Close registration preview">
+              Close <span aria-hidden="true">×</span>
+            </Dialog.Close>
           </div>
-          <D.Close className="btn">Close</D.Close>
-        </D.Content>
-      </D.Portal>
-    </D.Root>
+          <Dialog.Title>Registration preview</Dialog.Title>
+          <p id="registration-description">
+            Registration details will be announced here.
+          </p>
+
+          <div className="preview-countdown" aria-label={`Five-second demo countdown: ${seconds} seconds remaining`}>
+            <span>Five-second demo countdown</span>
+            <strong>{seconds}</strong>
+            <small>{seconds === 0 ? "Preview complete" : "seconds"}</small>
+          </div>
+          <p className="preview-note">No participant information is collected in this preview.</p>
+          <p className="sr-only" aria-live="polite" aria-atomic="true">{completionMessage}</p>
+
+          <Dialog.Close className="dialog-confirm">Close</Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
+
+export default Register;
