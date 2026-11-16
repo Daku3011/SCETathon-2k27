@@ -34,7 +34,7 @@ export default function Hero() {
             </div>
 
             {/* Official SCETATHON Wordmark */}
-            <div className="mb-4 max-w-[340px] sm:max-w-[420px]">
+            {/* <div className="mb-4 max-w-[340px] sm:max-w-[420px]">
               <Image
                 src="/brand/scetathon.webp"
                 alt="SCETATHON 2.0 · Ideas, Innovation, Impact"
@@ -43,13 +43,13 @@ export default function Hero() {
                 priority
                 className="w-full h-auto object-contain"
               />
-            </div>
+            </div> */}
 
             {/* HERO BRAND TITLE: SCETATHON 2.0 Commanding Headline */}
             <h1 className="font-display font-black text-[clamp(3.5rem,9.5vw,7.5rem)] leading-[0.88] tracking-tighter text-[#182239] mb-4">
               SCETATHON<span className="text-[#963E29]">.</span>
               <span className="text-[#172C67] block text-[clamp(2rem,5vw,4.25rem)] tracking-tight font-extrabold">
-                2.0 // CAMPUS FINALE
+                2.0
               </span>
             </h1>
 
@@ -58,13 +58,10 @@ export default function Hero() {
               <p className="font-display text-xl sm:text-2xl text-[#182239] font-bold leading-snug">
                 Sarvajanik College of Engineering &amp; Technology (SCET)
               </p>
-              <p className="text-sm sm:text-base text-[#182239]/80 font-medium">
-                A premier constituent college of Sarvajanik University · Surat, Gujarat
-              </p>
             </div>
 
             {/* Interdisciplinary Branches Spotlight: Computer Engineering & Chemical Engineering */}
-            <div className="mb-6 p-4 sm:p-5 bg-[#ECE5D6] border-l-4 border-[#172C67] rounded-[2px] shadow-sm">
+            {/* <div className="mb-6 p-4 sm:p-5 bg-[#ECE5D6] border-l-4 border-[#172C67] rounded-[2px] shadow-sm">
               <span className="font-mono text-xs uppercase tracking-wider text-[#963E29] font-bold block mb-2">
                 INTERDISCIPLINARY CO-ORGANIZERS
               </span>
@@ -93,16 +90,16 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Confirmed Dates Block */}
             <div className="flex flex-wrap items-baseline gap-3 mb-8">
               <span className="font-display font-black text-3xl sm:text-4xl text-[#963E29]">
                 28–29 January 2027
               </span>
-              <span className="font-mono text-xs font-semibold text-[#182239]/70 px-2 py-0.5 border border-[#182239]/30 rounded-[2px]">
+              {/* <span className="font-mono text-xs font-semibold text-[#182239]/70 px-2 py-0.5 border border-[#182239]/30 rounded-[2px]">
                 Kickoff: 11:00 AM IST · 24 Continuous Hours
-              </span>
+              </span> */}
             </div>
 
             {/* Actions: Solid Register button + Underlined Explore problems link */}

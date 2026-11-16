@@ -252,7 +252,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           {/* Top section: Wordmark + Date + Organiser */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#F5EFE2]/15">
             <div className="md:col-span-6 space-y-4">
-              <Link href="/" aria-label="SCETATHON 2.0 home">
+              {/* <Link href="/" aria-label="SCETATHON 2.0 home">
                 <Image
                   src="/brand/scetathon.webp"
                   alt="SCETATHON 2.0 Wordmark"
@@ -260,15 +260,12 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                   height={76}
                   className="h-auto max-w-[280px] sm:max-w-[340px]"
                 />
-              </Link>
+              </Link> */}
               <p className="font-display text-xl sm:text-2xl text-[#F5EFE2] font-semibold">
                 28–29 January 2027
               </p>
               <p className="text-sm sm:text-base text-[#F5EFE2]/85 max-w-md">
                 Organised at Sarvajanik College of Engineering &amp; Technology, Surat, Gujarat.
-              </p>
-              <p className="text-xs font-mono text-[#F5EFE2]/70">
-                Spearheaded jointly by the Departments of Computer Engineering &amp; Chemical Engineering.
               </p>
               <div className="pt-2">
                 <Register
@@ -318,31 +315,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                     Terms of use
                   </Link>
                 </li>
-                <li>
-                  <a
-                    href="#top"
-                    className="hover:text-[#F5EFE2] text-[#F5EFE2]/80 underline underline-offset-4 focus:outline focus:outline-[3px] focus:outline-[#F5EFE2] focus:outline-offset-[3px] rounded-[2px]"
-                  >
-                    Back to top ↑
-                  </a>
-                </li>
               </ul>
-            </div>
-
-            {/* Colophon & Artistic Influences */}
-            <div className="md:col-span-3 space-y-3 text-xs text-[#F5EFE2]/70 leading-relaxed">
-              <span className="block font-mono text-xs uppercase tracking-wider text-[#F5EFE2]/50 mb-2">
-                Colophon &amp; Art Direction
-              </span>
-              <p>
-                Art directed as a campus poster unfolding into an event programme.
-              </p>
-              <p>
-                Linework draws inspiration from the Mandana tradition of geometric floor and wall art (doubled contours, comb strokes and chalk diamonds on earth ground).
-              </p>
-              <p className="font-mono text-[11px] text-[#F5EFE2]/50">
-                SCET is the Surat host. Original breadboard and chemical process technical drawing hand-authored for SCETATHON 2.0.
-              </p>
             </div>
           </div>
         </div>
