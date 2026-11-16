@@ -1,6 +1,6 @@
 # SCETATHON 2027
 
-A public, frontend-only hackathon site for SCET, Surat. The 2027 schedule, rules, sponsor identities, judging weights and problem statements are editorial previews. The gallery credits the previous edition at https://www.scetathon.com/winners and https://www.scetathon.com/. No registration details are stored by this project.
+A public, frontend-only hackathon site for SCET, Surat. The hackathon dates are 28–29 January 2027. Round formats, times and registration details are awaiting announcement. Judging weights and problem statements are illustrative. The gallery credits the previous edition at https://www.scetathon.com/winners and https://www.scetathon.com/. No registration details are stored by this project.
 
 ## Setup
 
@@ -10,9 +10,9 @@ Use Node 24 and npm. Run `npm ci`, then `npm run dev`. Open http://localhost:300
 
 - data/event.ts contains event details, contacts, schedule, prizes, sponsor placeholders, FAQ, judging weights, teams, archive captions and publication flags.
 - data/problems.ts contains the eight editable challenge briefs.
-- Use ISO 8601 timestamps including the timezone offset (+05:30). Provide round1, start and end together. Blank values display a pending schedule.
+- Keep start and end as ISO calendar dates until times are confirmed. Update displayDate for the public date line.
 - Set form to an approved HTTPS registration URL to enable external registration. An empty value shows the closed-registration dialog.
-- Set numeric rupee amounts for animated prize totals. Replace illustrative sponsor names and vector marks when partner assets are approved.
+- Set numeric rupee amounts for animated prize totals. Update partner names after confirmation.
 - Publish populated teams and winners lists with resultsOpen and winnersOpen. Winner photos should use local public paths. Gallery images live under public/archive.
 - The About form opens the visitor’s mail client with a draft. It does not send or retain messages.
 

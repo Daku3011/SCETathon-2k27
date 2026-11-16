@@ -9,16 +9,17 @@ export const event = {
   site: "https://scetathon-demo.vercel.app",
   form: "",
   round1: "",
-  start: "",
-  end: "",
+  start: "2027-01-28",
+  displayDate: "28–29 January 2027",
+  end: "2027-01-29",
   team: [3, 5],
   hours: 24,
-  rounds: 2,
+  rounds: "To be announced",
   resultsOpen: false,
   winnersOpen: false,
-  hero: "A 24-hour campus hackathon for teams turning everyday problems into working prototypes.",
+  hero: "A 24-hour student hackathon at Sarvajanik College of Engineering & Technology, Surat.",
   intro:
-    "Start with a problem you can see on campus. Pitch your idea online, then bring your team to Surat for a day and a night of building, testing and presenting.",
+    "Student teams will meet at SCET in Surat on 28–29 January 2027 to build and test working prototypes.",
   features: [
     ["Innovation", "Test a new approach against a real campus problem."],
     [
@@ -37,9 +38,9 @@ export const event = {
     { place: "3rd", amount: null },
   ] as { place: string; amount: number | null }[],
   sponsors: [
-    ["Title", "Orbit"],
-    ["Co", "Vertex"],
-    ["Support", "Signal"],
+    ["Title", "To be announced"],
+    ["Co", "To be announced"],
+    ["Support", "To be announced"],
   ],
   faq: [
     [
@@ -47,29 +48,11 @@ export const event = {
       "This preview is designed for student teams. Final eligibility will be announced with registration.",
     ],
     ["How large is a team?", "Plan for three to five members per team."],
-    [
-      "Where are the two rounds held?",
-      "Ideas are submitted online. Shortlisted teams build at the SCET campus in Surat.",
-    ],
+    ["What are the hackathon rounds?", "To be announced."],
     [
       "When does registration open?",
       "Dates and the official form will appear once organizers confirm them.",
     ],
-  ],
-  milestones: [
-    ["Registration", "Form and eligibility published"],
-    ["Round 1", "Online idea submission"],
-    ["Shortlist", "Qualified teams announced"],
-    ["Round 2", "24 hours on campus"],
-  ],
-  agenda: [
-    ["11:00 AM", "Kickoff"],
-    ["02:00 PM", "Mentor round"],
-    ["08:00 PM", "Prototype review"],
-    ["12:00 AM", "Midnight snacks"],
-    ["08:00 AM", "Final testing"],
-    ["11:00 AM", "Final submission"],
-    ["After submission", "Judging and closing"],
   ],
   rules: [
     [
@@ -80,14 +63,7 @@ export const event = {
       "Team",
       "Prepare a team of three to five. Nominate one contact for organizer updates.",
     ],
-    [
-      "Round 1",
-      "Describe the problem, intended users and proposed prototype in the online submission.",
-    ],
-    [
-      "Round 2",
-      "Bring your development setup and demonstrate the prototype at the end of the campus build.",
-    ],
+    ["Rounds", "To be announced."],
     [
       "Code of Conduct",
       "Respect participants, mentors, equipment and personal information.",
@@ -104,11 +80,7 @@ export const event = {
     ["Tech complexity", 20],
     ["Presentation", 10],
   ] as [string, number][],
-  judging: [
-    "Online idea review",
-    "Campus prototype review",
-    "Final demonstration",
-  ],
+  judging: ["Round details to be announced."],
   crew: [
     ["Event coordination", "Schedule and participant support"],
     ["Technical team", "Problem statements and mentoring"],
@@ -136,6 +108,8 @@ export const navigation = [
   ["About", "/about"],
   ["Results", "/results"],
   ["Winners", "/winners"],
+  ["Privacy", "/privacy"],
+  ["Terms of use", "/terms"],
 ];
 
 export const copy = {
@@ -199,7 +173,7 @@ export const copy = {
   textProposedWEIGHTS: "PROPOSED WEIGHTS",
   textStep0: "STEP 0",
   textQualifiedTeamsWillAppearAfterRound1:
-    "Qualified teams will appear after Round 1 review.",
+    "The organizers will publish qualified teams here.",
   textFindATeam: "Find a team",
   textTrack: "Track",
   textLoadingTeams: "Loading teams…",
@@ -235,6 +209,6 @@ export const copy = {
   textRegistration: "REGISTRATION",
   textRegistrationOpensSoon: "Registration opens soon",
   textTheOfficialFormAndDeadlineWillAppear:
-    "The official form and deadline will appear here once SCET announces them.",
+    "The hackathon takes place on 28–29 January 2027. Registration details will appear here when announced.",
   textGotIt: "Got it",
 };

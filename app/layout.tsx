@@ -3,11 +3,7 @@ import type { Metadata } from "next";
 import Shell from "@/components/Shell";
 import { event } from "@/data/event";
 import "@/styles/globals.css";
-const display = localFont({
-  src: "../node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2",
-  variable: "--display",
-  weight: "300 700",
-});
+
 const mono = localFont({
   src: "../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2",
   variable: "--mono",
@@ -27,7 +23,7 @@ export const metadata: Metadata = {
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={display.variable + " " + mono.variable}>
+    <html lang="en" className={mono.variable}>
       <body>
         <Shell>{children}</Shell>
       </body>

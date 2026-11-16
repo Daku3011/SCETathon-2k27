@@ -41,12 +41,6 @@ export function Guidelines() {
         <div>
           {event.rules.map(([n, d]) => (
             <section className="card rule" key={n} id={id(n)}>
-              <motion.small
-                initial={{ opacity: 0.4 }}
-                whileInView={{ opacity: 1 }}
-              >
-                ✓
-              </motion.small>
               <h3>{n}</h3>
               <p>{d}</p>
               <button
