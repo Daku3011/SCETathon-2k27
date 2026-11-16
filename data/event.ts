@@ -47,7 +47,7 @@ export const event = {
     "Spearheaded jointly by the Departments of Computer Engineering & Chemical Engineering at SCET, bridging computational intelligence with real-world material and process engineering.",
   hero: "A 24-hour national student hackathon at SCET, Surat, bridging computer engineering and chemical process innovations into functional prototypes.",
   intro:
-    "SCETATHON 2.0 brings student squads from across the country to Sarvajanik College of Engineering & Technology, Surat. Spearheaded jointly by the Departments of Computer Engineering and Chemical Engineering, teams collaborate across code and physical systems to turn pressing campus, climate, and industrial challenges into working hardware and software solutions over 24 continuous hours.",
+    "SCETATHON 2.0 brings student squads from across the country to Sarvajanik College of Engineering & Technology, Surat. Spearheaded jointly by the Departments of Computer Engineering, Chemical Engineering and Electronics & Communication, teams collaborate across code and physical systems to turn pressing campus, climate, and industrial challenges into working hardware and software solutions over 24 continuous hours.",
   factsLine: "24 hours · teams of 3–5 · eight problem statements",
   prizesNotice: "Awards and category bounties will be announced upon jury confirmation.",
   sponsorsNotice: "Official community and industry partners for the 2027 edition will be published here upon confirmation.",

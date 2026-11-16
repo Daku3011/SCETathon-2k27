@@ -190,7 +190,7 @@ function EventIntroduction() {
         </div>
 
         {/* Interdisciplinary Branches Spotlight Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#182239]/15">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#182239]/15">
           <div className="p-6 bg-[#ECE5D6] border border-[#182239]/20 rounded-[2px] hover:border-[#172C67] transition-all group">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-2xl p-2 bg-[#F5EFE2] rounded-[2px] border border-[#182239]/15">💻</span>
@@ -224,7 +224,7 @@ function EventIntroduction() {
               Bringing domain expertise in green process optimization, environmental remediation, bio-chemical sensors, industrial recycling, and sustainable material synthesis.
             </p>
           </div>
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );
