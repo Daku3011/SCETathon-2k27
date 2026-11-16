@@ -37,3 +37,7 @@ Minimal, responsive hackathon website and working Supabase-backed participant/ad
 - `src/lib.ts` — Supabase setup and event content
 - `supabase/schema.sql` — tables, functions, RLS
 - `.env.example` — required environment variables
+
+## Temporary public Vercel demo
+
+Vercel uses the Vite preset, `npm ci`, `npm run build`, and `dist`. SPA rewrites are configured in vercel.json. `.env.production` explicitly enables demo mode, disabling the Supabase client and hiding account forms. To enable real accounts later, configure and secure Supabase using the instructions above, then explicitly set `VITE_DEMO_MODE=false` in the Vercel environment and rebuild. Never put a service-role key in Vite variables.
