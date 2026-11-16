@@ -83,15 +83,7 @@ export function ChallengeBoard() {
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* Challenge Footer Footnote */}
-        <div className="mt-8 pt-2 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 font-mono text-[10px] uppercase text-[#BBBEB3]">
-          <span className="tracking-wider">THE NEXT GREAT SOLUTION ISN'T ON THE BOARD. YET.</span>
-          <span className="border-l border-lime pl-4 max-w-[420px] leading-relaxed text-[#93958E]">
-            No invented challenge titles or hidden/blurred descriptions. Published briefs replace these placeholders.
-          </span>
-        </div>
+        </div>        
       </div>
     </section>
   );
