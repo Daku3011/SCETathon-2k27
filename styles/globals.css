@@ -117,6 +117,32 @@ button:hover .line-icon {
   animation: fadeIn 0.2s ease-out forwards;
 }
 
+/* Terminal blink utility */
+@keyframes terminalBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-terminal-blink {
+  animation: terminalBlink 0.9s infinite;
+}
+
+/* Text outline smooth transitions */
+.stroke-reveal {
+  -webkit-text-stroke: 1.5px #F2F0E8;
+  color: transparent;
+  transition: color 0.35s ease, -webkit-text-stroke 0.35s ease, transform 0.35s ease;
+}
+
+.stroke-reveal:hover {
+  color: #FF7358;
+  -webkit-text-stroke: 1.5px #FF7358;
+}
+
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
