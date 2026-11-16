@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { event } from "@/data/event";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -15,23 +14,22 @@ export default function Image() {
           padding: 64,
           width: "100%",
           height: "100%",
-          background: "#172C67",
-          color: "#F5EFE2",
+          background: "#111210",
+          color: "#F2F0E8",
           fontFamily: "sans-serif",
           position: "relative",
         }}
       >
-        {/* Subtle Mandana-inspired framing border */}
+        {/* Border overlay */}
         <div
           style={{
+            display: "flex",
             position: "absolute",
             top: 24,
             left: 24,
             right: 24,
             bottom: 24,
-            border: "2px solid rgba(245, 239, 226, 0.3)",
-            borderRadius: 4,
-            pointerEvents: "none",
+            border: "1px solid rgba(255, 255, 255, 0.19)",
           }}
         />
 
@@ -48,33 +46,32 @@ export default function Image() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 12,
             }}
           >
             <div
               style={{
-                background: "rgba(245, 239, 226, 0.12)",
-                border: "1px solid rgba(245, 239, 226, 0.25)",
-                borderRadius: 2,
+                display: "flex",
+                background: "#232422",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
                 padding: "8px 18px",
-                fontSize: 16,
-                fontWeight: 600,
-                color: "#F5EFE2",
+                fontSize: 15,
+                fontWeight: 700,
+                color: "#D8FF50",
                 letterSpacing: 2,
               }}
             >
-              SARVAJANIK COLLEGE OF ENGINEERING &amp; TECHNOLOGY · SURAT
+              SCETATHON 2.0 // SURAT, INDIA
             </div>
           </div>
 
           <div
             style={{
-              background: "#963E29",
-              borderRadius: 2,
+              display: "flex",
+              background: "#D8FF50",
               padding: "8px 22px",
-              fontSize: 18,
-              fontWeight: 700,
-              color: "#F5EFE2",
+              fontSize: 17,
+              fontWeight: 800,
+              color: "#111210",
               letterSpacing: 1,
             }}
           >
@@ -87,45 +84,49 @@ export default function Image() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 16,
-            marginTop: 20,
-            marginBottom: 20,
+            marginTop: 10,
+            marginBottom: 10,
           }}
         >
           <div
             style={{
-              fontSize: 92,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "baseline",
+              fontSize: 88,
               fontWeight: 900,
-              letterSpacing: -3,
-              lineHeight: 0.95,
-              color: "#F5EFE2",
+              letterSpacing: -4,
+              lineHeight: 0.88,
+              color: "#F2F0E8",
             }}
           >
-            SCETATHON 2.0
+            <span>MAKE WHAT'S </span>
+            <span style={{ color: "#D8FF50", marginLeft: 16 }}>NEXT.</span>
           </div>
 
           <div
             style={{
-              fontSize: 32,
-              fontWeight: 700,
-              color: "#F5EFE2",
-              opacity: 0.9,
-              letterSpacing: 0,
+              display: "flex",
+              fontSize: 26,
+              fontWeight: 600,
+              color: "#FF7358",
+              marginTop: 16,
             }}
           >
-            A 24-hour student hackathon at SCET, Surat.
+            A 24-hour engineering hackathon at SCET, Surat.
           </div>
 
           <div
             style={{
-              fontSize: 20,
-              color: "#F5EFE2",
-              opacity: 0.75,
+              display: "flex",
+              fontSize: 18,
+              color: "#C6C8BE",
               maxWidth: 820,
-              lineHeight: 1.4,
+              lineHeight: 1.5,
+              marginTop: 12,
             }}
           >
-            Student teams turn urgent regional, industrial, and social challenges into verified working software and hardware prototypes.
+            Where code meets chemistry, ambitious ideas become real prototypes, and the next generation builds.
           </div>
         </div>
 
@@ -135,25 +136,25 @@ export default function Image() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            borderTop: "1px solid rgba(245, 239, 226, 0.2)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
             paddingTop: 24,
             width: "100%",
           }}
         >
-          <div style={{ fontSize: 18, color: "#F5EFE2", fontWeight: 600 }}>
-            SCET Campus, Athwalines, Surat, Gujarat
+          <div style={{ display: "flex", fontSize: 16, color: "#93958E", fontWeight: 600 }}>
+            Sarvajanik College of Engineering &amp; Technology · Computer Eng × Chemical Eng
           </div>
 
           <div
             style={{
-              fontSize: 16,
-              color: "#F5EFE2",
+              display: "flex",
+              fontSize: 15,
+              color: "#D8FF50",
               fontWeight: 700,
               letterSpacing: 1.5,
-              opacity: 0.9,
             }}
           >
-            24 HOURS · TEAMS OF 3–5 · EIGHT PROBLEM STATEMENTS
+            24 HOURS · TEAMS OF 3–5 · EIGHT CHALLENGE SLOTS
           </div>
         </div>
       </div>

@@ -1,11 +1,26 @@
-import { copy } from "@/data/event";
+import React from "react";
+import type { Metadata } from "next";
 import { About } from "@/components/sections/Inner";
-export const metadata = { title: "About SCETATHON" };
-export default function Page() {
+import { PageHeader } from "@/components/shell/PageHeader";
+
+export const metadata: Metadata = {
+  title: "About SCETATHON 2.0",
+  description:
+    "SCETATHON 2.0 brings student squads from across India to Sarvajanik College of Engineering & Technology, Surat.",
+};
+
+export default function AboutPage() {
   return (
-    <div className="page wrap">
-      <small>{copy.textScetathon2027}</small>
-      <h1>{copy.textAboutSCETATHON}</h1>
+    <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto py-12 md:py-20">
+      <PageHeader
+        tag="01 / The Organization"
+        title={
+          <>
+            ABOUT SCET <span className="text-lime">&amp;</span> THE SPRINT.
+          </>
+        }
+        subtitle="Where computer systems and chemical process engineering meet. Hosted at Sarvajanik College of Engineering & Technology, Surat."
+      />
       <About />
     </div>
   );

@@ -5,31 +5,36 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: "var(--accent)",
-        "primary-container": "var(--blue-500)",
-        "on-primary-container": "#FFFFFF",
-        primary: "var(--accent)",
-        secondary: "var(--text)",
-        "secondary-container": "var(--accent)",
-        "on-secondary": "var(--bg)",
-        "surface-container-lowest": "var(--surface-solid)",
-        "surface-container-low": "var(--surface-glass)",
-        "surface-container": "var(--surface)",
-        "surface-container-high": "var(--surface-solid)",
-        "surface-container-highest": "var(--surface-solid)",
-        surface: "var(--bg)",
-        "on-surface": "var(--text)",
-        "on-surface-variant": "var(--text-muted)",
-        "tertiary-fixed": "var(--accent)",
-        "tertiary-fixed-dim": "var(--accent)",
-        tertiary: "var(--accent)",
-        "void-black": "#04060C",
-        "terminal-emerald": "#10B981",
-        ivory: "#F6F1E7",
-        "navy-950": "#0A1230",
-        "navy-800": "#14224F",
-        "blue-500": "#2F5BFF",
-        "blue-300": "#7FA0FF",
+        ink: {
+          DEFAULT: "#111210",
+          2: "#232422",
+        },
+        signal: "#D8FF50",
+        lime: {
+          DEFAULT: "#D8FF50",
+          hover: "#f0ffad",
+        },
+        coral: {
+          DEFAULT: "#FF7358",
+        },
+        orange: {
+          DEFAULT: "#FF7358",
+        },
+        lilac: {
+          DEFAULT: "#C9C5FD",
+        },
+        paper: {
+          DEFAULT: "#F2F0E8",
+        },
+        muted: {
+          DEFAULT: "#93958E",
+        },
+        accent: "#D8FF50",
+      },
+      fontFamily: {
+        display: ["var(--font-d)", "Archivo Black", "Arial Black", "Impact", "sans-serif"],
+        body: ["var(--font-b)", "DM Sans", "Arial", "sans-serif"],
+        mono: ["var(--font-m)", "Space Mono", "monospace"],
       },
     },
   },

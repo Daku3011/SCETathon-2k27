@@ -1,29 +1,59 @@
+import React from "react";
+import type { Metadata } from "next";
 import { event } from "@/data/event";
+import { PageHeader } from "@/components/shell/PageHeader";
 
-export const metadata = { title: "Privacy notice" };
+export const metadata: Metadata = {
+  title: "Privacy Notice",
+  description: "Privacy statement and data handling principles for SCETATHON 2.0 at SCET, Surat.",
+};
 
-export default function Privacy() {
+export default function PrivacyPage() {
   return (
-    <article className="wrap page policy py-16 max-w-3xl mx-auto px-4">
-      <h1 className="font-display text-4xl font-bold text-[#182239] mb-6">Privacy notice</h1>
-      <div className="prose text-[#182239]/90 text-lg leading-relaxed space-y-6">
-        <p>
-          You can browse this official SCETATHON 2.0 programme without creating an account. Search terms and challenge filters stay in your browser during your session. The countdown preview simulates event timeline milestones locally.
-        </p>
-        <h2 className="font-display text-2xl font-bold text-[#182239] pt-4">Hosting and maps</h2>
-        <p>
-          This event website is hosted securely. Campus maps load directly from Google Maps, subject to Google privacy terms. No personal telemetry or user credentials are submitted without explicit consent.
-        </p>
-        <h2 className="font-display text-2xl font-bold text-[#182239] pt-4">Questions</h2>
-        <p>
-          For privacy inquiries regarding SCETATHON 2.0, contact the organizing secretariat at:{" "}
-          <a
-            href={"mailto:" + event.email}
-            className="text-[#172C67] underline underline-offset-4 font-semibold"
-          >
-            {event.email}
-          </a>.
-        </p>
+    <article className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto py-12 md:py-20 max-w-4xl">
+      <PageHeader
+        tag="10 / Legal & Privacy"
+        title={
+          <>
+            PRIVACY <span className="text-lime">NOTICE.</span>
+          </>
+        }
+        subtitle="Transparent data collection, hosting privacy, and retention policies for SCETATHON 2.0."
+      />
+
+      <div className="p-8 md:p-12 bg-[#191A18] border border-white/[0.19] space-y-8 text-base md:text-lg text-[#C6C8BE] leading-relaxed">
+        <div>
+          <h2 className="font-display text-xl text-paper uppercase tracking-tight mb-2">
+            No Tracking &amp; Minimal Data
+          </h2>
+          <p>
+            You can browse this official SCETATHON 2.0 platform without creating an account or submitting personal credentials. Search terms and challenge filters stay in your local browser session and are not uploaded to analytics tracking servers.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-display text-xl text-paper uppercase tracking-tight mb-2">
+            Hosting &amp; Embedded Maps
+          </h2>
+          <p>
+            This event website is hosted securely. Campus location maps load directly from Google Maps, subject to Google's standard privacy terms. No personal telemetry or user credentials are transmitted without explicit consent.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-display text-xl text-paper uppercase tracking-tight mb-2">
+            Secretariat Contact
+          </h2>
+          <p>
+            For privacy inquiries regarding SCETATHON 2.0, contact the organizing team at:{" "}
+            <a
+              href={`mailto:${event.email}`}
+              className="text-lime underline underline-offset-4 font-mono font-bold"
+            >
+              {event.email}
+            </a>
+          </p>
+        </div>
       </div>
     </article>
   );

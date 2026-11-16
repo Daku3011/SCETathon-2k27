@@ -1,0 +1,17 @@
+:root {
+  --ink: #111210;
+  --ink-2: #232422;
+  --signal: #D8FF50;
+  --lime: #D8FF50;
+  --coral: #FF7358;
+  --orange: #FF7358;
+  --lilac: #C9C5FD;
+  --paper: #F2F0E8;
+  --muted: #93958E;
+  --line: rgba(255, 255, 255, 0.19);
+  --line-dark: rgba(17, 18, 16, 0.24);
+  --font-d: 'Archivo Black', 'Arial Black', Impact, sans-serif;
+  --font-b: 'DM Sans', Arial, sans-serif;
+  --font-m: 'Space Mono', monospace;
+  scroll-behavior: smooth;
+}
