@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 export function Manifesto() {
   return (
@@ -39,8 +41,17 @@ export function Manifesto() {
             Forget the ordinary. This is 24 hours of sketching, breaking, fixing, prototyping, and discovering what happens when different minds build together.
           </p>
 
-          <div className="font-mono text-[11px] leading-relaxed uppercase tracking-[0.12em] font-bold text-ink/75">
-            Sarvajanik College of Engineering &amp; Technology
+          <div className="pt-6 border-t border-ink/20 flex flex-col gap-3">
+            <div className="font-mono text-[11px] leading-relaxed uppercase tracking-[0.12em] font-bold text-ink/75">
+              Sarvajanik College of Engineering &amp; Technology
+            </div>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-ink underline underline-offset-4 hover:opacity-70 transition-opacity"
+            >
+              <span>Explore The Organization &amp; Committee</span>
+              <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
+            </Link>
           </div>
         </div>
       </div>

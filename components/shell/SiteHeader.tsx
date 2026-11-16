@@ -8,44 +8,29 @@ import { RegistrationStatus } from "@/components/registration/RegistrationStatus
 import { ArrowUpRight } from "@/components/ui/Icons";
 
 const navItems = [
-  { label: "The idea", hash: "#about", fallbackHref: "/about" },
-  { label: "Challenges", hash: "#challenges", fallbackHref: "/problems" },
-  { label: "The 24h", hash: "#schedule", fallbackHref: "/timeline" },
-  { label: "Experience", hash: "#experience", fallbackHref: "/about" },
-  { label: "FAQ", hash: "#faq", fallbackHref: "/#faq" },
+  { label: "About", href: "/about" },
+  { label: "Challenges", href: "/problems" },
+  { label: "Timeline", href: "/timeline" },
+  { label: "Guidelines", href: "/guidelines" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 const secondaryNav = [
-  { label: "Guidelines", href: "/guidelines" },
   { label: "Evaluation", href: "/evaluation" },
   { label: "Gallery", href: "/gallery" },
   { label: "Sponsors", href: "/sponsors" },
+  { label: "Contact", href: "/about#contact" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const getHref = (hash: string, fallback: string) => {
-    if (pathname === "/") return hash;
-    return fallback;
-  };
-
   const closeMenu = () => setMobileOpen(false);
 
   return (
     <>
-      {/* 1. Acid-Lime Campaign Topline */}
-      {/* <div className="bg-lime text-ink h-8 flex items-center justify-between gap-4 px-4 md:px-10 font-mono text-[9px] md:text-[10px] font-bold uppercase tracking-wider select-none z-40 relative">
-        <span className="flex items-center gap-2">
-          <span>SCETATHON 2.0</span>
-          <span aria-hidden="true">✳</span>
-          <span className="hidden sm:inline">THE NEXT GENERATION BUILDS HERE</span>
-        </span>
-        <span className="text-right">SURAT, INDIA / JAN 28–29, 2027</span>
-      </div> */}
-
-      {/* 2. Sticky Masthead */}
+      {/* Sticky Masthead Header */}
       <header className="sticky top-0 z-30 bg-[#111210]/95 border-b border-white/[0.19] backdrop-blur-md">
         <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto min-h-[68px] md:min-h-[74px] flex items-center justify-between gap-4.5">
           {/* Brand mark */}
@@ -56,15 +41,22 @@ export function SiteHeader() {
             className="hidden lg:flex items-center gap-7"
             aria-label="Primary navigation"
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={getHref(item.hash, item.fallbackHref)}
-                className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[#E4E5DE] hover:text-lime transition-colors py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition-colors py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral ${
+                    isActive
+                      ? "text-lime border-b border-lime"
+                      : "text-[#E4E5DE] hover:text-lime"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Actions: Registration status button & Mobile Toggle */}
@@ -97,16 +89,26 @@ export function SiteHeader() {
               <span className="font-mono text-[10px] text-lime font-bold uppercase tracking-widest">
                 Main Sections
               </span>
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={getHref(item.hash, item.fallbackHref)}
-                  onClick={closeMenu}
-                  className="font-mono text-xs font-bold uppercase tracking-wider text-paper hover:text-lime py-1"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={closeMenu}
+                    className={`font-mono text-xs font-bold uppercase tracking-wider py-1 flex items-center justify-between ${
+                      isActive ? "text-lime" : "text-paper hover:text-lime"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    {isActive && (
+                      <span className="font-mono text-[9px] text-lime font-bold">
+                        ● CURRENT
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="flex flex-col gap-2.5 pb-2">

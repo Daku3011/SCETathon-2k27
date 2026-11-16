@@ -161,9 +161,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right / Hero Art: The Signal Wheel */}
+        {/* Right / Hero Art: The Kinetic Signal Wheel */}
         <div
-          className="relative lg:absolute lg:right-[-8%] lg:top-[4%] lg:h-[89%] lg:w-[58%] flex items-center justify-center mt-8 lg:mt-0 pointer-events-none z-0"
+          className="relative lg:absolute lg:right-[-8%] lg:top-[4%] lg:h-[89%] lg:w-[58%] flex items-center justify-center mt-8 lg:mt-0 pointer-events-auto z-0"
           aria-hidden="true"
         >
           <SignalWheel />
