@@ -141,7 +141,7 @@ export default function Image() {
           }}
         >
           <div style={{ fontSize: 18, color: "#F5EFE2", fontWeight: 600 }}>
-            📍 SCET Campus, Athwalines, Surat, Gujarat
+            SCET Campus, Athwalines, Surat, Gujarat
           </div>
 
           <div
