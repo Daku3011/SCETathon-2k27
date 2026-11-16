@@ -24,7 +24,7 @@ export default function Home() {
     "@type": "Event",
     name: event.name,
     description:
-      "A 24-hour national student hackathon at SCET, Surat, bridging computer engineering and chemical process innovations into functional prototypes.",
+      "A 24-hour national student hackathon at SCET, Surat, bridging interdisciplinary engineering & innovations into functional prototypes.",
     url: event.site,
     startDate: event.start || undefined,
     endDate: event.end || undefined,

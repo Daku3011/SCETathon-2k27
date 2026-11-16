@@ -33,7 +33,7 @@ export function ChallengeBoard() {
 
           <div className="max-w-[420px] space-y-4">
             <p className="text-[#ADAEA7] text-base md:text-[17px] leading-relaxed">
-              Spearheaded jointly by Computer Engineering &amp; Chemical Engineering at SCET Surat. Explore 3 foundational tracks spanning 9 real-world challenge statements.
+              Spearheaded jointly by all departments at SCET Surat. Explore 3 foundational tracks spanning 9 real-world challenge statements.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link

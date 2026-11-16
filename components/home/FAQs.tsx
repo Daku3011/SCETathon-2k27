@@ -25,7 +25,7 @@ const faqData = [
   },
   {
     q: "Who is organizing the event?",
-    a: "Sarvajanik College of Engineering & Technology (SCET), Surat. The current event materials identify collaboration between the Departments of Computer Engineering and Chemical Engineering.",
+    a: "Sarvajanik College of Engineering & Technology (SCET), Surat. The current event materials identify collaboration between ALl the Departments of  Engineering.",
   },
 ];
 

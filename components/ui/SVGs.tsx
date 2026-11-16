@@ -320,7 +320,7 @@ export function BreadboardIllustration({ className = "" }: { className?: string 
       style={{ perspective: 1400, touchAction: "pan-y" }}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      aria-label="Interdisciplinary Computer and Chemical Engineering illustration with Mandana chalk linework, shown as a tilting 3D circuit board"
+      aria-label="Interdisciplinary illustration with Mandana chalk linework, shown as a tilting 3D circuit board"
       role="img"
     >
       <style>{CSS}</style>

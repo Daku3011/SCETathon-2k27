@@ -145,7 +145,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
             opacity="0.8"
           >
             <textPath href="#orbit-path-inner" startOffset="0%">
-              ❖ COMPUTER ENG × CHEMICAL ENG ❖ ATOMS MEET BITS ❖ 24H LIVE SPRINT ❖
+              ❖ INTERDISCIPLINARY ENGINEERING ❖ ATOMS MEET BITS ❖ 24H LIVE SPRINT ❖
             </textPath>
           </text>
         </g>
@@ -201,9 +201,9 @@ export function SignalWheel({ className = "" }: { className?: string }) {
           y="298"
           textAnchor="middle"
           fill="#C9C5FD"
-          className="font-mono text-[9px] uppercase tracking-[0.26em] font-bold select-none"
+          className="font-mono text-[7px] uppercase tracking-[0.26em] font-bold select-none"
         >
-          SIGNAL LOCKED
+          National Hackathon
         </text>
 
         {/* ── Hero SCETATHON Wordmark (Display Font) ── */}
@@ -277,10 +277,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
       >
         <div className="absolute inset-1.5 border border-dashed border-ink/40 rounded-full animate-spin [animation-duration:30s]" />
         <span className="-rotate-[10deg] leading-tight">
-          <strong className="block font-display text-sm tracking-tight mb-0.5">SCETATHON</strong>
-          <span>2.0 // SPRINT</span>
-          <br />
-          <span className="text-[9px] opacity-80">SURAT · 2027 ✳</span>
+          <strong className="block text-sm tracking-tight mb-0.5">BUILD * WIN</strong>
         </span>
       </div>
     </div>
