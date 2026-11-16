@@ -1,4 +1,5 @@
 "use client";
+import { matchesSearch } from "@/lib/search";
 import { Announcement } from "../ui/Announcement";
 import { copy } from "@/data/event";
 
@@ -146,9 +147,7 @@ export function Results() {
   if (!event.resultsOpen)
     return <Pending text={copy.textQualifiedTeamsWillAppearAfterRound1} />;
   const rows = event.teams.filter(
-    (t) =>
-      (cat === "All" || t.track === cat) &&
-      t.name.toLowerCase().includes(q.toLowerCase()),
+    (t) => (cat === "All" || t.track === cat) && matchesSearch(t.name, q),
   );
   return (
     <>

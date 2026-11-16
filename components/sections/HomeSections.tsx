@@ -1,4 +1,5 @@
 "use client";
+import { matchesSearch } from "@/lib/search";
 import { Announcement } from "../ui/Announcement";
 import { useState } from "react";
 import * as A from "@radix-ui/react-accordion";
@@ -55,7 +56,7 @@ export function Sponsors() {
 function Faq() {
   const [q, set] = useState("");
   const matches = event.faq.filter((items) =>
-    items.join(" ").toLowerCase().includes(q.toLowerCase()),
+    matchesSearch(items.join(" "), q),
   );
   return (
     <>
@@ -105,7 +106,7 @@ export default function HomeSections() {
           </p>
           <Link href="/problems">Read all eight sample briefs</Link>
         </div>
-        <div className="bench">
+        <div className="bench" data-reserved={reserved}>
           <small>Interactive sample · no real reservation</small>
           <h3>Digital oscilloscope</h3>
           <p>Electronics lab · Bench 04</p>
@@ -116,7 +117,7 @@ export default function HomeSections() {
             </div>
             <div>
               <dt>Status</dt>
-              <dd role="status">
+              <dd className="slot-state" role="status">
                 {reserved ? "Reserved by your team" : "Available"}
               </dd>
             </div>

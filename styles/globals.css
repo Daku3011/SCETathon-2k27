@@ -919,3 +919,127 @@ select {
     animation: none;
   }
 }
+
+/* Feedback begins on contact. Frequently repeated controls use the shortest timing. */
+.btn,
+.menu-btn,
+.announcement button,
+.chips button,
+.drawer-head button,
+.faq button,
+.navlinks a,
+.edition-actions a,
+.linkgroups a,
+.footer-base a {
+  min-height: 44px;
+}
+.drawer-head button {
+  min-width: 44px;
+}
+.navlinks a,
+.edition-actions a,
+.linkgroups a,
+.footer-base a {
+  display: inline-flex;
+  align-items: center;
+}
+.linkgroups a {
+  display: flex;
+  width: fit-content;
+  min-width: 44px;
+  margin: 0;
+}
+.drawer .linkgroups {
+  gap: 12px 24px;
+}
+.btn,
+.menu-btn {
+  transition: transform 110ms cubic-bezier(0.22, 0.72, 0.25, 1);
+  transform-origin: center 75%;
+}
+.btn:active,
+.menu-btn:active {
+  transform: perspective(500px) translateY(1px) rotateX(4deg) scale(1.025, 0.95);
+}
+.drawer[data-repeat="true"] {
+  animation-duration: 95ms;
+}
+.drawer[data-repeat="false"] .linkgroups section {
+  animation: group-settle 235ms cubic-bezier(0.18, 0.8, 0.22, 1) both;
+}
+.drawer[data-repeat="false"] .linkgroups section:nth-child(2) {
+  animation-delay: 22ms;
+}
+@keyframes group-settle {
+  0% {
+    opacity: 0.45;
+    transform: translateX(9px) rotate(0.7deg);
+  }
+  78% {
+    transform: translateX(-1px) rotate(-0.15deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.announcement p {
+  animation: detail-in 170ms ease-out;
+}
+@keyframes detail-in {
+  from {
+    opacity: 0.35;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.slot-state {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.slot-state:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #445773;
+}
+.bench[data-reserved="true"] .slot-state:before {
+  background: var(--accent);
+  border-color: var(--accent);
+  animation: confirm-slot 245ms cubic-bezier(0.25, 0.72, 0.32, 1) both;
+}
+@keyframes confirm-slot {
+  0% {
+    transform: translate(0, 0) scale(0.8, 1);
+  }
+  18% {
+    transform: translate(-2px, 1px) scale(1.2, 0.77);
+  }
+  52% {
+    transform: translate(2px, -5px) scale(0.92, 1.18);
+  }
+  80% {
+    transform: translate(1px, 1px) scale(1.2, 0.88);
+  }
+  100% {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn:active,
+  .menu-btn:active {
+    transform: none;
+  }
+  .drawer,
+  .drawer .linkgroups section,
+  .announcement p,
+  .bench .slot-state:before {
+    animation: none !important;
+  }
+}

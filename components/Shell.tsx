@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import * as D from "@radix-ui/react-dialog";
 import Link from "next/link";
@@ -38,6 +38,8 @@ function Brand() {
 export default function Shell({ children }: { children: React.ReactNode }) {
   const [open, set] = useState(false),
     path = usePathname();
+  const seen = useRef(new Set<string>());
+  const [openedBefore, setOpenedBefore] = useState(false);
   useEffect(() => {
     if (
       !window.IntersectionObserver ||
@@ -47,12 +49,21 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     const observer = new IntersectionObserver((entries) =>
       entries.forEach((e) => {
         if (e.isIntersecting) {
+          observer.unobserve(e.target);
+          const key =
+            path +
+            "|" +
+            e.target.tagName +
+            "|" +
+            (e.target.textContent ?? "").slice(0, 100);
+          if (seen.current.has(key)) return;
+          seen.current.add(key);
           e.target.animate(
             [
               { opacity: 0.55, transform: "translateY(16px)" },
               { opacity: 1, transform: "translateY(0)" },
             ],
-            { duration: 450, easing: "ease-out" },
+            { duration: 225, easing: "cubic-bezier(.2,.75,.25,1)" },
           );
           observer.unobserve(e.target);
         }
@@ -73,7 +84,10 @@ export default function Shell({ children }: { children: React.ReactNode }) {
             href={u}
             aria-current={path === u ? "page" : undefined}
             onClick={() => {
-              if (close) set(false);
+              if (close) {
+                setOpenedBefore(true);
+                set(false);
+              }
             }}
           >
             {n}
@@ -96,14 +110,24 @@ export default function Shell({ children }: { children: React.ReactNode }) {
             <Link href="/problems">Problems</Link>
             <Link href="/gallery">Gallery</Link>
           </div>
-          <D.Root open={open} onOpenChange={set}>
+          <D.Root
+            open={open}
+            onOpenChange={(value) => {
+              if (!value) setOpenedBefore(true);
+              set(value);
+            }}
+          >
             <D.Trigger className="menu-btn">
               <i aria-hidden="true" />
               Menu
             </D.Trigger>
             <D.Portal>
               <D.Overlay className="overlay" />
-              <D.Content className="drawer" aria-describedby={undefined}>
+              <D.Content
+                className="drawer"
+                data-repeat={openedBefore}
+                aria-describedby={undefined}
+              >
                 <div className="drawer-head">
                   <D.Title>Explore SCETATHON</D.Title>
                   <D.Close aria-label="Close menu">×</D.Close>
