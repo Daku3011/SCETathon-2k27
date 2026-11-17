@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Wordmark } from "@/components/identity/Wordmark";
 import { RegistrationStatus } from "@/components/registration/RegistrationStatus";
 import { ArrowUpRight } from "@/components/ui/Icons";
+import { usePageTransition } from "@/components/transitions/PageTransitionContext";
 
 const navItems = [
   { label: "About", href: "/about" },
@@ -25,8 +26,29 @@ const secondaryNav = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { triggerTransition } = usePageTransition();
 
   const closeMenu = () => setMobileOpen(false);
+
+  const handleNavClick = (
+    href: string,
+    label: string,
+    e: React.MouseEvent<HTMLElement>
+  ) => {
+    if (href.startsWith("http")) return;
+
+    const [targetPath, targetHash] = href.split("#");
+    const isSamePage =
+      !targetPath || targetPath === pathname || targetPath === "";
+
+    // If clicking a hash on the current page, let default smooth scroll handle it
+    if (isSamePage && targetHash) {
+      return;
+    }
+
+    e.preventDefault();
+    triggerTransition(href, label, e);
+  };
 
   return (
     <>
@@ -34,7 +56,16 @@ export function SiteHeader() {
       <header className="sticky top-0 z-30 bg-[#111210]/95 border-b border-white/[0.19] backdrop-blur-md">
         <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto min-h-[68px] md:min-h-[74px] flex items-center justify-between gap-4.5">
           {/* Brand mark */}
-          <Wordmark href="/" size="md" />
+          <Wordmark
+            href="/"
+            size="md"
+            onClick={(e) => {
+              if (pathname !== "/") {
+                e.preventDefault();
+                triggerTransition("/", "SCETATHON", e);
+              }
+            }}
+          />
 
           {/* Desktop Nav */}
           <nav
@@ -47,6 +78,7 @@ export function SiteHeader() {
                 <Link
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleNavClick(item.href, item.label, e)}
                   className={`font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition-colors py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral ${
                     isActive
                       ? "text-lime border-b border-lime"
@@ -95,7 +127,10 @@ export function SiteHeader() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={closeMenu}
+                    onClick={(e) => {
+                      closeMenu();
+                      handleNavClick(item.href, item.label, e);
+                    }}
                     className={`font-mono text-xs font-bold uppercase tracking-wider py-1 flex items-center justify-between ${
                       isActive ? "text-lime" : "text-paper hover:text-lime"
                     }`}
@@ -120,7 +155,10 @@ export function SiteHeader() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={closeMenu}
+                    onClick={(e) => {
+                      closeMenu();
+                      handleNavClick(item.href, item.label, e);
+                    }}
                     className="inline-flex items-center gap-1 font-mono text-[11px] text-[#C6C8BE] hover:text-lime py-1 uppercase"
                   >
                     <span>{item.label}</span>

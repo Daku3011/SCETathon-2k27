@@ -1,9 +1,24 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { event } from "@/data/event";
 import { ArrowUpRight, ArrowUp } from "@/components/ui/Icons";
+import { usePageTransition } from "@/components/transitions/PageTransitionContext";
 
 export function SiteFooter() {
+  const { triggerTransition } = usePageTransition();
+
+  const handleLinkClick = (
+    href: string,
+    label: string,
+    e: React.MouseEvent<HTMLElement>
+  ) => {
+    if (href.startsWith("http")) return;
+    e.preventDefault();
+    triggerTransition(href, label, e);
+  };
+
   return (
     <footer className="bg-ink text-paper border-t border-white/[0.12] py-10 md:py-12">
       <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto">
@@ -27,27 +42,51 @@ export function SiteFooter() {
               Platform Directory
             </span>
             <div className="grid grid-cols-2 gap-y-1.5 font-mono text-[10px] uppercase text-[#C6C8BE]">
-              <Link href="/about" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+              <Link
+                href="/about"
+                onClick={(e) => handleLinkClick("/about", "About", e)}
+                className="inline-flex items-center gap-1 hover:text-lime transition-colors"
+              >
                 <span>The Event</span>
                 <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/guidelines" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+              <Link
+                href="/guidelines"
+                onClick={(e) => handleLinkClick("/guidelines", "Guidelines", e)}
+                className="inline-flex items-center gap-1 hover:text-lime transition-colors"
+              >
                 <span>Guidelines</span>
                 <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/problems" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+              <Link
+                href="/problems"
+                onClick={(e) => handleLinkClick("/problems", "Challenges", e)}
+                className="inline-flex items-center gap-1 hover:text-lime transition-colors"
+              >
                 <span>Challenges</span>
                 <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/evaluation" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+              <Link
+                href="/evaluation"
+                onClick={(e) => handleLinkClick("/evaluation", "Evaluation", e)}
+                className="inline-flex items-center gap-1 hover:text-lime transition-colors"
+              >
                 <span>Evaluation</span>
                 <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/timeline" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+              <Link
+                href="/timeline"
+                onClick={(e) => handleLinkClick("/timeline", "Timeline", e)}
+                className="inline-flex items-center gap-1 hover:text-lime transition-colors"
+              >
                 <span>Schedule</span>
                 <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>
-              <Link href="/gallery" className="inline-flex items-center gap-1 hover:text-lime transition-colors">
+              <Link
+                href="/gallery"
+                onClick={(e) => handleLinkClick("/gallery", "Gallery", e)}
+                className="inline-flex items-center gap-1 hover:text-lime transition-colors"
+              >
                 <span>Archive</span>
                 <ArrowUpRight className="w-2.5 h-2.5" strokeWidth={2.4} />
               </Link>

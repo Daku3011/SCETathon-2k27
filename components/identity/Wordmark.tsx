@@ -5,9 +5,15 @@ interface WordmarkProps {
   href?: string;
   size?: "sm" | "md" | "lg";
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-export function Wordmark({ href = "/", size = "md", className = "" }: WordmarkProps) {
+export function Wordmark({
+  href = "/",
+  size = "md",
+  className = "",
+  onClick,
+}: WordmarkProps) {
   const sizeClasses = {
     sm: "text-lg",
     md: "text-[21px] md:text-[22px]",
@@ -42,6 +48,7 @@ export function Wordmark({ href = "/", size = "md", className = "" }: WordmarkPr
   return (
     <Link
       href={href}
+      onClick={onClick}
       className="inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral focus-visible:outline-offset-4"
       aria-label="SCETATHON 2.0 home"
     >
