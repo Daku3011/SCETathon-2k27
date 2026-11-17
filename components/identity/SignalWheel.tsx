@@ -27,7 +27,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
       >
         <defs>
           <pattern id="signal-dots" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="3" cy="3" r="2" fill="#D8FF50" opacity=".45" />
+            <circle cx="3" cy="3" r="2" fill="#13b6f1" opacity=".45" />
           </pattern>
 
           {/* Outer text orbit path: Radius 288, Circumference ~1809px */}
@@ -44,7 +44,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
 
           {/* Core radial glow filter */}
           <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#D8FF50" stopOpacity="0.25" />
+            <stop offset="0%" stopColor="#13b6f1" stopOpacity="0.25" />
             <stop offset="60%" stopColor="#111210" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#111210" stopOpacity="1" />
           </radialGradient>
@@ -55,7 +55,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
           cx="340"
           cy="340"
           r="326"
-          stroke="#D8FF50"
+          stroke="#13b6f1"
           strokeWidth="1"
           strokeDasharray="2 16"
           opacity=".45"
@@ -73,7 +73,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
           cx="340"
           cy="340"
           r="268"
-          stroke="#D8FF50"
+          stroke="#13b6f1"
           strokeWidth="1.2"
           opacity=".55"
         />
@@ -98,7 +98,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
         {/* ── Kinetic Clockwise Orbiting Text Track: SCETATHON 2.0 ── */}
         <g className="wheel-text-clockwise origin-center">
           <text
-            fill="#D8FF50"
+            fill="#13b6f1"
             className="font-mono text-[10.5px] tracking-[0.26em] uppercase font-bold"
             opacity="0.9"
             style={{ textShadow: "0 0 10px rgba(216,255,80,0.5)" }}
@@ -112,10 +112,10 @@ export function SignalWheel({ className = "" }: { className?: string }) {
         {/* ── Outer Kinetic Petals / Jaali points (Rotates forward 60s) ── */}
         <g className="radial-rotator origin-center">
           {/* 4 cardinal points (Acid Lime) */}
-          <path d="M340 32L384 180L340 249L296 180L340 32Z" fill="#D8FF50" />
-          <path d="M648 340L500 384L431 340L500 296L648 340Z" fill="#D8FF50" />
-          <path d="M340 648L296 500L340 431L384 500L340 648Z" fill="#D8FF50" />
-          <path d="M32 340L180 296L249 340L180 384L32 340Z" fill="#D8FF50" />
+          <path d="M340 32L384 180L340 249L296 180L340 32Z" fill="#13b6f1" />
+          <path d="M648 340L500 384L431 340L500 296L648 340Z" fill="#13b6f1" />
+          <path d="M340 648L296 500L340 431L384 500L340 648Z" fill="#13b6f1" />
+          <path d="M32 340L180 296L249 340L180 384L32 340Z" fill="#13b6f1" />
 
           {/* 4 diagonal diamond planes (Lilac) */}
           <path d="M122 122L280 206L300 300L206 280L122 122Z" fill="#C9C5FD" />
@@ -167,7 +167,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
           cy="340"
           r="92"
           fill="url(#core-glow)"
-          stroke="#D8FF50"
+          stroke="#13b6f1"
           strokeWidth="3.5"
           className="group-hover/wheel:stroke-coral transition-colors duration-500"
         />
@@ -227,7 +227,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
           width="108"
           height="19"
           rx="9.5"
-          fill="#D8FF50"
+          fill="#13b6f1"
           className="group-hover/wheel:fill-coral transition-colors duration-300"
         />
         <text
@@ -267,7 +267,7 @@ export function SignalWheel({ className = "" }: { className?: string }) {
         {/* ── Satellite Planetary Signal Nodes ── */}
         <circle cx="75" cy="168" r="9" fill="#FF7358" />
         <circle cx="566" cy="530" r="11" fill="#C9C5FD" />
-        <circle cx="585" cy="167" r="6" fill="#D8FF50" />
+        <circle cx="585" cy="167" r="6" fill="#13b6f1" />
       </svg>
 
       {/* Floating circular stamp badge: SCETATHON 2.0 / LIVE SPRINT */}

@@ -381,27 +381,95 @@ export function About() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {event.facultyCoordinators.map((faculty, idx) => (
             <article
               key={faculty.name}
-              className="p-6 bg-[#191A18] border border-white/[0.19] hover:border-lime/60 transition-colors flex flex-col justify-between group"
+              className="relative p-6 sm:p-7 bg-[#191A18] border border-white/[0.19] hover:border-lime/70 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
+              {/* Corner accent glow on hover */}
+              <div
+                className="absolute top-0 right-0 w-24 h-24 bg-lime/5 -rotate-45 translate-x-12 -translate-y-12 pointer-events-none group-hover:bg-lime/10 transition-colors"
+                aria-hidden="true"
+              />
+
               <div>
-                <div className="flex items-center justify-between font-mono text-[10px] text-lime uppercase tracking-widest mb-3">
-                  <span>COORD // 0{idx + 1}</span>
-                  <span className="border border-lime/40 px-2 py-0.5 text-lime">FACULTY</span>
+                {/* Meta Header */}
+                <div className="flex items-center justify-between font-mono text-[10px] text-lime uppercase tracking-widest mb-6">
+                  <span className="flex items-center gap-1.5 font-bold">
+                    <span className="w-1.5 h-1.5 bg-lime rounded-full" aria-hidden="true" />
+                    COORD // 0{idx + 1}
+                  </span>
+                  <span className="border border-lime/40 bg-lime/5 px-2 py-0.5 text-lime font-bold">
+                    FACULTY
+                  </span>
                 </div>
-                <h3 className="font-display text-lg sm:text-xl text-paper uppercase tracking-tight group-hover:text-lime transition-colors">
-                  {faculty.name}
-                </h3>
-                <p className="font-mono text-xs text-[#C6C8BE] mt-2 font-medium">
-                  {faculty.role}
-                </p>
+
+                {/* Portrait Frame with Stitch Technical Accents */}
+                <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 mb-6">
+                  {/* Technical corner brackets */}
+                  <div
+                    className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-lime/50 group-hover:border-lime transition-colors z-20"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-lime/50 group-hover:border-lime transition-colors z-20"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-lime/50 group-hover:border-lime transition-colors z-20"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-lime/50 group-hover:border-lime transition-colors z-20"
+                    aria-hidden="true"
+                  />
+
+                  <div className="relative w-full h-full overflow-hidden rounded-[2px] border border-white/20 bg-black/60 shadow-lg group-hover:border-lime/70 transition-colors">
+                    {faculty.image ? (
+                      <Image
+                        src={faculty.image}
+                        alt={`Portrait of ${faculty.name}`}
+                        fill
+                        sizes="(max-width: 640px) 128px, 144px"
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center font-mono text-xs text-[#93958E]">
+                        FACULTY
+                      </div>
+                    )}
+                    {/* Subtle bottom vignette */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 pointer-events-none"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </div>
+
+                {/* Faculty Info */}
+                <div className="text-center space-y-2">
+                  <h3 className="font-display text-lg sm:text-xl text-paper uppercase tracking-tight group-hover:text-lime transition-colors">
+                    {faculty.name}
+                  </h3>
+                  <div>
+                    <span className="inline-block px-2.5 py-0.5 bg-white/5 border border-white/10 font-mono text-[11px] text-lime font-bold uppercase tracking-wider">
+                      {faculty.role}
+                    </span>
+                  </div>
+                  <p className="font-mono text-xs text-[#C6C8BE] leading-relaxed pt-1">
+                    {faculty.dept || "SCET Surat"}
+                  </p>
+                </div>
               </div>
+
+              {/* Card Footer */}
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#93958E]">
-                <span>{faculty.dept || "SCET Surat"}</span>
-                <span className="font-mono text-[11px] text-lime">SCET</span>
+                <span className="font-mono text-[11px] uppercase tracking-wider">SCET SURAT</span>
+                <span className="font-mono text-[11px] text-lime font-bold uppercase tracking-wider flex items-center gap-1">
+                  <span>MENTOR</span>
+                  <span className="text-lime" aria-hidden="true">✓</span>
+                </span>
               </div>
             </article>
           ))}

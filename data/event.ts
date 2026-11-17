@@ -175,18 +175,21 @@ export const event = {
       name: "Prof. (Dr.) Nehal Shah",
       role: "Faculty Coordinator",
       dept: "Electronics & Communication Engineering",
+      image: "/nehal_shah.jpg",
     },
     {
       name: "Prof. Jaydeep Gheewala",
       role: "Faculty Coordinator",
       dept: "Computer Engineering",
+      image: "/jaydeep_gheewala.jpg",
     },
     {
       name: "Prof. Anand Upadhyay",
       role: "Faculty Coordinator",
       dept: "Chemical Engineering",
+      image: "/anand_upadhyay.jpg",
     },
-  ] as { name: string; role: string; dept?: string }[],
+  ] as { name: string; role: string; dept?: string; image?: string }[],
   studentTeam: [
     {
       name: "Jaimin Kalathiya",
