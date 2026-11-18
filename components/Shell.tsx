@@ -10,7 +10,10 @@ import { NetflixNavTransition } from "@/components/transitions/NetflixNavTransit
 export default function Shell({ children }: { children: React.ReactNode }) {
   return (
     <PageTransitionProvider>
-      <div className="min-h-screen flex flex-col bg-ink text-paper antialiased">
+      <div className="min-h-dvh flex flex-col bg-ink text-paper antialiased">
+        {/* Grain layer: subtle print texture over the whole edition */}
+        <div className="paper-grain" aria-hidden="true" />
+
         {/* Promotional Splash (shown once per session) */}
         <SplashOverlay />
 

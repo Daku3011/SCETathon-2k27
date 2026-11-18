@@ -47,7 +47,7 @@ export function ClosingCampaign() {
           <RegistrationStatus
             label="CHECK REGISTRATION"
             variant="primary"
-            className="!bg-ink !text-paper hover:!bg-[#2E3029]"
+            className="!bg-ink !text-paper hover:!bg-surface"
           />
         </div>
       </div>

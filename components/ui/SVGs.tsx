@@ -316,7 +316,7 @@ export function BreadboardIllustration({ className = "" }: { className?: string 
     <div
       ref={rootRef}
       data-active={inView ? "true" : "false"}
-      className={`bb-root relative w-full h-full min-h-[380px] md:min-h-[480px] lg:min-h-[600px] bg-[#172C67] flex items-center justify-center overflow-hidden select-none ${className}`}
+      className={`bb-root relative w-full h-full min-h-[380px] md:min-h-[480px] lg:min-h-[600px] bg-surface flex items-center justify-center overflow-hidden select-none ${className}`}
       style={{ perspective: 1400, touchAction: "pan-y" }}
       onPointerMove={onMove}
       onPointerLeave={onLeave}

@@ -64,7 +64,7 @@ export function FAQs() {
           {faqData.map((item, idx) => {
             const isOpen = openIndices.includes(idx);
             return (
-              <div key={item.q} className="border-b border-[#A8AAA1] py-5">
+              <div key={item.q} className="border-b border-muted py-5">
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
@@ -80,7 +80,7 @@ export function FAQs() {
                   </span>
                 </button>
                 {isOpen && (
-                  <p className="text-base text-[#55584F] max-w-[590px] mt-3.5 mb-1 leading-relaxed animate-fade-in">
+                  <p className="text-base text-muted max-w-[590px] mt-3.5 mb-1 leading-relaxed animate-fade-in">
                     {item.a}
                   </p>
                 )}

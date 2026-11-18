@@ -1,17 +1,53 @@
-:root {
-  --ink: #111210;
-  --ink-2: #232422;
-  --signal: #D8FF50;
-  --lime: #D8FF50;
-  --coral: #FF7358;
-  --orange: #FF7358;
-  --lilac: #C9C5FD;
-  --paper: #F2F0E8;
-  --muted: #93958E;
-  --line: rgba(255, 255, 255, 0.19);
-  --line-dark: rgba(17, 18, 16, 0.24);
-  --font-d: 'Archivo Black', 'Arial Black', Impact, sans-serif;
-  --font-b: 'DM Sans', Arial, sans-serif;
-  --font-m: 'Space Mono', monospace;
-  scroll-behavior: smooth;
+:root,
+.dark {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --ink: #10110e;
+  --ink-rgb: 16 17 14;
+  --surface: #1b1d17;
+  --surface-rgb: 27 29 23;
+  --surface-2: #24271f;
+  --paper: #f1ecdd;
+  --paper-rgb: 241 236 221;
+  --muted: #9a978a;
+  --muted-rgb: 154 151 138;
+  --line: rgba(241, 236, 221, 0.18);
+  --line-strong: rgba(241, 236, 221, 0.34);
+
+  /* Signal colors */
+  --lime: #d2ec4a;
+  --lime-rgb: 210 236 74;
+  --coral: #ff5a36;
+  --coral-rgb: 255 90 54;
+  --lilac: #bdb5ee;
+  --lilac-rgb: 189 181 238;
+
+  /* Type */
+  --font-d: "Anton", "Arial Narrow", Impact, sans-serif;
+  --font-b: "Space Grotesk Variable", "Space Grotesk", Arial, sans-serif;
+  --font-m: "JetBrains Mono Variable", "JetBrains Mono", monospace;
+}
+
+.light {
+  color-scheme: light;
+
+  --ink: #f1ecdd;
+  --ink-rgb: 241 236 221;
+  --surface: #ffffff;
+  --surface-rgb: 255 255 255;
+  --surface-2: #e7e2d4;
+  --paper: #10110e;
+  --paper-rgb: 16 17 14;
+  --muted: #5e5c53;
+  --muted-rgb: 94 92 83;
+  --line: rgba(16, 17, 14, 0.2);
+  --line-strong: rgba(16, 17, 14, 0.38);
+
+  --lime: #6f8a05;
+  --lime-rgb: 111 138 5;
+  --coral: #c23a1b;
+  --coral-rgb: 194 58 27;
+  --lilac: #554ca0;
+  --lilac-rgb: 85 76 160;
 }

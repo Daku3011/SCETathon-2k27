@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionLabel } from "@/components/ui/primitives";
 
 interface PageHeaderProps {
   tag: string;
@@ -8,21 +9,19 @@ interface PageHeaderProps {
 
 export function PageHeader({ tag, title, subtitle }: PageHeaderProps) {
   return (
-    <div className="border-b border-white/[0.19] pb-12 mb-12 select-none">
-      <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-lime mb-6">
-        <span className="w-2.5 h-2.5 bg-current rotate-45 inline-block" aria-hidden="true" />
-        <span>{tag}</span>
+    <div className="relative overflow-hidden border-b border-line pb-10 mb-10 select-none">
+      <div className="sheet-grid absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="relative">
+        <SectionLabel>{tag}</SectionLabel>
+        <h1 className="font-display text-[clamp(52px,8.5vw,124px)] leading-[0.86] tracking-tight uppercase m-0 mt-5 text-paper">
+          {title}
+        </h1>
+        {subtitle && (
+          <p className="max-w-[62ch] mt-6 text-base md:text-lg text-muted leading-relaxed">
+            {subtitle}
+          </p>
+        )}
       </div>
-
-      <h1 className="font-display text-[clamp(44px,7.2vw,96px)] leading-[0.92] tracking-[-0.09em] uppercase m-0 text-paper">
-        {title}
-      </h1>
-
-      {subtitle && (
-        <p className="max-w-2xl text-base md:text-lg text-[#C6C8BE] leading-relaxed mt-6">
-          {subtitle}
-        </p>
-      )}
     </div>
   );
 }

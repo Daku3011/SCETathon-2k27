@@ -21,7 +21,7 @@ export default function TermsPage() {
         subtitle="Operational terms, IP governance, and campus participation standards for SCETATHON 2.0."
       />
 
-      <div className="p-8 md:p-12 bg-[#191A18] border border-white/[0.19] space-y-8 text-base md:text-lg text-[#C6C8BE] leading-relaxed">
+      <div className="p-8 md:p-12 bg-surface border border-line space-y-8 text-base md:text-lg text-muted leading-relaxed">
         <div>
           <h2 className="font-display text-xl text-paper uppercase tracking-tight mb-2">
             Event Information Only
@@ -49,7 +49,7 @@ export default function TermsPage() {
           </p>
         </div>
 
-        <div className="pt-4 border-t border-white/10 font-mono text-sm text-[#93958E]">
+        <div className="pt-4 border-t border-line font-mono text-sm text-muted">
           Official Inquiries:{" "}
           <a
             href={`mailto:${event.email}`}

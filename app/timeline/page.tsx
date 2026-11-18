@@ -88,8 +88,8 @@ export default function TimelinePage() {
         subtitle="28–29 January 2027 · SCET Campus, Surat. All timestamps formatted in Indian Standard Time (IST, UTC+5:30)."
       />
 
-      <div className="border border-white/[0.19] bg-[#191A18] p-6 sm:p-10 mb-12">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 mb-8 border-b border-white/10">
+      <div className="border border-line bg-surface p-6 sm:p-10 mb-12">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 mb-8 border-b border-line">
           <div>
             <span className="font-mono text-[10px] text-lime font-bold uppercase tracking-wider block mb-1">
               CAMPUS SPRINT TIMELINE
@@ -107,14 +107,14 @@ export default function TimelinePage() {
           {runSheet.map((item, idx) => (
             <div
               key={item.title}
-              className="p-6 bg-black/40 border border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 group hover:border-white/30 transition-colors"
+              className="p-6 bg-black/40 border border-line flex flex-col md:flex-row justify-between items-start md:items-center gap-6 group hover:border-white/30 transition-colors"
             >
               <div className="flex-1 space-y-2">
                 <div className="flex items-center gap-3">
                   <span className="font-mono text-xs text-lime font-bold">
                     {item.phase}
                   </span>
-                  <span className="font-mono text-xs text-[#93958E]">
+                  <span className="font-mono text-xs text-muted">
                     //
                   </span>
                   <span className="font-mono text-xs text-paper font-semibold tracking-wider">
@@ -124,7 +124,7 @@ export default function TimelinePage() {
                 <h3 className="font-display text-xl sm:text-2xl text-paper uppercase tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-sm sm:text-base text-[#C6C8BE] leading-relaxed max-w-2xl">
+                <p className="text-sm sm:text-base text-muted leading-relaxed max-w-2xl">
                   {item.description}
                 </p>
               </div>

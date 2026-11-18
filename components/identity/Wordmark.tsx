@@ -15,28 +15,28 @@ export function Wordmark({
   onClick,
 }: WordmarkProps) {
   const sizeClasses = {
-    sm: "text-lg",
-    md: "text-[21px] md:text-[22px]",
-    lg: "text-2xl md:text-3xl",
+    sm: "text-[19px]",
+    md: "text-[24px] md:text-[28px]",
+    lg: "text-3xl md:text-5xl",
   }[size];
 
-  const ringSizes = {
-    sm: "w-[18px] h-[18px] border-[5px]",
-    md: "w-[22px] h-[22px] border-[6px] md:w-[23px] md:h-[23px] md:border-[7px]",
-    lg: "w-[28px] h-[28px] border-[8px]",
+  const markSizes = {
+    sm: "size-3.5",
+    md: "size-4 md:size-[18px]",
+    lg: "size-6",
   }[size];
 
   const content = (
     <span
-      className={`inline-flex items-center gap-2.5 font-display tracking-[-0.09em] leading-none whitespace-nowrap text-paper ${sizeClasses} ${className}`}
+      className={`inline-flex items-center gap-2.5 font-display tracking-tight leading-none whitespace-nowrap text-paper ${sizeClasses} ${className}`}
     >
-      <span
-        className={`inline-block rounded-full border-lime border-r-transparent -rotate-[35deg] shrink-0 ${ringSizes}`}
-        aria-hidden="true"
-      />
+      <span className={`relative ${markSizes} shrink-0`} aria-hidden="true">
+        <span className="absolute inset-0 border-2 border-coral" />
+        <span className="absolute -bottom-1 -right-1 size-1.5 bg-lime" />
+      </span>
       <span className="flex items-start">
         SCETATHON
-        <sup className="font-mono text-lime text-[9px] font-bold tracking-normal ml-0.5 mt-0.5">
+        <sup className="font-mono text-lime text-[9px] font-bold tracking-normal ml-1 mt-0.5">
           2.0
         </sup>
       </span>

@@ -9,7 +9,7 @@ import { BreadboardIllustration, MandanaBorderTile, MandanaBackgroundWatermark }
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-[#F5EFE2] overflow-hidden border-b border-[#182239]/20 select-none">
+    <section className="relative w-full bg-paper overflow-hidden border-b border-ink/20 select-none">
       {/* Subtle traditional Mandana chalk & engineering watermark in background */}
       <MandanaBackgroundWatermark />
 
@@ -24,11 +24,11 @@ export default function Hero() {
           >
             {/* National Hackathon & Campus Header Badge */}
             <div className="flex flex-wrap items-center gap-2.5 mb-6">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#172C67] text-[#F5EFE2] font-mono text-xs font-bold tracking-wider rounded-[2px] uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#963E29] animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface text-paper font-mono text-xs font-bold tracking-wider rounded-[2px] uppercase">
+                <span className="w-2 h-2 rounded-full bg-coral animate-pulse" />
                 24-HOUR NATIONAL-LEVEL HACKATHON
               </span>
-              <span className="font-mono text-xs text-[#182239]/70 font-semibold border border-[#182239]/25 px-2.5 py-1 rounded-[2px]">
+              <span className="font-mono text-xs text-ink/70 font-semibold border border-ink/25 px-2.5 py-1 rounded-[2px]">
                 SURAT · GUJARAT
               </span>
             </div>
@@ -46,33 +46,33 @@ export default function Hero() {
             </div> */}
 
             {/* HERO BRAND TITLE: SCETATHON 2.0 Commanding Headline */}
-            <h1 className="font-display font-black text-[clamp(3.5rem,9.5vw,7.5rem)] leading-[0.88] tracking-tighter text-[#182239] mb-4">
-              SCETATHON<span className="text-[#963E29]">.</span>
-              <span className="text-[#172C67] block text-[clamp(2rem,5vw,4.25rem)] tracking-tight font-extrabold">
+            <h1 className="font-display font-black text-[clamp(3.5rem,9.5vw,7.5rem)] leading-[0.88] tracking-tighter text-ink mb-4">
+              SCETATHON<span className="text-coral">.</span>
+              <span className="text-ink block text-[clamp(2rem,5vw,4.25rem)] tracking-tight font-extrabold">
                 2.0
               </span>
             </h1>
 
             {/* College Name in Prominent Focus */}
-            <div className="mb-6 pb-6 border-b border-[#182239]/15">
-              <p className="font-display text-xl sm:text-2xl text-[#182239] font-bold leading-snug">
+            <div className="mb-6 pb-6 border-b border-ink/15">
+              <p className="font-display text-xl sm:text-2xl text-ink font-bold leading-snug">
                 Sarvajanik College of Engineering &amp; Technology (SCET)
               </p>
             </div>
 
             {/* Interdisciplinary Branches Spotlight: Computer Engineering & Chemical Engineering */}
-            {/* <div className="mb-6 p-4 sm:p-5 bg-[#ECE5D6] border-l-4 border-[#172C67] rounded-[2px] shadow-sm">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#963E29] font-bold block mb-2">
+            {/* <div className="mb-6 p-4 sm:p-5 bg-paper border-l-4 border-ink rounded-[2px] shadow-sm">
+              <span className="font-mono text-xs uppercase tracking-wider text-coral font-bold block mb-2">
                 INTERDISCIPLINARY CO-ORGANIZERS
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
                 <div className="flex items-start gap-2.5">
                   <span className="text-lg" aria-hidden="true">💻</span>
                   <div>
-                    <strong className="block text-[#182239] font-bold">
+                    <strong className="block text-ink font-bold">
                       Dept. of Computer Engineering
                     </strong>
-                    <span className="text-xs text-[#182239]/70">
+                    <span className="text-xs text-ink/70">
                       Intelligent Systems, AI, IoT &amp; Rapid Code Prototyping
                     </span>
                   </div>
@@ -81,10 +81,10 @@ export default function Hero() {
                 <div className="flex items-start gap-2.5">
                   <span className="text-lg" aria-hidden="true">🧪</span>
                   <div>
-                    <strong className="block text-[#182239] font-bold">
+                    <strong className="block text-ink font-bold">
                       Dept. of Chemical Engineering
                     </strong>
-                    <span className="text-xs text-[#182239]/70">
+                    <span className="text-xs text-ink/70">
                       Process Optimization, Green Chemistry, Clean Tech &amp; Sensors
                     </span>
                   </div>
@@ -94,10 +94,10 @@ export default function Hero() {
 
             {/* Confirmed Dates Block */}
             <div className="flex flex-wrap items-baseline gap-3 mb-8">
-              <span className="font-display font-black text-3xl sm:text-4xl text-[#963E29]">
+              <span className="font-display font-black text-3xl sm:text-4xl text-coral">
                 28–29 January 2027
               </span>
-              {/* <span className="font-mono text-xs font-semibold text-[#182239]/70 px-2 py-0.5 border border-[#182239]/30 rounded-[2px]">
+              {/* <span className="font-mono text-xs font-semibold text-ink/70 px-2 py-0.5 border border-ink/30 rounded-[2px]">
                 Kickoff: 11:00 AM IST · 24 Continuous Hours
               </span> */}
             </div>
@@ -107,7 +107,7 @@ export default function Hero() {
               <Register text="Register for SCETATHON" />
               <Link
                 href="#problems"
-                className="text-base sm:text-lg font-semibold text-[#182239] underline underline-offset-8 decoration-[#963E29] hover:text-[#963E29] transition-colors focus:outline focus:outline-[3px] focus:outline-[#172C67] focus:outline-offset-[3px] rounded-[2px]"
+                className="text-base sm:text-lg font-semibold text-ink underline underline-offset-8 decoration-coral hover:text-coral transition-colors focus:outline focus:outline-[3px] focus:outline-ink focus:outline-offset-[3px] rounded-[2px]"
               >
                 Explore problem statements
               </Link>
@@ -115,15 +115,15 @@ export default function Hero() {
           </motion.div>
 
           {/* Quick campus metadata ribbon */}
-          <div className="pt-6 mt-8 border-t border-[#182239]/15 flex flex-wrap items-center justify-between gap-y-2 text-xs font-mono text-[#182239]/75">
+          <div className="pt-6 mt-8 border-t border-ink/15 flex flex-wrap items-center justify-between gap-y-2 text-xs font-mono text-ink/75">
             <span className="font-semibold">VENUE: SCET CAMPUS · ATHWALINES · SURAT</span>
             <span>TEAM FORMAT: 3–5 INNOVATORS</span>
-            <span className="text-[#963E29] font-bold">ENTRY: FREE FOR SHORTLISTED SQUADS</span>
+            <span className="text-coral font-bold">ENTRY: FREE FOR SHORTLISTED SQUADS</span>
           </div>
         </div>
 
         {/* Right Field (5 Desktop Columns): Indigo Field with Interdisciplinary PCB + Chemical Illustration */}
-        <div className="lg:col-span-5 bg-[#172C67] flex items-center justify-center relative min-h-[380px] sm:min-h-[460px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-[#182239]/20">
+        <div className="lg:col-span-5 bg-surface flex items-center justify-center relative min-h-[380px] sm:min-h-[460px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-ink/20">
           <BreadboardIllustration />
         </div>
       </div>

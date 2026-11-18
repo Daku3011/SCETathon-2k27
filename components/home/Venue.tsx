@@ -3,7 +3,7 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 
 export function Venue() {
   return (
-    <section className="bg-[#262625] text-paper overflow-hidden select-none">
+    <section className="bg-[var(--surface)] text-paper overflow-hidden select-none">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[470px]">
         {/* Left: Venue Editorial Copy */}
         <div className="py-16 md:py-24 px-6 md:px-12 lg:pl-[max(40px,calc((100vw-1400px)/2))] lg:pr-[7vw] flex flex-col justify-between gap-9">
@@ -21,14 +21,14 @@ export function Venue() {
               <span className="text-lime">SCET.</span>
             </h2>
 
-            <p className="text-base text-[#B8B9AF] max-w-[380px] leading-relaxed">
+            <p className="text-base text-muted max-w-[380px] leading-relaxed">
               Built in Surat. Built by the next generation. Join us at Sarvajanik College of Engineering &amp; Technology campus, Dr. R.K. Desai Marg, Athwalines.
             </p>
           </div>
 
           <div>
             <a
-              className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-ink transition-colors"
               href="https://maps.google.com/?q=Sarvajanik+College+of+Engineering+and+Technology+Surat"
               target="_blank"
               rel="noopener noreferrer"

@@ -34,7 +34,7 @@ export default function SponsorsPage() {
         {partnershipTiers.map((p) => (
           <div
             key={p.tier}
-            className="p-8 bg-[#191A18] border border-white/[0.19] flex flex-col justify-between"
+            className="p-8 bg-surface border border-line flex flex-col justify-between"
           >
             <div>
               <span className="font-mono text-[10px] text-coral font-bold uppercase tracking-wider block mb-2">
@@ -43,15 +43,15 @@ export default function SponsorsPage() {
               <h3 className="font-display text-2xl text-paper uppercase tracking-tight mb-2">
                 {p.tier}
               </h3>
-              <p className="text-sm text-[#C6C8BE] leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 {p.note}
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+            <div className="mt-8 pt-4 border-t border-line flex items-center justify-between">
               <span className="font-mono text-[11px] text-lime font-bold uppercase">
                 {p.status}
               </span>
-              <span className="font-mono text-xs text-[#93958E]">
+              <span className="font-mono text-xs text-muted">
                 2027 ROSTER
               </span>
             </div>
@@ -74,7 +74,7 @@ export default function SponsorsPage() {
         </div>
         <a
           href={`mailto:${event.email}?subject=${encodeURIComponent("SCETATHON 2.0 Sponsorship Inquiry")}`}
-          className="inline-flex items-center gap-2.5 px-6 py-4 bg-ink text-paper font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#2E3029] transition-colors"
+          className="inline-flex items-center gap-2.5 px-6 py-4 bg-ink text-paper font-mono text-xs font-bold uppercase tracking-wider hover:bg-surface transition-colors"
         >
           <span>Request Partner Deck</span>
           <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />

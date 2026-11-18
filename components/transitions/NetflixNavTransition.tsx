@@ -54,7 +54,7 @@ export function NetflixNavTransition() {
         Starts 100% transparent (no abrupt black flash).
       */}
       <div
-        className="absolute inset-0 bg-[#111210] will-change-[opacity]"
+        className="absolute inset-0 bg-surface will-change-[opacity]"
         style={{
           opacity: isGrowing ? (isFading ? 0 : 0.98) : 0,
           transition: isFading

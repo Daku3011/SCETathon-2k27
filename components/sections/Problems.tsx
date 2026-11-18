@@ -100,7 +100,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
               : isCoral
               ? "border-coral bg-coral/10"
               : "border-lilac bg-lilac/10"
-            : "border-white/15 bg-[#191A18] hover:border-white/30";
+            : "border-white/15 bg-surface hover:border-white/30";
 
           const tagColor = isLime ? "text-lime" : isCoral ? "text-coral" : "text-lilac";
 
@@ -131,15 +131,15 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
                 <h4 className="font-display text-sm sm:text-base text-paper uppercase tracking-tight leading-snug mb-1">
                   {t.name}
                 </h4>
-                <p className="text-xs text-[#93958E] line-clamp-2 leading-relaxed">
+                <p className="text-xs text-muted line-clamp-2 leading-relaxed">
                   {t.tagline}
                 </p>
               </div>
-              <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px]">
-                <span className={isActive ? tagColor : "text-[#93958E]"}>
+              <div className="mt-3 pt-3 border-t border-line flex items-center justify-between font-mono text-[10px]">
+                <span className={isActive ? tagColor : "text-muted"}>
                   {isActive ? "● FILTER ACTIVE" : "CLICK TO FILTER"}
                 </span>
-                <span className="text-[#93958E]">3 PROBLEMS</span>
+                <span className="text-muted">3 PROBLEMS</span>
               </div>
             </button>
           );
@@ -147,7 +147,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
       </div>
 
       {/* Search & Track Filter Toolbar */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-6 border-b border-white/[0.19]">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-6 border-b border-line">
         {/* Search input */}
         <div className="relative flex-1 max-w-md">
           <label htmlFor="problem-search" className="sr-only">
@@ -159,7 +159,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by title, technology, or keywords…"
-            className="w-full min-h-[44px] px-4 py-2.5 text-base bg-[#191A18] text-paper placeholder-[#93958E] border border-white/20 focus:outline-none focus:border-lime"
+            className="w-full min-h-[44px] px-4 py-2.5 text-base bg-surface text-paper placeholder-muted border border-line focus:outline-none focus:border-lime"
           />
         </div>
 
@@ -172,7 +172,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
             className={`min-h-[40px] px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
               domain === "All"
                 ? "bg-lime text-ink"
-                : "bg-[#191A18] text-[#C6C8BE] border border-white/20 hover:border-lime hover:text-white"
+                : "bg-surface text-muted border border-line hover:border-lime hover:text-ink"
             }`}
           >
             All Tracks ({problems.length})
@@ -189,7 +189,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
                 className={`min-h-[40px] px-3.5 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5 ${
                   isSelected
                     ? "bg-lime text-ink"
-                    : "bg-[#191A18] text-[#C6C8BE] border border-white/20 hover:border-lime hover:text-white"
+                    : "bg-surface text-muted border border-line hover:border-lime hover:text-ink"
                 }`}
               >
                 <span>{t.short}</span>
@@ -204,14 +204,14 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
 
       {/* Empty State */}
       {!matchingProblems.length ? (
-        <div className="p-12 text-center border border-white/20 bg-[#191A18]" role="status">
+        <div className="p-12 text-center border border-line bg-surface" role="status">
           <p className="text-lg font-medium text-paper mb-4">
             No challenge statements match those filters.
           </p>
           <button
             type="button"
             onClick={clearFilters}
-            className="px-6 py-2 bg-lime text-ink font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#f0ffad] transition-colors cursor-pointer"
+            className="px-6 py-2 bg-lime text-ink font-mono text-xs font-bold uppercase tracking-wider hover:bg-lime transition-colors cursor-pointer"
           >
             Clear filters
           </button>
@@ -233,7 +233,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
               const trackTag = isTrackA ? "TRK-01" : isTrackB ? "TRK-02" : "TRK-03";
 
               return (
-                <div key={problem.slug} className="border border-white/20 bg-[#191A18] overflow-hidden">
+                <div key={problem.slug} className="border border-line bg-surface overflow-hidden">
                   <button
                     type="button"
                     role="listitem"
@@ -264,7 +264,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
                         className={`text-[9px] font-mono px-2 py-0.5 uppercase ${
                           isCurrent
                             ? "text-ink font-bold border border-ink/40"
-                            : "text-[#C6C8BE] border border-white/20"
+                            : "text-muted border border-line"
                         }`}
                       >
                         {trackTag}
@@ -277,7 +277,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
 
                   {/* Narrow-screen inline accordion detail */}
                   {isCurrent && (
-                    <div className="block lg:hidden p-5 bg-[#232422] border-t border-white/20">
+                    <div className="block lg:hidden p-5 bg-surface border-t border-line">
                       <ProblemDetailBody problem={problem} />
                     </div>
                   )}
@@ -291,7 +291,7 @@ export default function Problems({ preview = false }: { preview?: boolean }) {
             {selected && (
               <div
                 id={`detail-${selected.slug}`}
-                className="p-8 bg-[#191A18] border border-white/20"
+                className="p-8 bg-surface border border-line"
                 aria-live="polite"
               >
                 <ProblemDetailBody problem={selected} />
@@ -316,7 +316,7 @@ function ProblemDetailBody({ problem }: { problem: Problem }) {
 
   return (
     <article className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className={`font-mono text-[10px] uppercase font-bold border px-2 py-0.5 ${badgeColor}`}>
@@ -329,7 +329,7 @@ function ProblemDetailBody({ problem }: { problem: Problem }) {
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-paper uppercase tracking-tight">
             {problem.title}
           </h3>
-          <p className="font-mono text-[11px] text-[#93958E] mt-1">
+          <p className="font-mono text-[11px] text-muted mt-1">
             THEME: {problem.category}
           </p>
         </div>
@@ -338,7 +338,7 @@ function ProblemDetailBody({ problem }: { problem: Problem }) {
         </span>
       </div>
 
-      <p className="text-base sm:text-lg text-[#C6C8BE] leading-relaxed">
+      <p className="text-base sm:text-lg text-muted leading-relaxed">
         {problem.description}
       </p>
 
@@ -371,9 +371,9 @@ function ProblemDetailBody({ problem }: { problem: Problem }) {
         </div>
       </div>
 
-      <div className="pt-4 flex items-center justify-between border-t border-white/10">
+      <div className="pt-4 flex items-center justify-between border-t border-line">
         <RegistrationStatus label="PROTOTYPE FOR THIS TRACK" variant="primary" />
-        <span className="font-mono text-xs text-[#93958E] uppercase">
+        <span className="font-mono text-xs text-muted uppercase">
           Teams: 3–5 innovators
         </span>
       </div>

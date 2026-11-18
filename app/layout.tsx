@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Shell from "@/components/Shell";
 import { event } from "@/data/event";
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/jetbrains-mono";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -48,11 +50,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#111210" />
+        <meta name="theme-color" content="#10110e" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
           rel="stylesheet"
         />
       </head>

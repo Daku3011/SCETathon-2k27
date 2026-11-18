@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { SignalWheel } from "@/components/identity/SignalWheel";
 import { RegistrationStatus } from "@/components/registration/RegistrationStatus";
 import { ArrowDown } from "@/components/ui/Icons";
+import { SectionLabel } from "@/components/ui/primitives";
 
 const typewriterPhrases = [
   "WHERE CODE MEETS REAL-WORLD ATOMS",
@@ -25,7 +25,6 @@ const typewriterPhrases = [
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
-  // Typewriter ticker state
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -35,14 +34,11 @@ export function Hero() {
     const currentPhrase = typewriterPhrases[phraseIdx];
 
     if (!isDeleting && currentText === currentPhrase) {
-      // Pause at full phrase
       timeout = setTimeout(() => setIsDeleting(true), 2200);
     } else if (isDeleting && currentText === "") {
-      // Switch to next phrase
       setIsDeleting(false);
       setPhraseIdx((prev) => (prev + 1) % typewriterPhrases.length);
     } else {
-      // Typing or deleting speed
       const speed = isDeleting ? 30 : 65;
       timeout = setTimeout(() => {
         setCurrentText((prev) =>
@@ -56,129 +52,112 @@ export function Hero() {
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, phraseIdx]);
 
+  const rows = [
+    { text: "MAKE", className: "text-paper" },
+    { text: "WHAT'S", className: "stroke-reveal" },
+    { text: "NEXT.", className: "text-lime" },
+  ];
+
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-white/[0.19] bg-ink"
+      className="relative overflow-hidden border-b border-line bg-ink"
       aria-labelledby="hero-title"
     >
-      {/* Subtle coordinate grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-          maskImage: "linear-gradient(to right, transparent, black)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black)",
-        }}
-        aria-hidden="true"
-      />
+      <div className="sheet-grid absolute inset-0 opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-0 right-0 h-px w-1/3 bg-coral" aria-hidden="true" />
 
-      <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto relative min-h-[min(790px,calc(100svh-106px))] grid grid-cols-1 lg:grid-cols-[55%_45%] items-center pt-10 md:pt-14 pb-20 md:pb-24">
-        {/* Left: Huge Editorial Headline with Writing & Hover Effects */}
-        <div className="relative z-10 pt-2 md:pt-10">
-          {/* Live Date & Location Kicker */}
-          <div className="text-lime flex items-center gap-4 font-mono text-[11px] leading-relaxed uppercase tracking-[0.14em] font-bold mb-5 md:mb-6">
-            <span className="w-8 h-[1px] bg-current inline-block" aria-hidden="true" />
-            <span>28–29 January 2027 / SCET, Surat</span>
+      <div className="relative w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto pt-8 md:pt-10 pb-10 md:pb-14">
+        {/* Running head */}
+        <div className="flex items-center justify-between gap-4 border-b border-line pb-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+          <span className="flex items-center gap-3">
+            <span className="text-coral">SCET / SURAT</span>
+            <span className="h-3 w-px bg-line" aria-hidden="true" />
+            <span>Vol. 02 — 2027</span>
+          </span>
+          <span className="hidden sm:inline">24H · 3 TRACKS · 9 PROBLEMS</span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-6 items-center min-h-[min(760px,calc(100svh-170px))] pt-10 md:pt-14">
+          {/* Lead */}
+          <div className="relative z-10">
+            <SectionLabel index="01">28–29 January 2027 / SCET, Surat</SectionLabel>
+
+            <div className="mt-8 flex items-center gap-3 border-l-2 border-coral pl-3 font-mono text-[11px] uppercase tracking-wider text-muted h-5 select-none">
+              <span className="text-coral font-bold">&gt;</span>
+              <span className="text-paper font-semibold">{currentText}</span>
+              <span className="inline-block w-2 h-3.5 bg-lime animate-terminal-blink" aria-hidden="true" />
+            </div>
+
+            <h1
+              id="hero-title"
+              className="font-display text-[clamp(76px,13.5vw,196px)] tracking-tight leading-[0.8] uppercase m-0 mt-4 select-none"
+            >
+              {rows.map((row, i) => (
+                <motion.div
+                  key={row.text}
+                  initial={shouldReduceMotion ? false : { opacity: 0, y: 26 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+                  className={`block ${row.className}`}
+                >
+                  {row.text}
+                  {i === 2 && <span className="text-coral">.</span>}
+                </motion.div>
+              ))}
+            </h1>
+
+            <p className="max-w-[48ch] mt-7 md:mt-9 text-[15px] md:text-[17px] text-muted leading-relaxed">
+              An unapologetically hands-on 24-hour hackathon. Where code meets chemistry, ambitious ideas become real prototypes, and the next generation gets to build.
+            </p>
+
+            <div className="mt-8 flex items-center gap-5 flex-wrap">
+              <RegistrationStatus label="Registration updates" variant="primary" />
+              <a
+                href="#about"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-paper hover:text-lime transition-colors"
+              >
+                Read the brief
+                <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" strokeWidth={2.4} />
+              </a>
+            </div>
           </div>
 
-          {/* Interactive Live Typewriter Signal Ticker */}
-          <div className="flex items-center gap-2 mb-6 font-mono text-[11px] text-[#A6A89F] uppercase tracking-wider h-5 select-none">
-            <span className="text-coral font-bold">&gt;</span>
-            <span className="text-paper/90 font-semibold">{currentText}</span>
-            <span className="inline-block w-2 h-3.5 bg-lime animate-terminal-blink" aria-hidden="true" />
-          </div>
-
-          {/* Main 3-Row Headline with Interactive Hover & Kinetic Stagger */}
-          <h1
-            id="hero-title"
-            className="font-display text-[clamp(65px,11.5vw,167px)] tracking-[-0.105em] leading-[0.82] uppercase m-0 max-w-[1000px] select-none"
-          >
-            {/* Row 1: MAKE */}
-            <motion.div
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="group/make cursor-pointer flex items-baseline flex-wrap"
-            >
-              <span className="inline-block text-paper transition-all duration-300 group-hover/make:text-lilac group-hover/make:tracking-[-0.08em] group-hover/make:translate-x-1">
-                MAKE
-              </span>
-              <span className="hidden md:inline-block opacity-0 group-hover/make:opacity-100 font-mono text-[11px] text-lilac uppercase tracking-[0.15em] font-bold transition-opacity duration-300 ml-4 pb-2">
-                [01 // INVENT]
-              </span>
-            </motion.div>
-
-            {/* Row 2: WHAT'S */}
-            <motion.div
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group/whats cursor-pointer flex items-baseline flex-wrap my-1"
-            >
-              <span className="inline-block stroke-reveal transition-all duration-300 group-hover/whats:translate-x-3">
-                WHAT'S
-              </span>
-              <span className="hidden md:inline-block opacity-0 group-hover/whats:opacity-100 font-mono text-[11px] text-coral uppercase tracking-[0.15em] font-bold transition-opacity duration-300 ml-4 pb-2">
-                [02 // QUESTION]
-              </span>
-            </motion.div>
-
-            {/* Row 3: NEXT. */}
-            <motion.div
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="group/next cursor-pointer flex items-baseline flex-wrap"
-            >
-              <span className="inline-block text-lime transition-all duration-300 group-hover/next:drop-shadow-[0_0_40px_rgba(216,255,80,0.65)] group-hover/next:translate-x-1">
-                NEXT
-                <span className="inline-block text-coral transition-transform duration-300 group-hover/next:scale-130 group-hover/next:rotate-45 group-hover/next:text-white ml-0.5">
-                  .
-                </span>
-              </span>
-              <span className="hidden md:inline-block opacity-0 group-hover/next:opacity-100 font-mono text-[11px] text-lime uppercase tracking-[0.15em] font-bold transition-opacity duration-300 ml-4 pb-2">
-                [03 // BUILD]
-              </span>
-            </motion.div>
-          </h1>
-
-          <p className="max-w-[430px] my-7 md:my-8 text-[clamp(15px,1.45vw,18px)] text-[#C6C8BE] leading-relaxed">
-            An unapologetically hands-on 24-hour hackathon. Where code meets chemistry, ambitious ideas become real prototypes, and the next generation gets to build.
-          </p>
-
-          <div className="flex items-center gap-6 flex-wrap">
-            <RegistrationStatus label="REGISTRATION UPDATES" variant="primary" />
-            <a
-              href="#about"
-              className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider underline underline-offset-4 hover:text-lime transition-colors group/herolink"
-            >
-              <span>DISCOVER THE EVENT</span>
-              <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover/herolink:translate-y-0.5" strokeWidth={2.4} />
-            </a>
+          {/* Figure plate */}
+          <div className="relative z-0 hidden lg:block self-stretch">
+            <div className="sticky top-32 border border-line bg-surface/40 p-4">
+              <div className="flex items-center justify-between border-b border-line pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                <span>Fig. 01 — Signal wheel</span>
+                <span className="text-lime">Live</span>
+              </div>
+              <div className="relative aspect-square w-full" aria-hidden="true">
+                <SignalWheel />
+              </div>
+              <p className="border-t border-line pt-3 font-mono text-[10px] leading-relaxed uppercase tracking-wider text-muted">
+                Three tracks. One clock. Build until it works.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Right / Hero Art: The Kinetic Signal Wheel */}
-        <div
-          className="relative lg:absolute lg:right-[-8%] lg:top-[4%] lg:h-[89%] lg:w-[58%] flex items-center justify-center mt-8 lg:mt-0 pointer-events-auto z-0"
-          aria-hidden="true"
-        >
-          <SignalWheel />
+        {/* Footline stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line mt-6">
+          {[
+            ["24", "Hours, non-stop"],
+            ["3–5", "Per squad"],
+            ["03", "Impact tracks"],
+            ["09", "Open problems"],
+          ].map(([value, label]) => (
+            <div key={label} className="bg-ink px-4 py-5 md:px-6">
+              <div className="font-display text-4xl md:text-5xl text-paper leading-none tnum">{value}</div>
+              <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">{label}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Bottom Prompts: Scroll Prompt & Side Note */}
-        <div className="hidden lg:flex absolute left-0 bottom-10 items-center gap-3.5 text-[#91958B] font-mono text-[10px] font-bold uppercase tracking-[0.11em]">
-          <span className="h-[1px] w-8 bg-lime inline-block" aria-hidden="true" />
-          <span>SCROLL TO EXPLORE</span>
-        </div>
-
-        <div className="hidden lg:block absolute right-2 bottom-12 font-mono text-[11px] font-bold tracking-[0.12em] text-right text-paper/65 uppercase leading-snug">
-          NO SLIDES. NO HYPE.
-          <br />
-          BUILD SOMETHING REAL.
+        <div className="mt-5 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+          <span className="h-px w-8 bg-lime" aria-hidden="true" />
+          Scroll to explore
         </div>
       </div>
     </section>

@@ -6,36 +6,36 @@ module.exports = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#111210",
-          2: "#232422",
+          DEFAULT: "rgb(var(--ink-rgb) / <alpha-value>)",
+          2: "rgb(var(--surface-rgb) / <alpha-value>)",
         },
-        signal: "#D8FF50",
+        surface: "rgb(var(--surface-rgb) / <alpha-value>)",
+        surface2: "rgb(var(--surface-2, 36 39 31) / <alpha-value>)",
+        paper: "rgb(var(--paper-rgb) / <alpha-value>)",
+        muted: "rgb(var(--muted-rgb) / <alpha-value>)",
+        line: "var(--line)",
+        "line-strong": "var(--line-strong)",
         lime: {
-          DEFAULT: "#D8FF50",
-          hover: "#f0ffad",
+          DEFAULT: "rgb(var(--lime-rgb) / <alpha-value>)",
+          hover: "rgb(var(--lime-rgb) / <alpha-value>)",
         },
         coral: {
-          DEFAULT: "#FF7358",
+          DEFAULT: "rgb(var(--coral-rgb) / <alpha-value>)",
         },
-        orange: {
-          DEFAULT: "#FF7358",
-        },
-        lilac: {
-          DEFAULT: "#C9C5FD",
-        },
-        paper: {
-          DEFAULT: "#F2F0E8",
-        },
-        muted: {
-          DEFAULT: "#93958E",
-        },
-        accent: "#D8FF50",
+        orange: "rgb(var(--coral-rgb) / <alpha-value>)",
+        lilac: "rgb(var(--lilac-rgb) / <alpha-value>)",
+        signal: "rgb(var(--lime-rgb) / <alpha-value>)",
+        accent: "rgb(var(--lime-rgb) / <alpha-value>)",
       },
       fontFamily: {
-        display: ["var(--font-d)", "Archivo Black", "Arial Black", "Impact", "sans-serif"],
-        body: ["var(--font-b)", "DM Sans", "Arial", "sans-serif"],
-        mono: ["var(--font-m)", "Space Mono", "monospace"],
+        display: ["var(--font-d)", "Impact", "sans-serif"],
+        body: ["var(--font-b)", "Arial", "sans-serif"],
+        mono: ["var(--font-m)", "monospace"],
+      },
+      letterSpacing: {
+        tightest: "-0.09em",
       },
     },
   },
+  plugins: [],
 };

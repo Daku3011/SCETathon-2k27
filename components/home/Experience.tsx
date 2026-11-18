@@ -27,7 +27,7 @@ export function Experience() {
           {/* Card 1: Dark Lead Card */}
           <article className="bg-ink text-paper p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[340px] md:min-h-[460px] group">
             <span
-              className="absolute -right-3 top-0 text-[170px] text-white/10 font-sans pointer-events-none leading-none select-none"
+              className="absolute -right-3 top-0 text-[170px] text-ink/10 font-sans pointer-events-none leading-none select-none"
               aria-hidden="true"
             >
               ✳
