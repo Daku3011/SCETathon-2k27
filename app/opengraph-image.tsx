@@ -101,7 +101,7 @@ export default function Image() {
             }}
           >
             <span>MAKE WHAT'S </span>
-            <span style={{ color: "#D8FF50", marginLeft: 16 }}>NEXT.</span>
+            <span style={{ color: "#D8FF50", marginLeft: 16 }}>NEXT</span>
           </div>
 
           <div

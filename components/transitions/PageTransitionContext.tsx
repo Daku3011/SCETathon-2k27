@@ -95,7 +95,10 @@ export function PageTransitionProvider({
 
       let rect: NavOriginRect | null = null;
       if (e && e.currentTarget) {
-        const b = e.currentTarget.getBoundingClientRect();
+        const labelEl =
+          (e.currentTarget as HTMLElement).querySelector(".nav-label") ||
+          (e.currentTarget as HTMLElement);
+        const b = labelEl.getBoundingClientRect();
         rect = {
           x: b.left,
           y: b.top,

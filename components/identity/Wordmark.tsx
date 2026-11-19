@@ -30,13 +30,13 @@ export function Wordmark({
     <span
       className={`inline-flex items-center gap-2.5 font-display tracking-tight leading-none whitespace-nowrap text-paper ${sizeClasses} ${className}`}
     >
-      <span className={`relative ${markSizes} shrink-0`} aria-hidden="true">
+      {/* <span className={`relative ${markSizes} shrink-0`} aria-hidden="true">
         <span className="absolute inset-0 border-2 border-coral" />
         <span className="absolute -bottom-1 -right-1 size-1.5 bg-lime" />
-      </span>
+      </span> */}
       <span className="flex items-start">
         SCETATHON
-        <sup className="font-mono text-lime text-[9px] font-bold tracking-normal ml-1 mt-0.5">
+        <sup className="font-mono text-lime text-[12px] font-bold tracking-normal ml-1 mt-0.5">
           2.0
         </sup>
       </span>

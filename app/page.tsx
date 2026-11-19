@@ -62,7 +62,7 @@ export default function Home() {
       <Hero />
 
       {/* 2. Facts Band: 24h, 3–5 team, 28 Jan, Surat */}
-      <FactsBand />
+      {/* <FactsBand /> */}
 
       {/* 3. Section 01 / The Idea: LESS TALK. MORE MAKING. */}
       <Manifesto />

@@ -272,12 +272,12 @@ export function SignalWheel({ className = "" }: { className?: string }) {
 
       {/* Floating circular stamp badge: SCETATHON 2.0 / LIVE SPRINT */}
       <div
-        className="absolute right-[5%] md:right-[9%] bottom-[6%] md:bottom-[12%] w-[120px] h-[120px] md:w-[155px] md:h-[155px] bg-coral rounded-full flex items-center justify-center font-mono font-bold text-[10px] md:text-[11px] text-ink uppercase tracking-wider text-center shadow-[0_0_0_8px_#111210] md:shadow-[0_0_0_10px_#111210] select-none rotate-[10deg] group-hover/wheel:rotate-[18deg] group-hover/wheel:scale-105 transition-all duration-500"
+        className="absolute right-[3%] sm:right-[5%] md:right-[9%] bottom-[3%] sm:bottom-[6%] md:bottom-[12%] w-[88px] h-[88px] sm:w-[120px] sm:h-[120px] md:w-[155px] md:h-[155px] bg-coral rounded-full flex items-center justify-center font-mono font-bold text-[8.5px] sm:text-[10px] md:text-[11px] text-ink uppercase tracking-wider text-center shadow-[0_0_0_5px_#111210] sm:shadow-[0_0_0_8px_#111210] md:shadow-[0_0_0_10px_#111210] select-none rotate-[10deg] group-hover/wheel:rotate-[18deg] group-hover/wheel:scale-105 transition-all duration-500 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute inset-1.5 border border-dashed border-ink/40 rounded-full animate-spin [animation-duration:30s]" />
+        <div className="absolute inset-1 sm:inset-1.5 border border-dashed border-ink/40 rounded-full animate-spin [animation-duration:30s]" />
         <span className="-rotate-[10deg] leading-tight">
-          <strong className="block text-sm tracking-tight mb-0.5">BUILD * WIN</strong>
+          <strong className="block text-xs sm:text-sm tracking-tight mb-0.5">BUILD * WIN</strong>
         </span>
       </div>
     </div>

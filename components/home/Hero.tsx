@@ -55,7 +55,7 @@ export function Hero() {
   const rows = [
     { text: "MAKE", className: "text-paper" },
     { text: "WHAT'S", className: "stroke-reveal" },
-    { text: "NEXT.", className: "text-lime" },
+    { text: "NEXT", className: "text-lime" },
   ];
 
   return (
@@ -69,16 +69,16 @@ export function Hero() {
 
       <div className="relative w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto pt-8 md:pt-10 pb-10 md:pb-14">
         {/* Running head */}
-        <div className="flex items-center justify-between gap-4 border-b border-line pb-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+        {/* <div className="flex items-center justify-between gap-4 border-b border-line pb-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
           <span className="flex items-center gap-3">
             <span className="text-coral">SCET / SURAT</span>
             <span className="h-3 w-px bg-line" aria-hidden="true" />
             <span>Vol. 02 — 2027</span>
           </span>
           <span className="hidden sm:inline">24H · 3 TRACKS · 9 PROBLEMS</span>
-        </div>
+        </div> */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-6 items-center min-h-[min(760px,calc(100svh-170px))] pt-10 md:pt-14">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-6 items-center min-h-[min(760px,calc(100svh-170px))] pt-10 md:pt-2">
           {/* Lead */}
           <div className="relative z-10">
             <SectionLabel index="01">28–29 January 2027 / SCET, Surat</SectionLabel>
@@ -124,16 +124,16 @@ export function Hero() {
           </div>
 
           {/* Figure plate */}
-          <div className="relative z-0 hidden lg:block self-stretch">
-            <div className="sticky top-32 border border-line bg-surface/40 p-4">
-              <div className="flex items-center justify-between border-b border-line pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+          <div className="relative z-0 block self-stretch w-full max-w-[440px] sm:max-w-[480px] lg:max-w-none mx-auto lg:mx-0 mt-8 lg:mt-0">
+            <div className="lg:sticky lg:top-32 border border-line bg-surface/40 p-3.5 sm:p-4 overflow-hidden">
+              <div className="flex items-center justify-between border-b border-line pb-2.5 sm:pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
                 <span>Fig. 01 — Signal wheel</span>
                 <span className="text-lime">Live</span>
               </div>
-              <div className="relative aspect-square w-full" aria-hidden="true">
-                <SignalWheel />
+              <div className="relative aspect-square w-full my-2 sm:my-3 flex items-center justify-center overflow-hidden" aria-hidden="true">
+                <SignalWheel className="w-full h-full" />
               </div>
-              <p className="border-t border-line pt-3 font-mono text-[10px] leading-relaxed uppercase tracking-wider text-muted">
+              <p className="border-t border-line pt-2.5 sm:pt-3 font-mono text-[10px] leading-relaxed uppercase tracking-wider text-muted">
                 Three tracks. One clock. Build until it works.
               </p>
             </div>

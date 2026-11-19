@@ -33,7 +33,7 @@ export const event = {
   showWinners: false,
   resultsOpen: false,
   winnersOpen: false,
-  registrationOpen: false,
+  registrationOpen: true,
   nationalBadge: "24-HOUR NATIONAL-LEVEL HACKATHON",
   // departments: [
   //   {

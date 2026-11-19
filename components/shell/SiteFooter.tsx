@@ -66,7 +66,7 @@ export function SiteFooter() {
                   onClick={(e) => handleLinkClick(item.href, item.label, e)}
                   className="group inline-flex items-center justify-between gap-2 font-mono text-[11px] uppercase tracking-wider text-paper hover:text-lime transition-colors"
                 >
-                  {item.label}
+                  <span className="nav-label">{item.label}</span>
                   <ArrowUpRight className="w-3 h-3 text-muted group-hover:text-lime" strokeWidth={2.4} />
                 </Link>
               ))}
