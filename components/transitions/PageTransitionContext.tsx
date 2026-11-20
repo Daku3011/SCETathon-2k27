@@ -95,13 +95,21 @@ export function PageTransitionProvider({
 
       let rect: NavOriginRect | null = null;
       if (e && e.currentTarget) {
-        const b = e.currentTarget.getBoundingClientRect();
-        rect = {
-          x: b.left,
-          y: b.top,
-          width: b.width,
-          height: b.height,
-        };
+        const currentTarget = e.currentTarget as HTMLElement;
+        // Prefer the actual text span if present (avoids grabbing 100% wide mobile flex menu rows)
+        const textTarget =
+          currentTarget.querySelector("span:not([aria-hidden])") ||
+          currentTarget.querySelector("span") ||
+          currentTarget;
+        const b = textTarget.getBoundingClientRect();
+        if (b.width > 0 && b.height > 0) {
+          rect = {
+            x: b.left,
+            y: b.top,
+            width: b.width,
+            height: b.height,
+          };
+        }
       }
 
       const cleanLabel = (label || "NAVIGATING").toUpperCase().trim();
