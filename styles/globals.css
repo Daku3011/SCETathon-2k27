@@ -10,7 +10,7 @@
 
   ::selection {
     background: var(--lime);
-    color: var(--ink);
+    color: #171915;
   }
 
   html {
@@ -160,7 +160,7 @@ button:hover .line-icon {
 
 /* Text outline smooth transitions */
 .stroke-reveal {
-  -webkit-text-stroke: 1.5px #F2F0E8;
+  -webkit-text-stroke: 1.5px var(--paper);
   color: transparent;
   transition: color 0.35s ease, -webkit-text-stroke 0.35s ease, transform 0.35s ease;
 }
@@ -373,4 +373,54 @@ button:hover .line-icon {
   .animate-signal-pulse {
     animation: none !important;
   }
+}
+
+/* Theme toggle component styles */
+.theme-toggle {
+  @apply inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-paper border border-line px-2 py-1.5 transition-colors hover:border-lime hover:text-lime cursor-pointer bg-transparent;
+}
+
+.theme-toggle-track {
+  @apply relative flex items-center justify-center border border-line-strong;
+  width: 20px;
+  height: 16px;
+}
+
+.theme-icon {
+  @apply absolute w-3 h-3 opacity-0 transition-opacity duration-200 pointer-events-none;
+}
+
+.theme-icon.active {
+  @apply opacity-100;
+}
+
+.theme-icon.sun-icon {
+  color: var(--coral);
+}
+
+.theme-icon.moon-icon {
+  color: var(--lime);
+}
+
+.theme-toggle-label {
+  @apply text-muted transition-colors;
+}
+
+.theme-toggle:hover .theme-toggle-label {
+  @apply text-paper;
+}
+
+/* View Transitions API circular reveal animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
 }

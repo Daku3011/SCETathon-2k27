@@ -16,6 +16,9 @@ export function useTheme() {
       document.documentElement.classList.remove("light", "dark");
       document.documentElement.classList.add(stored);
       document.documentElement.setAttribute("data-theme", stored);
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", stored === "dark" ? "#111210" : "#f4f1e7");
     } else {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const initial = prefersDark ? "dark" : "light";
@@ -36,6 +39,9 @@ export function useTheme() {
         document.documentElement.classList.remove("light", "dark");
         document.documentElement.classList.add(nextTheme);
         document.documentElement.setAttribute("data-theme", nextTheme);
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute("content", nextTheme === "dark" ? "#111210" : "#f4f1e7");
       };
 
       // Check for View Transitions API support and reduced motion preference

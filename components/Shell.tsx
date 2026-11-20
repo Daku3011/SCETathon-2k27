@@ -18,7 +18,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <NetflixNavTransition />
 
         <a
-          className="fixed left-3 -top-24 z-50 px-5 py-3 bg-lime text-ink font-mono text-xs font-bold uppercase tracking-wider focus:top-3 transition-all outline-none focus:ring-4 focus:ring-coral"
+          className="fixed left-3 -top-24 z-50 px-5 py-3 bg-lime text-[#171915] font-mono text-xs font-bold uppercase tracking-wider focus:top-3 transition-all outline-none focus:ring-4 focus:ring-coral"
           href="#main"
         >
           Skip to content
