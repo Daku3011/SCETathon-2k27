@@ -58,7 +58,7 @@ export function SiteFooter() {
 
           <div>
             <span className="kicker">Directory / 02</span>
-            <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
+            <div className="mt-4 grid grid-cols-2 gap-x-24 gap-y-4">
               {directory.map((item) => (
                 <Link
                   key={item.label}

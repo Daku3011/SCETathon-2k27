@@ -18,7 +18,7 @@ export default function PrivacyPage() {
             PRIVACY <span className="text-lime">NOTICE.</span>
           </>
         }
-        subtitle="Transparent data collection, hosting privacy, and retention policies for SCETATHON 2.0."
+        // subtitle="Transparent data collection, hosting privacy, and retention policies for SCETATHON 2.0."
       />
 
       <div className="p-8 md:p-12 bg-surface border border-line space-y-8 text-base md:text-lg text-muted leading-relaxed">
