@@ -59,7 +59,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-white/[0.19] bg-ink"
+      className="relative overflow-hidden border-b border-line bg-ink"
       aria-labelledby="hero-title"
     >
       {/* Subtle coordinate grid overlay */}
@@ -67,7 +67,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+            "linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px)",
           backgroundSize: "50px 50px",
           maskImage: "linear-gradient(to right, transparent, black)",
           WebkitMaskImage: "linear-gradient(to right, transparent, black)",
@@ -85,7 +85,7 @@ export function Hero() {
           </div>
 
           {/* Interactive Live Typewriter Signal Ticker */}
-          <div className="flex items-center gap-2 mb-6 font-mono text-[11px] text-[#A6A89F] uppercase tracking-wider h-5 select-none">
+          <div className="flex items-center gap-2 mb-6 font-mono text-[11px] text-muted uppercase tracking-wider h-5 select-none">
             <span className="text-coral font-bold">&gt;</span>
             <span className="text-paper/90 font-semibold">{currentText}</span>
             <span className="inline-block w-2 h-3.5 bg-lime animate-terminal-blink" aria-hidden="true" />
@@ -135,7 +135,7 @@ export function Hero() {
             >
               <span className="inline-block text-lime transition-all duration-300 group-hover/next:drop-shadow-[0_0_40px_rgba(216,255,80,0.65)] group-hover/next:translate-x-1">
                 NEXT
-                <span className="inline-block text-coral transition-transform duration-300 group-hover/next:scale-130 group-hover/next:rotate-45 group-hover/next:text-white ml-0.5">
+                <span className="inline-block text-coral transition-transform duration-300 group-hover/next:scale-130 group-hover/next:rotate-45 group-hover/next:text-paper ml-0.5">
                   .
                 </span>
               </span>
@@ -145,7 +145,7 @@ export function Hero() {
             </motion.div>
           </h1>
 
-          <p className="max-w-[430px] my-7 md:my-8 text-[clamp(15px,1.45vw,18px)] text-[#C6C8BE] leading-relaxed">
+          <p className="max-w-[430px] my-7 md:my-8 text-[clamp(15px,1.45vw,18px)] text-muted leading-relaxed">
             An unapologetically hands-on 24-hour hackathon. Where code meets chemistry, ambitious ideas become real prototypes, and the next generation gets to build.
           </p>
 
@@ -170,7 +170,7 @@ export function Hero() {
         </div>
 
         {/* Bottom Prompts: Scroll Prompt & Side Note */}
-        <div className="hidden lg:flex absolute left-0 bottom-10 items-center gap-3.5 text-[#91958B] font-mono text-[10px] font-bold uppercase tracking-[0.11em]">
+        <div className="hidden lg:flex absolute left-0 bottom-10 items-center gap-3.5 text-muted font-mono text-[10px] font-bold uppercase tracking-[0.11em]">
           <span className="h-[1px] w-8 bg-lime inline-block" aria-hidden="true" />
           <span>SCROLL TO EXPLORE</span>
         </div>

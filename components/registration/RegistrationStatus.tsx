@@ -30,10 +30,10 @@ export function RegistrationStatus({
         rel="noopener noreferrer"
         className={
           variant === "primary"
-            ? `inline-flex items-center justify-between gap-4 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wide py-3.5 px-5 hover:bg-[#f0ffad] transition-all hover:-translate-y-0.5 active:translate-y-0 ${className}`
+            ? `inline-flex items-center justify-between gap-4 bg-lime text-[#171915] font-mono text-[11px] font-bold uppercase tracking-wide py-3.5 px-5 hover:brightness-105 transition-[filter,transform] hover:-translate-y-0.5 active:translate-y-0 ${className}`
             : variant === "nav"
-            ? `inline-flex items-center justify-between gap-3 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 hover:bg-[#f0ffad] transition-all ${className}`
-            : `font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors ${className}`
+            ? `inline-flex items-center justify-between gap-3 bg-lime text-[#171915] font-mono text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 hover:brightness-105 transition-[filter] ${className}`
+            : `font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-paper transition-colors ${className}`
         }
       >
         <span>{label}</span>
@@ -48,7 +48,7 @@ export function RegistrationStatus({
         {variant === "primary" ? (
           <button
             type="button"
-            className={`inline-flex items-center justify-between gap-4 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wide py-3.5 px-5 hover:bg-[#f0ffad] transition-all hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral focus-visible:outline-offset-4 cursor-pointer ${className}`}
+            className={`inline-flex items-center justify-between gap-4 bg-lime text-[#171915] font-mono text-[11px] font-bold uppercase tracking-wide py-3.5 px-5 hover:brightness-105 transition-[filter,transform] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral focus-visible:outline-offset-4 cursor-pointer ${className}`}
           >
             <span>{label}</span>
             <span
@@ -61,7 +61,7 @@ export function RegistrationStatus({
         ) : variant === "nav" ? (
           <button
             type="button"
-            className={`inline-flex items-center justify-between gap-2.5 bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 hover:bg-[#f0ffad] transition-all focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral cursor-pointer ${className}`}
+            className={`inline-flex items-center justify-between gap-2.5 bg-lime text-[#171915] font-mono text-[11px] font-bold uppercase tracking-wider py-2.5 px-4 hover:brightness-105 transition-[filter] focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral cursor-pointer ${className}`}
           >
             <span>{label}</span>
             <ArrowUpRight className="w-3 h-3" strokeWidth={2.4} />
@@ -69,7 +69,7 @@ export function RegistrationStatus({
         ) : (
           <button
             type="button"
-            className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-white transition-colors cursor-pointer ${className}`}
+            className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-lime underline underline-offset-4 hover:text-paper transition-colors cursor-pointer ${className}`}
           >
             <span>{label}</span>
             <ArrowUpRight className="w-3 h-3" strokeWidth={2.4} />
@@ -78,9 +78,9 @@ export function RegistrationStatus({
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-[#090909]/85 backdrop-blur-md animate-fade-in" />
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/85 backdrop-blur-md animate-fade-in" />
         <Dialog.Content
-          className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-32px)] max-w-[470px] bg-[#222320] text-paper border border-[#66696A] p-7 md:p-9 shadow-[0_25px_120px_rgba(0,0,0,0.7)] focus:outline-none"
+          className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-32px)] max-w-[470px] bg-surface text-paper border border-line-strong p-7 md:p-9 shadow-[0_25px_120px_rgba(0,0,0,0.35)] focus:outline-none"
           aria-describedby="status-dialog-description"
         >
           <div className="flex items-center justify-between mb-4">
@@ -102,7 +102,7 @@ export function RegistrationStatus({
             REGISTRATION<br />IS NOT LIVE.
           </Dialog.Title>
 
-          <div id="status-dialog-description" className="space-y-3 text-sm md:text-base text-[#BCBFB7] leading-relaxed">
+          <div id="status-dialog-description" className="space-y-3 text-sm md:text-base text-muted leading-relaxed">
             <p>
               The official 2027 registration portal has not been enabled in this prototype. No participant details are collected here.
             </p>
@@ -111,11 +111,11 @@ export function RegistrationStatus({
             </p>
           </div>
 
-          <div className="mt-7 pt-4 border-t border-white/10 flex flex-col gap-3">
+          <div className="mt-7 pt-4 border-t border-line flex flex-col gap-3">
             <Dialog.Close asChild>
               <button
                 type="button"
-                className="w-full bg-lime text-ink font-mono text-[11px] font-bold uppercase tracking-wider py-3.5 px-5 flex items-center justify-between hover:bg-[#f0ffad] transition-all cursor-pointer focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral"
+                className="w-full bg-lime text-[#171915] font-mono text-[11px] font-bold uppercase tracking-wider py-3.5 px-5 flex items-center justify-between hover:brightness-105 transition-[filter] cursor-pointer focus-visible:outline focus-visible:outline-3 focus-visible:outline-coral"
               >
                 <span>GOT IT</span>
                 <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />

@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         subtitle="Transparent data collection, hosting privacy, and retention policies for SCETATHON 2.0."
       />
 
-      <div className="p-8 md:p-12 bg-[#191A18] border border-white/[0.19] space-y-8 text-base md:text-lg text-[#C6C8BE] leading-relaxed">
+      <div className="p-8 md:p-12 bg-surface border border-line space-y-8 text-base md:text-lg text-muted leading-relaxed">
         <div>
           <h2 className="font-display text-xl text-paper uppercase tracking-tight mb-2">
             No Tracking &amp; Minimal Data

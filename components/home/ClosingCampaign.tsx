@@ -5,16 +5,16 @@ import { RegistrationStatus } from "@/components/registration/RegistrationStatus
 
 export function ClosingCampaign() {
   return (
-    <section className="bg-coral text-ink pt-20 md:pt-28 pb-0 relative overflow-hidden select-none">
+    <section className="bg-coral text-[#171915] pt-20 md:pt-28 pb-0 relative overflow-hidden select-none">
       <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto">
         {/* Top Campaign Bar */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-          <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+          <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#171915]">
             <span className="w-2.5 h-2.5 bg-current rotate-45 inline-block" aria-hidden="true" />
             <span>SCETATHON 2.0 / 2027</span>
           </div>
 
-          <div className="hidden sm:block border-2 border-ink py-3 px-4 font-mono text-[11px] leading-[1.7] font-bold uppercase rotate-6 max-w-[210px] text-ink shadow-[3px_3px_0px_#111210]">
+          <div className="hidden sm:block border-2 border-[#171915] py-3 px-4 font-mono text-[11px] leading-[1.7] font-bold uppercase rotate-6 max-w-[210px] text-[#171915] shadow-[3px_3px_0px_#171915]">
             28 — 29 JAN
             <br />
             SURAT, INDIA
@@ -30,10 +30,10 @@ export function ClosingCampaign() {
           CURIOUS.
           <br />
           <span
-            className="text-paper inline-block"
+            className="text-[#171915] inline-block"
             style={{
-              WebkitTextStroke: "2px #111210",
-              textShadow: "5px 6px 0px #111210",
+              WebkitTextStroke: "2px #171915",
+              textShadow: "5px 6px 0px #171915",
             }}
           >
             LEAVE
@@ -54,7 +54,7 @@ export function ClosingCampaign() {
 
       {/* Giant Cropped Baseline Wordmark */}
       <div
-        className="font-display text-[clamp(85px,15.5vw,247px)] leading-[0.8] whitespace-nowrap tracking-[-0.125em] text-center text-ink/90 mx-auto -mb-4 md:-mb-8 select-none pointer-events-none -translate-x-[1%]"
+        className="font-display text-[clamp(85px,15.5vw,247px)] leading-[0.8] whitespace-nowrap tracking-[-0.125em] text-center text-[#171915]/90 mx-auto -mb-4 md:-mb-8 select-none pointer-events-none -translate-x-[1%]"
         aria-hidden="true"
       >
         SCETATHON

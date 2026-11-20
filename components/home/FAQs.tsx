@@ -39,11 +39,11 @@ export function FAQs() {
   };
 
   return (
-    <section id="faq" className="bg-paper text-ink py-20 md:py-32 select-none">
+    <section id="faq" className="bg-surface2 text-paper py-20 md:py-32 select-none">
       <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20">
         {/* Left Column */}
         <div>
-          <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-ink mb-6">
+          <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-paper mb-6">
             <span className="w-2.5 h-2.5 bg-current rotate-45 inline-block" aria-hidden="true" />
             <span>06 / Need to know</span>
           </div>
@@ -54,22 +54,22 @@ export function FAQs() {
             QUESTIONS.
           </h2>
 
-          <p className="text-base text-ink/75 max-w-[320px] mt-6 leading-relaxed">
+          <p className="text-base text-muted max-w-[320px] mt-6 leading-relaxed">
             Answers for the 2027 edition. Details not yet confirmed by organizers are clearly identified.
           </p>
         </div>
 
         {/* Right Column: Accessible Accordion List */}
-        <div className="border-t-2 border-ink">
+        <div className="border-t-2 border-paper">
           {faqData.map((item, idx) => {
             const isOpen = openIndices.includes(idx);
             return (
-              <div key={item.q} className="border-b border-[#A8AAA1] py-5">
+              <div key={item.q} className="border-b border-line py-5">
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
                   aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between gap-4 text-left font-bold text-lg md:text-xl text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral cursor-pointer"
+                  className="w-full flex items-center justify-between gap-4 text-left font-bold text-lg md:text-xl text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral cursor-pointer"
                 >
                   <span>{item.q}</span>
                   <span
@@ -80,7 +80,7 @@ export function FAQs() {
                   </span>
                 </button>
                 {isOpen && (
-                  <p className="text-base text-[#55584F] max-w-[590px] mt-3.5 mb-1 leading-relaxed animate-fade-in">
+                  <p className="text-base text-muted max-w-[590px] mt-3.5 mb-1 leading-relaxed animate-fade-in">
                     {item.a}
                   </p>
                 )}

@@ -2,10 +2,10 @@ import React from "react";
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-paper text-ink py-20 md:py-32 select-none">
+    <section id="experience" className="bg-surface2 text-paper py-20 md:py-32 select-none">
       <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto">
         {/* Section Tag */}
-        <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-ink mb-6">
+        <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-paper mb-6">
           <span className="w-2.5 h-2.5 bg-current rotate-45 inline-block" aria-hidden="true" />
           <span>04 / Why be here</span>
         </div>
@@ -17,7 +17,7 @@ export function Experience() {
             <br />
             IS IN THE <span className="text-coral">MAKING.</span>
           </h2>
-          <p className="text-base md:text-[17px] text-ink/80 max-w-[280px] leading-relaxed">
+          <p className="text-base md:text-[17px] text-muted max-w-[280px] leading-relaxed">
             A different kind of classroom. A different kind of challenge. Real people, real constraints, real progress.
           </p>
         </div>
@@ -48,14 +48,14 @@ export function Experience() {
           </article>
 
           {/* Card 2: Coral Card */}
-          <article className="bg-coral text-ink p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[290px] md:min-h-[310px] group">
+          <article className="bg-coral text-[#171915] p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[290px] md:min-h-[310px] group">
             <span
-              className="absolute -right-3 top-0 text-[170px] text-ink/10 font-sans pointer-events-none leading-none select-none"
+              className="absolute -right-3 top-0 text-[170px] text-[#171915]/10 font-sans pointer-events-none leading-none select-none"
               aria-hidden="true"
             >
               ✳
             </span>
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink/75">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#171915]/75">
               02 — momentum
             </span>
             <div className="relative z-10 my-6">
@@ -65,20 +65,20 @@ export function Experience() {
                 DOING.
               </h3>
             </div>
-            <p className="text-sm md:text-base text-ink/85 max-w-[380px] m-0 leading-relaxed relative z-10">
+            <p className="text-sm md:text-base text-[#171915]/85 max-w-[380px] m-0 leading-relaxed relative z-10">
               Trade theory for experiments and turn ideas into testable prototypes.
             </p>
           </article>
 
           {/* Card 3: Lilac Card */}
-          <article className="bg-lilac text-ink p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[290px] md:min-h-[310px] group">
+          <article className="bg-lilac text-[#171915] p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[290px] md:min-h-[310px] group">
             <span
-              className="absolute -right-3 top-0 text-[170px] text-ink/10 font-sans pointer-events-none leading-none select-none"
+              className="absolute -right-3 top-0 text-[170px] text-[#171915]/10 font-sans pointer-events-none leading-none select-none"
               aria-hidden="true"
             >
               ✳
             </span>
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink/75">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#171915]/75">
               03 — possibility
             </span>
             <div className="relative z-10 my-6">
@@ -88,20 +88,20 @@ export function Experience() {
                 ANGLE.
               </h3>
             </div>
-            <p className="text-sm md:text-base text-ink/85 max-w-[380px] m-0 leading-relaxed relative z-10">
+            <p className="text-sm md:text-base text-[#171915]/85 max-w-[380px] m-0 leading-relaxed relative z-10">
               Try something unfamiliar, challenge assumptions, and see where your curiosity takes you.
             </p>
           </article>
 
           {/* Card 4: Lime Pattern Card */}
-          <article className="bg-lime text-ink p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[290px] md:min-h-[310px] group">
+          <article className="bg-lime text-[#171915] p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[290px] md:min-h-[310px] group">
             <span
-              className="absolute -right-2 -top-5 text-[240px] text-ink/10 font-sans pointer-events-none leading-none select-none"
+              className="absolute -right-2 -top-5 text-[240px] text-[#171915]/10 font-sans pointer-events-none leading-none select-none"
               aria-hidden="true"
             >
               ⌗
             </span>
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink/75">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#171915]/75">
               04 — impact
             </span>
             <div className="relative z-10 my-6">
@@ -111,7 +111,7 @@ export function Experience() {
                 MATTER.
               </h3>
             </div>
-            <p className="text-sm md:text-base text-ink/85 max-w-[380px] m-0 leading-relaxed relative z-10">
+            <p className="text-sm md:text-base text-[#171915]/85 max-w-[380px] m-0 leading-relaxed relative z-10">
               Take on meaningful problems and discover how ambitious engineering can improve everyday life.
             </p>
           </article>

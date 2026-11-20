@@ -11,7 +11,7 @@ import {
 
 export function ChallengeBoard() {
   return (
-    <section id="challenges" className="bg-[#191A18] text-paper py-20 md:py-32 relative">
+    <section id="challenges" className="bg-ink text-paper py-20 md:py-32 relative">
       <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto">
         {/* Section Tag */}
         <div className="flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-lime mb-6">
@@ -32,13 +32,13 @@ export function ChallengeBoard() {
           </h2>
 
           <div className="max-w-[420px] space-y-4">
-            <p className="text-[#ADAEA7] text-base md:text-[17px] leading-relaxed">
+            <p className="text-muted text-base md:text-[17px] leading-relaxed">
               Spearheaded jointly by all departments at SCET Surat. Explore 3 foundational tracks spanning 9 real-world challenge statements.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 href="/problems"
-                className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-lime text-ink hover:bg-[#f0ffad] transition-colors"
+                className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider px-4 py-2.5 bg-lime text-[#171915] hover:brightness-105 transition-[filter] focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral"
               >
                 <span>Open Challenge Terminal</span>
                 <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.4} />
@@ -57,11 +57,11 @@ export function ChallengeBoard() {
             return (
               <div
                 key={track.id}
-                className="bg-[#232422] border border-white/[0.18] p-6 sm:p-8 flex flex-col justify-between transition-colors relative overflow-hidden group hover:border-white/40"
+                className="bg-surface border border-line p-6 sm:p-8 flex flex-col justify-between transition-colors relative overflow-hidden group hover:border-line-strong"
               >
                 <div>
                   {/* Top Bar */}
-                  <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-line mb-6">
                     <span className={`font-mono text-[11px] font-bold uppercase tracking-widest ${tagColor}`}>
                       TRACK // {track.id}
                     </span>
@@ -81,7 +81,7 @@ export function ChallengeBoard() {
                     {track.name}
                   </h3>
 
-                  <p className="text-sm text-[#C6C8BE] leading-relaxed mb-6">
+                  <p className="text-sm text-muted leading-relaxed mb-6">
                     {track.description}
                   </p>
 
@@ -90,7 +90,7 @@ export function ChallengeBoard() {
                     {track.domains.map((d) => (
                       <span
                         key={d}
-                        className="font-mono text-[10px] uppercase px-2 py-0.5 bg-black/40 border border-white/15 text-[#C6C8BE]"
+                        className="font-mono text-[10px] uppercase px-2 py-0.5 bg-ink/40 border border-line text-muted"
                       >
                         {d}
                       </span>
@@ -98,7 +98,7 @@ export function ChallengeBoard() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-4 border-t border-line flex items-center justify-between">
                   <Link
                     href={`/problems?domain=${encodeURIComponent(track.name)}`}
                     className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider ${tagColor} hover:underline underline-offset-4 group/tracklink`}
@@ -106,7 +106,7 @@ export function ChallengeBoard() {
                     <span>View Track Problems</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/tracklink:translate-x-1" strokeWidth={2.4} />
                   </Link>
-                  <span className="font-mono text-[10px] text-[#93958E]">
+                  <span className="font-mono text-[10px] text-muted">
                     3 STATEMENTS
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export function ChallengeBoard() {
 
         {/* 9-Slot Problem Briefs Rail */}
         <div className="mb-4 flex items-center justify-between">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#93958E]">
+          <span className="font-mono text-xs uppercase tracking-wider text-muted">
             EXPLORE ALL 9 CHALLENGE STATEMENTS // PS-01 TO PS-09
           </span>
           <Link
@@ -130,7 +130,7 @@ export function ChallengeBoard() {
         </div>
 
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#50514B] border border-[#50514B]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line"
           role="list"
           aria-label="Nine challenge statements across 3 official tracks"
         >
@@ -148,7 +148,7 @@ export function ChallengeBoard() {
                 key={problem.id}
                 href={`/problems`}
                 role="listitem"
-                className="bg-[#191A18] hover:bg-[#282a24] p-5 sm:p-6 flex flex-col justify-between transition-colors relative overflow-hidden group focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral"
+                className="bg-surface hover:bg-surface2 p-5 sm:p-6 flex flex-col justify-between transition-colors relative overflow-hidden group focus-visible:outline focus-visible:outline-2 focus-visible:outline-coral"
               >
                 {/* Top metadata */}
                 <div>
@@ -164,14 +164,14 @@ export function ChallengeBoard() {
                     {problem.title}
                   </h4>
 
-                  <p className="text-xs text-[#ADAEA7] line-clamp-2 leading-relaxed mb-4">
+                  <p className="text-xs text-muted line-clamp-2 leading-relaxed mb-4">
                     {problem.description}
                   </p>
                 </div>
 
                 {/* Footer info */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px]">
-                  <span className="text-[#93958E] uppercase">
+                <div className="pt-3 border-t border-line flex items-center justify-between font-mono text-[10px]">
+                  <span className="text-muted uppercase">
                     Level: {problem.difficulty}
                   </span>
                   <span className="text-lime inline-flex items-center gap-1 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">

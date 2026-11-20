@@ -3,7 +3,7 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 
 export function FactsBand() {
   return (
-    <section className="bg-lime text-ink select-none" aria-label="Event at a glance">
+    <section className="bg-lime text-[#171915] select-none" aria-label="Event at a glance">
       <div className="w-[min(100%-34px,1400px)] md:w-[min(100%-80px,1400px)] mx-auto grid grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1.55fr] min-h-[140px] md:min-h-[150px]">
         {/* Fact 1: 24 HR */}
         <div className="border-b lg:border-b-0 border-r border-[#111210]/25 py-6 px-4 md:py-6 md:pr-7 md:pl-0 flex flex-col justify-between">
@@ -39,7 +39,7 @@ export function FactsBand() {
         <div className="py-6 px-4 md:py-6 md:pl-7 flex flex-col justify-between">
           <div className="font-display text-[clamp(32px,3.5vw,52px)] leading-[0.9] tracking-[-0.075em] flex items-center">
             <span>SURAT</span>
-            <ArrowUpRight className="w-5 h-5 md:w-8 md:h-8 ml-2 text-ink/75 shrink-0" strokeWidth={2.5} />
+            <ArrowUpRight className="w-5 h-5 md:w-8 md:h-8 ml-2 text-[#171915]/75 shrink-0" strokeWidth={2.5} />
           </div>
           <div className="font-mono text-[10px] uppercase font-bold tracking-[0.12em] mt-3">
             SCET campus, Gujarat
